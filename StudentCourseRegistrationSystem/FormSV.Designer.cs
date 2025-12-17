@@ -1,6 +1,6 @@
 ﻿namespace StudentCourseRegistrationSystem
 {
-    partial class Form1
+    partial class FormSV
     {
         /// <summary>
         /// Required designer variable.
@@ -34,20 +34,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(163, 122);
+            this.label1.Location = new System.Drawing.Point(306, 265);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 16);
+            this.label1.Size = new System.Drawing.Size(36, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "test";
+            this.label1.Text = "hello";
             // 
-            // Form1
+            // FormSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 580);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormSV";
+            this.Text = "FormSV";
+            this.Load += new System.EventHandler(this.FormSV_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -58,4 +59,3 @@
         private System.Windows.Forms.Label label1;
     }
 }
-

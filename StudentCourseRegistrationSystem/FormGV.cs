@@ -10,14 +10,17 @@ using System.Windows.Forms;
 
 namespace StudentCourseRegistrationSystem
 {
-    public partial class Form1 : Form
+    public partial class FormGV : Form
     {
-        public Form1()
+        private string Malienket;
+
+        public FormGV(string Malienket)
         {
             InitializeComponent();
+            this.Malienket = Malienket;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void FormGV_Load(object sender, EventArgs e)
         {
 
         }
