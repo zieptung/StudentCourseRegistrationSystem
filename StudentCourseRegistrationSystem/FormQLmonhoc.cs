@@ -10,16 +10,13 @@ using System.Windows.Forms;
 
 namespace StudentCourseRegistrationSystem
 {
-    public partial class Form1 : Form
+    public partial class FormQLmonhoc : Form
     {
-        public Form1()
+        public FormQLmonhoc()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
