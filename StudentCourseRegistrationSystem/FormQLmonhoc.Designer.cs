@@ -31,10 +31,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.đăngKýTínChỉToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngKýMônHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchMônHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -44,7 +46,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(350, 9);
+            this.label1.Location = new System.Drawing.Point(181, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(235, 35);
@@ -64,12 +66,20 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Location = new System.Drawing.Point(-1, 48);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(184, 501);
+            this.panel2.Size = new System.Drawing.Size(184, 524);
             this.panel2.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(187, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(790, 469);
+            this.panel3.TabIndex = 4;
             // 
             // menuStrip1
             // 
@@ -95,20 +105,31 @@
             // đăngKýMônHọcToolStripMenuItem
             // 
             this.đăngKýMônHọcToolStripMenuItem.Name = "đăngKýMônHọcToolStripMenuItem";
-            this.đăngKýMônHọcToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.đăngKýMônHọcToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.đăngKýMônHọcToolStripMenuItem.Text = "Đăng ký môn học ";
+            this.đăngKýMônHọcToolStripMenuItem.Click += new System.EventHandler(this.đăngKýMônHọcToolStripMenuItem_Click);
             // 
             // danhSáchMônHọcToolStripMenuItem
             // 
             this.danhSáchMônHọcToolStripMenuItem.Name = "danhSáchMônHọcToolStripMenuItem";
             this.danhSáchMônHọcToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.danhSáchMônHọcToolStripMenuItem.Text = "Danh sách môn học ";
+            this.danhSáchMônHọcToolStripMenuItem.Click += new System.EventHandler(this.danhSáchMônHọcToolStripMenuItem_Click);
+            // 
+            // panelMain
+            // 
+            this.panelMain.BackColor = System.Drawing.SystemColors.Control;
+            this.panelMain.Location = new System.Drawing.Point(186, 51);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(790, 521);
+            this.panelMain.TabIndex = 4;
             // 
             // FormQLmonhoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 570);
+            this.ClientSize = new System.Drawing.Size(977, 570);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,5 +156,7 @@
         private System.Windows.Forms.ToolStripMenuItem đăngKýTínChỉToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngKýMônHọcToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSáchMônHọcToolStripMenuItem;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelMain;
     }
 }

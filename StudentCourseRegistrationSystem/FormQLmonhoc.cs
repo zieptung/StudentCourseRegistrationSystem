@@ -17,6 +17,24 @@ namespace StudentCourseRegistrationSystem
             InitializeComponent();
         }
 
-        
+        private void OpenForm(Form f)
+        {
+            panelMain.Controls.Clear();   // Xóa form cũ
+            f.TopLevel = false;           // Form con
+            f.FormBorderStyle = FormBorderStyle.None;
+            f.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(f);
+            f.Show();
+        }
+
+        private void đăngKýMônHọcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenForm(new Formdangky());
+        }
+
+        private void danhSáchMônHọcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenForm(new FormDSmonhoc());
+        }
     }
 }
