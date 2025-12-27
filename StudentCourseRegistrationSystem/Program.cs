@@ -16,7 +16,7 @@ namespace StudentCourseRegistrationSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_giangvien());
+            Application.Run(new FormGV());
         }
     }
 }
