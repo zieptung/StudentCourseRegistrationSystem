@@ -125,23 +125,30 @@ namespace StudentCourseRegistrationSystem
         {
             if (txtmamon.Text.Trim() == "") return;
 
-            string sql = "SELECT ten_mon FROM MonHoc WHERE ma_mon = @ma_mon";
+            string sql = "SELECT ten_mon, so_tin_chi FROM MonHoc WHERE ma_mon = @ma_mon";
             SqlCommand cmd = new SqlCommand(sql, ketnoi.conn);
             cmd.Parameters.AddWithValue("@ma_mon", txtmamon.Text.Trim());
 
             ketnoi.conn.Open();
-            object rs = cmd.ExecuteScalar();
-            ketnoi.conn.Close();
+            SqlDataReader rd = cmd.ExecuteReader();
 
-            if (rs != null)
+            if (rd.Read())
             {
-                txttenmon.Text = rs.ToString();
+                txttenmon.Text = rd["ten_mon"].ToString();
+                txttinchi.Text = rd["so_tin_chi"].ToString(); 
+                rd.Close();
+                ketnoi.conn.Close();
+
                 LoadLopHocPhan();
             }
             else
             {
+                rd.Close();
+                ketnoi.conn.Close();
+
                 MessageBox.Show("Không tìm thấy mã môn!");
                 txttenmon.Clear();
+                txttinchi.Clear();
             }
         }
 
@@ -150,7 +157,7 @@ namespace StudentCourseRegistrationSystem
             if (txtmamon.Text.Trim() != "") return;
             if (txttenmon.Text.Trim() == "") return;
 
-            string sql = @"SELECT TOP 1 ma_mon, ten_mon FROM MonHoc WHERE ten_mon LIKE @tenmon";
+            string sql = @"SELECT TOP 1 ma_mon, ten_mon, so_tin_chi FROM MonHoc WHERE ten_mon LIKE @tenmon";
 
             SqlCommand cmd = new SqlCommand(sql, ketnoi.conn);
             cmd.Parameters.AddWithValue("@tenmon", "%" + txttenmon.Text.Trim() + "%");
@@ -162,6 +169,7 @@ namespace StudentCourseRegistrationSystem
             {
                 txtmamon.Text = rd["ma_mon"].ToString();
                 txttenmon.Text = rd["ten_mon"].ToString();
+                lable1.Text = rd["so_tin_chi"].ToString();
                 rd.Close();
                 ketnoi.conn.Close();
                 LoadLopHocPhan();
@@ -254,7 +262,7 @@ namespace StudentCourseRegistrationSystem
 
         private void LoadMonDaDangKy()
         {
-            string sql = @" SELECT mh.ma_mon, mh.ten_mon,dk.ma_lhp, CONCAT( N'Thứ ', tkb.thu, N' | Tiết ', tkb.tiet_bat_dau, '-', (tkb.tiet_bat_dau + tkb.so_tiet - 1)) AS lich_hoc FROM DangKyHocPhan dk JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp JOIN MonHoc mh ON lhp.ma_mon = mh.ma_mon JOIN ThoiKhoaBieu tkb ON dk.ma_tkb = tkb.ma_tkb WHERE dk.ma_sv = @sv AND dk.trang_thai = N'đăng ký' ORDER BY mh.ma_mon, dk.ma_lhp";
+            string sql = @" SELECT mh.ma_mon, mh.ten_mon,mh.so_tin_chi,dk.ma_lhp, CONCAT( N'Thứ ', tkb.thu, N' | Tiết ', tkb.tiet_bat_dau, '-', (tkb.tiet_bat_dau + tkb.so_tiet - 1)) AS lich_hoc FROM DangKyHocPhan dk JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp JOIN MonHoc mh ON lhp.ma_mon = mh.ma_mon JOIN ThoiKhoaBieu tkb ON dk.ma_tkb = tkb.ma_tkb WHERE dk.ma_sv = @sv AND dk.trang_thai = N'đăng ký' ORDER BY mh.ma_mon, dk.ma_lhp";
 
             SqlCommand cmd = new SqlCommand(sql, ketnoi.conn);
             cmd.Parameters.AddWithValue("@sv", MaSV);
@@ -282,7 +290,7 @@ namespace StudentCourseRegistrationSystem
                 return;
             }
 
-            string sql = @"SELECT mh.ma_mon,mh.ten_mon,dk.ma_lhp, CONCAT( N'Thứ ', tkb.thu, N' | Tiết ',tkb.tiet_bat_dau, '-', (tkb.tiet_bat_dau + tkb.so_tiet - 1)) AS lich_hoc FROM DangKyHocPhan dk JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp JOIN MonHoc mh ON lhp.ma_mon = mh.ma_mon JOIN ThoiKhoaBieu tkb ON dk.ma_tkb = tkb.ma_tkb WHERE dk.ma_sv = @sv AND (mh.ma_mon LIKE @key OR mh.ten_mon LIKE @key)";
+            string sql = @"SELECT mh.ma_mon,mh.ten_mon,mh.so_tin_chi,dk.ma_lhp, CONCAT( N'Thứ ', tkb.thu, N' | Tiết ',tkb.tiet_bat_dau, '-', (tkb.tiet_bat_dau + tkb.so_tiet - 1)) AS lich_hoc FROM DangKyHocPhan dk JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp JOIN MonHoc mh ON lhp.ma_mon = mh.ma_mon JOIN ThoiKhoaBieu tkb ON dk.ma_tkb = tkb.ma_tkb WHERE dk.ma_sv = @sv AND (mh.ma_mon LIKE @key OR mh.ten_mon LIKE @key)";
 
             SqlCommand cmd = new SqlCommand(sql, ketnoi.conn);
             cmd.Parameters.AddWithValue("@sv", MaSV);
@@ -305,7 +313,7 @@ namespace StudentCourseRegistrationSystem
             }
 
             
-            string maLHP = DRVdangky.CurrentRow.Cells[2].Value.ToString();
+            string maLHP = DRVdangky.CurrentRow.Cells[3].Value.ToString();
 
             DialogResult dr = MessageBox.Show(
                 "Bạn có chắc chắn muốn hủy đăng ký môn học này?",
@@ -318,7 +326,7 @@ namespace StudentCourseRegistrationSystem
 
             string delete = @"DELETE FROM DangKyHocPhan WHERE ma_sv = @sv AND ma_lhp = @lhp";
 
-            string update = @"UPDATE LopHocPhan SET so_luong_da_dang_ky = so_luong_da_dang_ky - 1  WHERE ma_lhp = @lhp AND so_luong_da_dang_ky > 0";
+            string update = @"UPDATE LopHocPhan SET so_luong_da_dang_ky = so_luong_da_dang_ky - 1 WHERE ma_lhp = @lhp AND so_luong_da_dang_ky > 0";
 
             ketnoi.conn.Open();
             SqlTransaction tran = ketnoi.conn.BeginTransaction();
@@ -327,16 +335,18 @@ namespace StudentCourseRegistrationSystem
             {
                 SqlCommand cmd1 = new SqlCommand(delete, ketnoi.conn, tran);
                 cmd1.Parameters.AddWithValue("@sv", MaSV);
-                cmd1.Parameters.AddWithValue("@lhp", maLHP);   
+                cmd1.Parameters.AddWithValue("@lhp", maLHP);
                 cmd1.ExecuteNonQuery();
 
                 SqlCommand cmd2 = new SqlCommand(update, ketnoi.conn, tran);
-                cmd2.Parameters.AddWithValue("@lhp", maLHP);  
+                cmd2.Parameters.AddWithValue("@lhp", maLHP);
                 cmd2.ExecuteNonQuery();
 
                 tran.Commit();
                 MessageBox.Show("Hủy đăng ký thành công!");
+                DRVdangky.DataSource = null;
                 LoadMonDaDangKy();
+                DRVdangky.Refresh(); ;   
             }
             catch (Exception ex)
             {
@@ -344,8 +354,10 @@ namespace StudentCourseRegistrationSystem
                 MessageBox.Show("Hủy thất bại!\n" + ex.Message);
             }
                 ketnoi.conn.Close();
+            
         }
 
+        
     }
 }
  

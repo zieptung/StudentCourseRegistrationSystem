@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbltensv = new System.Windows.Forms.Label();
+            this.avatar = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -38,40 +39,51 @@
             this.danhSáchMônHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(181, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 35);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Đăng ký môn học";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lbltensv);
+            this.panel1.Controls.Add(this.avatar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(977, 49);
             this.panel1.TabIndex = 2;
+            // 
+            // lbltensv
+            // 
+            this.lbltensv.AutoSize = true;
+            this.lbltensv.Location = new System.Drawing.Point(799, 9);
+            this.lbltensv.Name = "lbltensv";
+            this.lbltensv.Size = new System.Drawing.Size(112, 20);
+            this.lbltensv.TabIndex = 1;
+            this.lbltensv.Text = "Tên sinh viên";
+            this.lbltensv.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // avatar
+            // 
+            this.avatar.Location = new System.Drawing.Point(917, 3);
+            this.avatar.Name = "avatar";
+            this.avatar.Size = new System.Drawing.Size(49, 42);
+            this.avatar.TabIndex = 0;
+            this.avatar.TabStop = false;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.menuStrip1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Location = new System.Drawing.Point(-1, 48);
+            this.panel2.Location = new System.Drawing.Point(0, 49);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(184, 524);
+            this.panel2.Size = new System.Drawing.Size(184, 521);
             this.panel2.TabIndex = 3;
             // 
             // panel3
@@ -119,9 +131,10 @@
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.SystemColors.Control;
-            this.panelMain.Location = new System.Drawing.Point(186, 51);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(184, 49);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(790, 521);
+            this.panelMain.Size = new System.Drawing.Size(793, 521);
             this.panelMain.TabIndex = 4;
             // 
             // FormQLmonhoc
@@ -139,6 +152,7 @@
             this.Text = "FormQLmonhoc";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -148,8 +162,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -158,5 +170,7 @@
         private System.Windows.Forms.ToolStripMenuItem danhSáchMônHọcToolStripMenuItem;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.PictureBox avatar;
+        private System.Windows.Forms.Label lbltensv;
     }
 }
