@@ -1,6 +1,6 @@
 ﻿namespace StudentCourseRegistrationSystem
 {
-    partial class FormQLmonhoc
+    partial class FormSV
     {
         /// <summary>
         /// Required designer variable.
@@ -38,6 +38,7 @@
             this.đăngKýMônHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchMônHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.danhSáchMônĐãĐăngKýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -83,7 +84,7 @@
             this.panel2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Location = new System.Drawing.Point(0, 49);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(184, 521);
+            this.panel2.Size = new System.Drawing.Size(133, 521);
             this.panel2.TabIndex = 3;
             // 
             // panel3
@@ -100,7 +101,7 @@
             this.đăngKýTínChỉToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(184, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(133, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -108,7 +109,8 @@
             // 
             this.đăngKýTínChỉToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.đăngKýMônHọcToolStripMenuItem,
-            this.danhSáchMônHọcToolStripMenuItem});
+            this.danhSáchMônHọcToolStripMenuItem,
+            this.danhSáchMônĐãĐăngKýToolStripMenuItem});
             this.đăngKýTínChỉToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.đăngKýTínChỉToolStripMenuItem.Name = "đăngKýTínChỉToolStripMenuItem";
             this.đăngKýTínChỉToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
@@ -117,14 +119,14 @@
             // đăngKýMônHọcToolStripMenuItem
             // 
             this.đăngKýMônHọcToolStripMenuItem.Name = "đăngKýMônHọcToolStripMenuItem";
-            this.đăngKýMônHọcToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.đăngKýMônHọcToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.đăngKýMônHọcToolStripMenuItem.Text = "Đăng ký môn học ";
             this.đăngKýMônHọcToolStripMenuItem.Click += new System.EventHandler(this.đăngKýMônHọcToolStripMenuItem_Click);
             // 
             // danhSáchMônHọcToolStripMenuItem
             // 
             this.danhSáchMônHọcToolStripMenuItem.Name = "danhSáchMônHọcToolStripMenuItem";
-            this.danhSáchMônHọcToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.danhSáchMônHọcToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.danhSáchMônHọcToolStripMenuItem.Text = "Danh sách môn học ";
             this.danhSáchMônHọcToolStripMenuItem.Click += new System.EventHandler(this.danhSáchMônHọcToolStripMenuItem_Click);
             // 
@@ -132,12 +134,18 @@
             // 
             this.panelMain.BackColor = System.Drawing.SystemColors.Control;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(184, 49);
+            this.panelMain.Location = new System.Drawing.Point(133, 49);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(793, 521);
+            this.panelMain.Size = new System.Drawing.Size(844, 521);
             this.panelMain.TabIndex = 4;
             // 
-            // FormQLmonhoc
+            // danhSáchMônĐãĐăngKýToolStripMenuItem
+            // 
+            this.danhSáchMônĐãĐăngKýToolStripMenuItem.Name = "danhSáchMônĐãĐăngKýToolStripMenuItem";
+            this.danhSáchMônĐãĐăngKýToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
+            this.danhSáchMônĐãĐăngKýToolStripMenuItem.Text = "Danh sách môn đã đăng ký";
+            // 
+            // FormSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,7 +156,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FormQLmonhoc";
+            this.Name = "FormSV";
             this.Text = "FormQLmonhoc";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -172,5 +180,6 @@
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.PictureBox avatar;
         private System.Windows.Forms.Label lbltensv;
+        private System.Windows.Forms.ToolStripMenuItem danhSáchMônĐãĐăngKýToolStripMenuItem;
     }
 }

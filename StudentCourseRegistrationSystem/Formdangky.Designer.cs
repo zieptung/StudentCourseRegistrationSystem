@@ -70,7 +70,8 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbohocky = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dangKyHocPhanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLTCDataSetBindingSource)).BeginInit();
@@ -119,7 +120,7 @@
             // btndangky
             // 
             this.btndangky.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btndangky.Location = new System.Drawing.Point(464, 113);
+            this.btndangky.Location = new System.Drawing.Point(602, 26);
             this.btndangky.Name = "btndangky";
             this.btndangky.Size = new System.Drawing.Size(88, 37);
             this.btndangky.TabIndex = 7;
@@ -130,11 +131,14 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.btntimkiem);
+            this.groupBox1.Controls.Add(this.btnhuy);
+            this.groupBox1.Controls.Add(this.btndangky);
+            this.groupBox1.Controls.Add(this.cbohocky);
             this.groupBox1.Controls.Add(this.txttinchi);
             this.groupBox1.Controls.Add(this.lable1);
-            this.groupBox1.Controls.Add(this.btndangky);
             this.groupBox1.Controls.Add(this.cbolichhoc);
-            this.groupBox1.Controls.Add(this.btnhuy);
             this.groupBox1.Controls.Add(this.cbolop);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
@@ -171,7 +175,7 @@
             // cbolichhoc
             // 
             this.cbolichhoc.FormattingEnabled = true;
-            this.cbolichhoc.Location = new System.Drawing.Point(480, 80);
+            this.cbolichhoc.Location = new System.Drawing.Point(398, 70);
             this.cbolichhoc.Name = "cbolichhoc";
             this.cbolichhoc.Size = new System.Drawing.Size(170, 27);
             this.cbolichhoc.TabIndex = 13;
@@ -179,7 +183,7 @@
             // btnhuy
             // 
             this.btnhuy.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnhuy.Location = new System.Drawing.Point(577, 116);
+            this.btnhuy.Location = new System.Drawing.Point(602, 70);
             this.btnhuy.Name = "btnhuy";
             this.btnhuy.Size = new System.Drawing.Size(88, 37);
             this.btnhuy.TabIndex = 14;
@@ -190,7 +194,7 @@
             // cbolop
             // 
             this.cbolop.FormattingEnabled = true;
-            this.cbolop.Location = new System.Drawing.Point(480, 37);
+            this.cbolop.Location = new System.Drawing.Point(398, 37);
             this.cbolop.Name = "cbolop";
             this.cbolop.Size = new System.Drawing.Size(170, 27);
             this.cbolop.TabIndex = 12;
@@ -199,7 +203,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(405, 83);
+            this.label5.Location = new System.Drawing.Point(319, 75);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 19);
             this.label5.TabIndex = 10;
@@ -208,7 +212,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(415, 40);
+            this.label3.Location = new System.Drawing.Point(319, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 19);
             this.label3.TabIndex = 8;
@@ -234,7 +238,7 @@
             // 
             this.btntimkiem.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btntimkiem.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btntimkiem.Location = new System.Drawing.Point(629, 219);
+            this.btntimkiem.Location = new System.Drawing.Point(602, 116);
             this.btntimkiem.Name = "btntimkiem";
             this.btntimkiem.Size = new System.Drawing.Size(98, 37);
             this.btntimkiem.TabIndex = 12;
@@ -306,8 +310,7 @@
             this.Column2,
             this.Column5,
             this.Column3,
-            this.Column4,
-            this.Column6});
+            this.Column4});
             this.DRVdangky.DataSource = this.qLTCDataSetBindingSource;
             this.DRVdangky.Location = new System.Drawing.Point(8, 262);
             this.DRVdangky.Name = "DRVdangky";
@@ -409,13 +412,22 @@
             this.Column4.Name = "Column4";
             this.Column4.Width = 170;
             // 
-            // Column6
+            // cbohocky
             // 
-            this.Column6.DataPropertyName = "ma_tkb";
-            this.Column6.HeaderText = "ma_tkb";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 125;
+            this.cbohocky.FormattingEnabled = true;
+            this.cbohocky.Location = new System.Drawing.Point(398, 103);
+            this.cbohocky.Name = "cbohocky";
+            this.cbohocky.Size = new System.Drawing.Size(170, 27);
+            this.cbohocky.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(319, 103);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 19);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Học kỳ";
             // 
             // Formdangky
             // 
@@ -424,7 +436,6 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(730, 450);
             this.Controls.Add(this.DRVdangky);
-            this.Controls.Add(this.btntimkiem);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Formdangky";
@@ -495,6 +506,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbohocky;
     }
 }

@@ -58,11 +58,11 @@
     <Compile Include="FormDSmonhoc.Designer.cs">
       <DependentUpon>FormDSmonhoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormQLmonhoc.cs">
+    <Compile Include="FormSV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormQLmonhoc.Designer.cs">
-      <DependentUpon>FormQLmonhoc.cs</DependentUpon>
+    <Compile Include="FormSV.Designer.cs">
+      <DependentUpon>FormSV.cs</DependentUpon>
     </Compile>
     <Compile Include="ketnoi.cs" />
     <Compile Include="Program.cs" />
@@ -78,8 +78,8 @@
     <EmbeddedResource Include="FormDSmonhoc.resx">
       <DependentUpon>FormDSmonhoc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormQLmonhoc.resx">
-      <DependentUpon>FormQLmonhoc.cs</DependentUpon>
+    <EmbeddedResource Include="FormSV.resx">
+      <DependentUpon>FormSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

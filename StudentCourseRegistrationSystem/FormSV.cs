@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace StudentCourseRegistrationSystem
 {
-    public partial class FormQLmonhoc : Form
+    public partial class FormSV : Form
     {
         public string tensv = "Nguyễn Văn A";
         public string AvatarPath = @"avatar.jpg";
 
-        public FormQLmonhoc()
+        public FormSV()
         {
             InitializeComponent();
             LoadThongTinSinhVien();
