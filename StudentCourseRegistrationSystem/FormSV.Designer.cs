@@ -32,6 +32,12 @@
             this.lbltensv = new System.Windows.Forms.Label();
             this.avatar = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.menuStrip3 = new System.Windows.Forms.MenuStrip();
+            this.thờiKhóaBiểuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.thôngTinSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.đăngKýTínChỉToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,20 +45,14 @@
             this.danhSáchMônHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchMônĐãĐăngKýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.thôngTinSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.menuStrip3 = new System.Windows.Forms.MenuStrip();
-            this.thờiKhóaBiểuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.panel2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.menuStrip2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.menuStrip3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -98,6 +98,56 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(188, 521);
             this.panel2.TabIndex = 3;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.menuStrip3);
+            this.panel5.Location = new System.Drawing.Point(0, 63);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(188, 29);
+            this.panel5.TabIndex = 6;
+            // 
+            // menuStrip3
+            // 
+            this.menuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thờiKhóaBiểuToolStripMenuItem});
+            this.menuStrip3.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip3.Name = "menuStrip3";
+            this.menuStrip3.Size = new System.Drawing.Size(188, 28);
+            this.menuStrip3.TabIndex = 0;
+            this.menuStrip3.Text = "menuStrip3";
+            // 
+            // thờiKhóaBiểuToolStripMenuItem
+            // 
+            this.thờiKhóaBiểuToolStripMenuItem.Name = "thờiKhóaBiểuToolStripMenuItem";
+            this.thờiKhóaBiểuToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
+            this.thờiKhóaBiểuToolStripMenuItem.Text = "Thời khóa biểu";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.menuStrip2);
+            this.panel4.Location = new System.Drawing.Point(0, 31);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(188, 29);
+            this.panel4.TabIndex = 5;
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thôngTinSinhViênToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(188, 28);
+            this.menuStrip2.TabIndex = 0;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // thôngTinSinhViênToolStripMenuItem
+            // 
+            this.thôngTinSinhViênToolStripMenuItem.Name = "thôngTinSinhViênToolStripMenuItem";
+            this.thôngTinSinhViênToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
+            this.thôngTinSinhViênToolStripMenuItem.Text = "Thông tin sinh viên";
             // 
             // panel3
             // 
@@ -157,57 +207,7 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(789, 521);
             this.panelMain.TabIndex = 4;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.menuStrip2);
-            this.panel4.Location = new System.Drawing.Point(0, 31);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(188, 29);
-            this.panel4.TabIndex = 5;
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thôngTinSinhViênToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(188, 28);
-            this.menuStrip2.TabIndex = 0;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
-            // thôngTinSinhViênToolStripMenuItem
-            // 
-            this.thôngTinSinhViênToolStripMenuItem.Name = "thôngTinSinhViênToolStripMenuItem";
-            this.thôngTinSinhViênToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
-            this.thôngTinSinhViênToolStripMenuItem.Text = "Thông tin sinh viên";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.menuStrip3);
-            this.panel5.Location = new System.Drawing.Point(0, 63);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(188, 29);
-            this.panel5.TabIndex = 6;
-            // 
-            // menuStrip3
-            // 
-            this.menuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thờiKhóaBiểuToolStripMenuItem});
-            this.menuStrip3.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(188, 28);
-            this.menuStrip3.TabIndex = 0;
-            this.menuStrip3.Text = "menuStrip3";
-            // 
-            // thờiKhóaBiểuToolStripMenuItem
-            // 
-            this.thờiKhóaBiểuToolStripMenuItem.Name = "thờiKhóaBiểuToolStripMenuItem";
-            this.thờiKhóaBiểuToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
-            this.thờiKhóaBiểuToolStripMenuItem.Text = "Thời khóa biểu";
-            // 
+           
             // FormSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
@@ -226,16 +226,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
