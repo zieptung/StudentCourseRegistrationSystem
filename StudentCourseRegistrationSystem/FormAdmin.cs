@@ -50,6 +50,7 @@ namespace StudentCourseRegistrationSystem
             string pass = txtPass.Text.Trim();
             string role = cboRole.SelectedValue.ToString();
             string maLienKet = txtMaLienKet.Text.Trim();
+
             if (username == "" || pass == "" || maLienKet == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
@@ -63,7 +64,7 @@ namespace StudentCourseRegistrationSystem
             }
 
             // Kiểm tra mã liên kết tồn tại
-            if (role == "SV")
+            if (role == "Sinh viên")
             {
                 string sqlCheckSV = $"SELECT COUNT(*) FROM SinhVien WHERE ma_sv = '{maLienKet}'";
                 if (Convert.ToInt32(CrudLib.GetValue(sqlCheckSV)) == 0)
@@ -72,7 +73,7 @@ namespace StudentCourseRegistrationSystem
                     return;
                 }
             }
-            else if (role == "GV")
+            else if (role == "Giảng viên")
             {
                 string sqlCheckGV = $"SELECT COUNT(*) FROM GiangVien WHERE ma_gv = '{maLienKet}'";
                 if (Convert.ToInt32(CrudLib.GetValue(sqlCheckGV)) == 0)
@@ -83,8 +84,7 @@ namespace StudentCourseRegistrationSystem
             }
             // 3. Thêm tài khoản
 
-            string sqlInsert = $@"INSERT INTO TaiKhoan(ten_dang_nhap, mat_khau, ma_vai_tro, ma_lien_ket) VALUES('{username}', '{pass}','{role}', '{maLienKet}')
-";
+            string sqlInsert = $@"INSERT INTO TaiKhoan(ten_dang_nhap, mat_khau, ma_vai_tro, ma_lien_ket) VALUES('{username}', '{pass}','{role}', '{maLienKet}') ";
 
             int kq = CrudLib.IUDQuery(sqlInsert);
             if (kq > 0)
@@ -270,7 +270,7 @@ namespace StudentCourseRegistrationSystem
             }
 
             // Kiểm tra mã liên kết theo vai trò
-            if (role == "SV")
+            if (role == "Sinh viên")
             {
                 string sqlCheckSV = $"SELECT COUNT(*) FROM SinhVien WHERE ma_sv = '{maLienKet}'";
                 if (Convert.ToInt32(CrudLib.GetValue(sqlCheckSV)) == 0)
@@ -279,7 +279,7 @@ namespace StudentCourseRegistrationSystem
                     return;
                 }
             }
-            else if (role == "GV")
+            else if (role == "Giảng viên")
             {
                 string sqlCheckGV = $"SELECT COUNT(*) FROM GiangVien WHERE ma_gv = '{maLienKet}'";
                 if (Convert.ToInt32(CrudLib.GetValue(sqlCheckGV)) == 0)
@@ -288,7 +288,7 @@ namespace StudentCourseRegistrationSystem
                     return;
                 }
             }
-            else if (role == "ADMIN")
+            else if (role == "Admin")
             {
                 maLienKet = null;
             }
@@ -418,6 +418,28 @@ namespace StudentCourseRegistrationSystem
 
             ws.Range["A3", "D3"].Font.Bold = true;
             ws.Range["A3", "D3"].Borders.LineStyle = xls.XlLineStyle.xlContinuous;
+        }
+
+        private void dgvDSAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnDangxuat_Click(object sender, EventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Bạn có chắc muốn đăng xuất?","Đăng xuất",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
+            if (r == DialogResult.Yes)
+            {
+                FormLog f = new FormLog();
+                f.Show();
+                this.Close();
+            }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

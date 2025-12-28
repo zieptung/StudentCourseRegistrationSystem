@@ -44,7 +44,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 186);
+            this.label1.Location = new System.Drawing.Point(17, 184);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 23);
             this.label1.TabIndex = 0;
@@ -54,7 +54,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 255);
+            this.label2.Location = new System.Drawing.Point(41, 255);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 23);
             this.label2.TabIndex = 1;
@@ -62,15 +62,17 @@
             // 
             // txtmsv
             // 
-            this.txtmsv.Location = new System.Drawing.Point(161, 174);
+            this.txtmsv.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmsv.Location = new System.Drawing.Point(161, 170);
             this.txtmsv.Multiline = true;
             this.txtmsv.Name = "txtmsv";
-            this.txtmsv.Size = new System.Drawing.Size(154, 35);
+            this.txtmsv.Size = new System.Drawing.Size(154, 39);
             this.txtmsv.TabIndex = 2;
             this.txtmsv.TextChanged += new System.EventHandler(this.txtmsv_TextChanged);
             // 
             // txtmk
             // 
+            this.txtmk.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmk.Location = new System.Drawing.Point(161, 239);
             this.txtmk.Multiline = true;
             this.txtmk.Name = "txtmk";
@@ -113,13 +115,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.PowderBlue;
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnThoat);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnLog);
             this.groupBox1.Controls.Add(this.txtmsv);
             this.groupBox1.Controls.Add(this.txtmk);
-            this.groupBox1.Font = new System.Drawing.Font("Agbalumo", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Agbalumo", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(587, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(396, 534);

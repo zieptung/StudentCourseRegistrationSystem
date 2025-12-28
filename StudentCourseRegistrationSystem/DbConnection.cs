@@ -1,22 +1,18 @@
-﻿using System;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
 namespace StudentCourseRegistrationSystem
 {
     internal static class DbConnection
     {
-        // 🔹 CHUỖI KẾT NỐI – sửa cho đúng máy bạn
+        // 1 dòng cho chắc, tránh lỗi do xuống dòng/space
         private static readonly string connectionString =
-            @"Data Source=localhost;
-              Initial Catalog=QLTC;
-              Integrated Security=True";
+            @"Server=DIEPTUNG\SQLEXPRESS;Database=QLTC;Trusted_Connection=True;TrustServerCertificate=True;";
 
-        // 🔹 LẤY KẾT NỐI
         public static SqlConnection GetConnection()
         {
-            SqlConnection conn = new SqlConnection(connectionString);
-            return conn;
+            return new SqlConnection(connectionString);
         }
+
         public static bool CheckConnection()
         {
             try

@@ -16,21 +16,20 @@ namespace StudentCourseRegistrationSystem
         public FormLog()
         {
             InitializeComponent();
-            this.Load += FormLog_Load;
         }
 
         private void btnLog_Click(object sender, EventArgs e)
         {
             string username = txtmsv.Text.Trim();
             string password = txtmk.Text.Trim();
-
+    
             if (username == "" || password == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
                 return;
             }
 
-            using (SqlConnection conn = ConnectDB.GetConnection())
+            using (SqlConnection conn = DbConnection.GetConnection())
             {
                 try
                 {
