@@ -14,7 +14,7 @@ namespace StudentCourseRegistrationSystem
     public partial class FormXemtkb : Form
     {
         private readonly string connectionString =
-            @"Data Source=LAPTOP-9G6IUBF5;Initial Catalog=QLTC;Integrated Security=True;TrustServerCertificate=True";
+            @"Data Source=LAPTOP-4T6O4TN1\SQLEXPRESS;Initial Catalog=QLTC;Integrated Security=True;TrustServerCertificate=True";
 
         public FormXemtkb()
         {

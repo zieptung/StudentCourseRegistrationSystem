@@ -79,5 +79,10 @@ namespace StudentCourseRegistrationSystem
         {
             OpenForm(new FormXemttcn());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenForm(new FormXemtkb());
+        }
     }
 }
