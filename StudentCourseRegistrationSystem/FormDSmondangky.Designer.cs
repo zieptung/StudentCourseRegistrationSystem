@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.DRVdsdangky = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hoc_ky = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -37,12 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txttenmon = new System.Windows.Forms.TextBox();
             this.btntimkiem = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hoc_ky = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DRVdsdangky)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -50,6 +50,7 @@
             // 
             // DRVdsdangky
             // 
+            this.DRVdsdangky.BackgroundColor = System.Drawing.Color.White;
             this.DRVdsdangky.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DRVdsdangky.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -60,85 +61,11 @@
             this.hoc_ky});
             this.DRVdsdangky.Location = new System.Drawing.Point(3, 90);
             this.DRVdsdangky.Name = "DRVdsdangky";
+            this.DRVdsdangky.RowHeadersVisible = false;
             this.DRVdsdangky.RowHeadersWidth = 51;
             this.DRVdsdangky.RowTemplate.Height = 24;
             this.DRVdsdangky.Size = new System.Drawing.Size(793, 290);
             this.DRVdsdangky.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(1, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(799, 60);
-            this.panel1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(218, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(339, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Danh sách môn đã đăng ký";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.txtmamon);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.txttenmon);
-            this.panel2.Controls.Add(this.btntimkiem);
-            this.panel2.Controls.Add(this.DRVdsdangky);
-            this.panel2.Location = new System.Drawing.Point(1, 68);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(799, 383);
-            this.panel2.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(123, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 16);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Mã môn";
-            // 
-            // txtmamon
-            // 
-            this.txtmamon.Location = new System.Drawing.Point(189, 57);
-            this.txtmamon.Name = "txtmamon";
-            this.txtmamon.Size = new System.Drawing.Size(194, 22);
-            this.txtmamon.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(415, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Tên môn";
-            // 
-            // txttenmon
-            // 
-            this.txttenmon.Location = new System.Drawing.Point(481, 57);
-            this.txttenmon.Name = "txttenmon";
-            this.txttenmon.Size = new System.Drawing.Size(194, 22);
-            this.txttenmon.TabIndex = 2;
-            // 
-            // btntimkiem
-            // 
-            this.btntimkiem.Location = new System.Drawing.Point(705, 53);
-            this.btntimkiem.Name = "btntimkiem";
-            this.btntimkiem.Size = new System.Drawing.Size(82, 31);
-            this.btntimkiem.TabIndex = 1;
-            this.btntimkiem.Text = "Tìm kiếm";
-            this.btntimkiem.UseVisualStyleBackColor = true;
-            this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
             // 
             // Column1
             // 
@@ -189,10 +116,96 @@
             this.hoc_ky.Name = "hoc_ky";
             this.hoc_ky.Width = 78;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(1, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(799, 60);
+            this.panel1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(240, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(339, 32);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Danh sách môn đã đăng ký";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.txtmamon);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.txttenmon);
+            this.panel2.Controls.Add(this.btntimkiem);
+            this.panel2.Controls.Add(this.DRVdsdangky);
+            this.panel2.Location = new System.Drawing.Point(1, 68);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(799, 383);
+            this.panel2.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 16);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Mã môn";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // txtmamon
+            // 
+            this.txtmamon.Location = new System.Drawing.Point(75, 23);
+            this.txtmamon.Multiline = true;
+            this.txtmamon.Name = "txtmamon";
+            this.txtmamon.Size = new System.Drawing.Size(234, 42);
+            this.txtmamon.TabIndex = 4;
+            this.txtmamon.TextChanged += new System.EventHandler(this.txtmamon_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(360, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Tên môn";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // txttenmon
+            // 
+            this.txttenmon.Location = new System.Drawing.Point(426, 23);
+            this.txttenmon.Multiline = true;
+            this.txttenmon.Name = "txttenmon";
+            this.txttenmon.Size = new System.Drawing.Size(211, 42);
+            this.txttenmon.TabIndex = 2;
+            this.txttenmon.TextChanged += new System.EventHandler(this.txttenmon_TextChanged);
+            // 
+            // btntimkiem
+            // 
+            this.btntimkiem.BackColor = System.Drawing.Color.Lime;
+            this.btntimkiem.Location = new System.Drawing.Point(683, 23);
+            this.btntimkiem.Name = "btntimkiem";
+            this.btntimkiem.Size = new System.Drawing.Size(104, 42);
+            this.btntimkiem.TabIndex = 1;
+            this.btntimkiem.Text = "Tìm kiếm";
+            this.btntimkiem.UseVisualStyleBackColor = false;
+            this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
+            // 
             // FormDSmondangky
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

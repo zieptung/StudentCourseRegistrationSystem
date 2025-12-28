@@ -53,17 +53,18 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(2, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(799, 46);
+            this.panel1.Size = new System.Drawing.Size(877, 46);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(249, 9);
+            this.label1.Location = new System.Drawing.Point(310, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(248, 32);
             this.label1.TabIndex = 0;
@@ -76,6 +77,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DRVdanhsach.AutoGenerateColumns = false;
+            this.DRVdanhsach.BackgroundColor = System.Drawing.Color.White;
             this.DRVdanhsach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DRVdanhsach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.mamonDataGridViewTextBoxColumn,
@@ -85,11 +87,13 @@
             this.sotietthuchanhDataGridViewTextBoxColumn,
             this.makhoaDataGridViewTextBoxColumn});
             this.DRVdanhsach.DataSource = this.monHocBindingSource;
-            this.DRVdanhsach.Location = new System.Drawing.Point(12, 109);
+            this.DRVdanhsach.Location = new System.Drawing.Point(2, 109);
             this.DRVdanhsach.Name = "DRVdanhsach";
+            this.DRVdanhsach.RowHeadersVisible = false;
             this.DRVdanhsach.RowHeadersWidth = 51;
             this.DRVdanhsach.RowTemplate.Height = 24;
-            this.DRVdanhsach.Size = new System.Drawing.Size(776, 356);
+            this.DRVdanhsach.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.DRVdanhsach.Size = new System.Drawing.Size(877, 352);
             this.DRVdanhsach.TabIndex = 1;
             // 
             // mamonDataGridViewTextBoxColumn
@@ -162,12 +166,13 @@
             // 
             this.btntimkiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btntimkiem.BackColor = System.Drawing.Color.Lime;
             this.btntimkiem.Location = new System.Drawing.Point(713, 72);
             this.btntimkiem.Name = "btntimkiem";
-            this.btntimkiem.Size = new System.Drawing.Size(75, 32);
+            this.btntimkiem.Size = new System.Drawing.Size(153, 32);
             this.btntimkiem.TabIndex = 3;
             this.btntimkiem.Text = "Tìm kiếm";
-            this.btntimkiem.UseVisualStyleBackColor = true;
+            this.btntimkiem.UseVisualStyleBackColor = false;
             this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
             // 
             // monHocTableAdapter
@@ -178,8 +183,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 478);
+            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.ClientSize = new System.Drawing.Size(878, 474);
             this.Controls.Add(this.btntimkiem);
             this.Controls.Add(this.txttimkiem);
             this.Controls.Add(this.DRVdanhsach);

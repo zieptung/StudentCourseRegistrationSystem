@@ -26,7 +26,7 @@ namespace StudentCourseRegistrationSystem
         public void load_Formdangky()
         {
             String sql = "SELECT lhp.ma_lhp,mh.ten_mon,mh.so_tin_chi,lhp.so_luong_toi_da,lhp.so_luong_da_dang_ky FROM LopHocPhan lhp JOIN MonHoc mh ON lhp.ma_mon=mh.ma_mon WHERE lhp.trang_thai = N'mở'AND lhp.so_luong_da_dang_ky < lhp.so_luong_toi_da;";
-            ketnoi.ketnoi_dulieu(DRVdangky, sql);
+            DbConnection.ketnoi_dulieu(DRVdangky, sql);
         }
         
 
@@ -35,13 +35,9 @@ namespace StudentCourseRegistrationSystem
         {
             load_Formdangky();
             LoadMonDaDangKy();
-            this.lopHocPhanTableAdapter.Fill(this.qLTCDataSet.LopHocPhan);
             LoadHocKy();
 
-
         }
-
-
 
         private void btndangky_Click(object sender, EventArgs e)
         {
@@ -67,22 +63,22 @@ namespace StudentCourseRegistrationSystem
             string maLHP = cbolop.SelectedValue.ToString();
             int maTKB = Convert.ToInt32(cbolichhoc.SelectedValue);
             string maHocKy = cbohocky.SelectedValue.ToString();
-            ketnoi.conn.Open();
-            SqlTransaction tran = ketnoi.conn.BeginTransaction();
+            DbConnection.conn.Open();
+            SqlTransaction tran = DbConnection.conn.BeginTransaction();
 
             try
             {
                
                 string checkDay = @" SELECT 1 FROM LopHocPhan WHERE ma_lhp = @lhp AND so_luong_da_dang_ky >= so_luong_toi_da";
 
-                SqlCommand cmdCheckDay = new SqlCommand(checkDay, ketnoi.conn, tran);
+                SqlCommand cmdCheckDay = new SqlCommand(checkDay, DbConnection.conn, tran);
                 cmdCheckDay.Parameters.AddWithValue("@lhp", maLHP);
 
                 if (cmdCheckDay.ExecuteScalar() != null)
                 {
                     MessageBox.Show("Lớp học phần đã đầy!");
                     tran.Rollback();
-                    ketnoi.conn.Close();
+                    DbConnection.conn.Close();
                     return;
                 }
 
@@ -90,13 +86,13 @@ namespace StudentCourseRegistrationSystem
                 {
                     MessageBox.Show("Bạn đã đăng ký môn học này trong học kỳ rồi!");
                     tran.Rollback();
-                    ketnoi.conn.Close();
+                    DbConnection.conn.Close();
                     return;
                 }
 
                 string checkTrung = @" SELECT 1 FROM DangKyHocPhan dk JOIN ThoiKhoaBieu tkb1 ON dk.ma_tkb = tkb1.ma_tkb JOIN ThoiKhoaBieu tkb2 ON tkb2.ma_tkb = @tkb WHERE dk.ma_sv = @sv AND tkb1.thu = tkb2.thu AND ( tkb1.tiet_bat_dau <= tkb2.tiet_bat_dau + tkb2.so_tiet - 1 AND tkb1.tiet_bat_dau +    tkb1.so_tiet - 1 >= tkb2.tiet_bat_dau )";
 
-                SqlCommand cmdTrung = new SqlCommand(checkTrung, ketnoi.conn, tran);
+                SqlCommand cmdTrung = new SqlCommand(checkTrung, DbConnection.conn, tran);
                 cmdTrung.Parameters.AddWithValue("@sv", MaSV);
                 cmdTrung.Parameters.AddWithValue("@tkb", maTKB);
 
@@ -104,13 +100,13 @@ namespace StudentCourseRegistrationSystem
                 {
                     MessageBox.Show("Trùng lịch học với môn đã đăng ký!");
                     tran.Rollback();
-                    ketnoi.conn.Close();
+                    DbConnection.conn.Close();
                     return;
                 }
 
                 string insert = @" INSERT INTO DangKyHocPhan (ma_sv, ma_lhp, ma_tkb, ma_hoc_ky, ngay_dang_ky, trang_thai) VALUES (@sv, @lhp, @tkb, @hk, GETDATE(), N'đăng ký')";
 
-                SqlCommand cmdInsert = new SqlCommand(insert, ketnoi.conn, tran);
+                SqlCommand cmdInsert = new SqlCommand(insert, DbConnection.conn, tran);
                 cmdInsert.Parameters.AddWithValue("@sv", MaSV);
                 cmdInsert.Parameters.AddWithValue("@lhp", maLHP);
                 cmdInsert.Parameters.AddWithValue("@tkb", maTKB);
@@ -119,7 +115,7 @@ namespace StudentCourseRegistrationSystem
 
                 string update = @"UPDATE LopHocPhan SET so_luong_da_dang_ky = so_luong_da_dang_ky + 1 WHERE ma_lhp = @lhp";
 
-                SqlCommand cmdUpdate = new SqlCommand(update, ketnoi.conn, tran);
+                SqlCommand cmdUpdate = new SqlCommand(update, DbConnection.conn, tran);
                 cmdUpdate.Parameters.AddWithValue("@lhp", maLHP);
                 cmdUpdate.ExecuteNonQuery();
 
@@ -133,7 +129,7 @@ namespace StudentCourseRegistrationSystem
                 tran.Rollback();
                 MessageBox.Show("Đăng ký thất bại!\n" + ex.Message);
             }
-                ketnoi.conn.Close();
+            DbConnection.conn.Close();
 
         }
 
@@ -142,10 +138,10 @@ namespace StudentCourseRegistrationSystem
             if (txtmamon.Text.Trim() == "") return;
 
             string sql = "SELECT ten_mon, so_tin_chi FROM MonHoc WHERE ma_mon = @ma_mon";
-            SqlCommand cmd = new SqlCommand(sql, ketnoi.conn);
+            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
             cmd.Parameters.AddWithValue("@ma_mon", txtmamon.Text.Trim());
 
-            ketnoi.conn.Open();
+            DbConnection.conn.Open();
             SqlDataReader rd = cmd.ExecuteReader();
 
             if (rd.Read())
@@ -153,14 +149,14 @@ namespace StudentCourseRegistrationSystem
                 txttenmon.Text = rd["ten_mon"].ToString();
                 txttinchi.Text = rd["so_tin_chi"].ToString(); 
                 rd.Close();
-                ketnoi.conn.Close();
+                DbConnection.conn.Close();
 
                 LoadLopHocPhan();
             }
             else
             {
                 rd.Close();
-                ketnoi.conn.Close();
+                DbConnection.conn.Close();
 
                 MessageBox.Show("Không tìm thấy mã môn!");
                 txttenmon.Clear();
@@ -175,10 +171,10 @@ namespace StudentCourseRegistrationSystem
 
             string sql = @"SELECT TOP 1 ma_mon, ten_mon, so_tin_chi FROM MonHoc WHERE ten_mon LIKE @tenmon";
 
-            SqlCommand cmd = new SqlCommand(sql, ketnoi.conn);
+            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
             cmd.Parameters.AddWithValue("@tenmon", "%" + txttenmon.Text.Trim() + "%");
 
-            ketnoi.conn.Open();
+            DbConnection.conn.Open();
             SqlDataReader rd = cmd.ExecuteReader();
 
             if (rd.Read())
@@ -187,13 +183,13 @@ namespace StudentCourseRegistrationSystem
                 txttenmon.Text = rd["ten_mon"].ToString();
                 lable1.Text = rd["so_tin_chi"].ToString();
                 rd.Close();
-                ketnoi.conn.Close();
+                DbConnection.conn.Close();
                 LoadLopHocPhan();
             }
             else
             {
                 rd.Close();
-                ketnoi.conn.Close();
+                DbConnection.conn.Close();
                 MessageBox.Show("Không tìm thấy môn!");
             }
         }
@@ -201,7 +197,7 @@ namespace StudentCourseRegistrationSystem
         {
             string sql = @"SELECT ma_lhp FROM LopHocPhan WHERE ma_mon = @ma_mon AND trang_thai = N'mở'";
 
-            SqlCommand cmd = new SqlCommand(sql, ketnoi.conn);
+            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
             cmd.Parameters.AddWithValue("@ma_mon", txtmamon.Text.Trim());
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -234,7 +230,7 @@ namespace StudentCourseRegistrationSystem
         {
             string sql = @" SELECT ma_tkb, CONCAT( N'Thứ ', thu, N' | Tiết ', tiet_bat_dau, '-', (tiet_bat_dau + so_tiet - 1)) AS lich_hoc FROM ThoiKhoaBieu WHERE ma_lhp = @ma_lhp";
 
-            SqlCommand cmd = new SqlCommand(sql, ketnoi.conn);
+            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
             cmd.Parameters.AddWithValue("@ma_lhp", maLHP);
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -251,12 +247,12 @@ namespace StudentCourseRegistrationSystem
         {
             string sql = @"SELECT 1 FROM LopHocPhan WHERE ma_lhp=@ma_lhp AND so_luong_da_dang_ky >= so_luong_toi_da";
 
-            SqlCommand cmd = new SqlCommand(sql, ketnoi.conn);
+            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
             cmd.Parameters.AddWithValue("@ma_lhp", maLHP);
 
-            ketnoi.conn.Open();
+            DbConnection.conn.Open();
             bool day = cmd.ExecuteScalar() != null;
-            ketnoi.conn.Close();
+            DbConnection.conn.Close();
 
             return day;
         }
@@ -264,13 +260,13 @@ namespace StudentCourseRegistrationSystem
         {
             string sql = @" SELECT 1 FROM DangKyHocPhan dk JOIN ThoiKhoaBieu tkb1 ON dk.ma_tkb = tkb1.ma_tkb JOIN ThoiKhoaBieu tkb2 ON tkb2.ma_tkb = @tkb WHERE dk.ma_sv = @sv AND tkb1.thu = tkb2.thu AND ( tkb1.tiet_bat_dau <= tkb2.tiet_bat_dau + tkb2.so_tiet - 1 AND tkb1.tiet_bat_dau + tkb1.so_tiet - 1 >= tkb2.tiet_bat_dau )";
 
-            SqlCommand cmd = new SqlCommand(sql, ketnoi.conn);
+            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
             cmd.Parameters.AddWithValue("@sv", MaSV);
             cmd.Parameters.AddWithValue("@tkb", maTKB);
 
-            ketnoi.conn.Open();
+            DbConnection.conn.Open();
             bool trung = cmd.ExecuteScalar() != null;
-            ketnoi.conn.Close();
+            DbConnection.conn.Close();
 
             return trung;
         }
@@ -279,7 +275,7 @@ namespace StudentCourseRegistrationSystem
             string sql = @" SELECT 1 FROM DangKyHocPhan dk JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp WHERE dk.ma_sv = @sv AND dk.ma_hoc_ky = @hk 
                 AND lhp.ma_mon = ( SELECT ma_mon FROM LopHocPhan WHERE ma_lhp = @lhp)";
 
-            SqlCommand cmd = new SqlCommand(sql, ketnoi.conn,tran);
+            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn,tran);
             cmd.Parameters.AddWithValue("@sv", maSV);
             cmd.Parameters.AddWithValue("@hk", maHocKy);
             cmd.Parameters.AddWithValue("@lhp", maLHP);
@@ -293,7 +289,7 @@ namespace StudentCourseRegistrationSystem
         {
             string sql = @"SELECT dk.ma_dk,mh.ma_mon,mh.ten_mon,mh.so_tin_chi,dk.ma_lhp,dk.ma_hoc_ky,hk.ten_hoc_ky,hk.nam_hoc,CONCAT(RTRIM(hk.ten_hoc_ky),N' (',RTRIM(hk.nam_hoc),N')') AS hoc_ky,CONCAT(N'Thứ ', tkb.thu,N' | Tiết ',tkb.tiet_bat_dau, '-', (tkb.tiet_bat_dau + tkb.so_tiet - 1)) AS lich_hoc FROM DangKyHocPhan dk JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp JOIN MonHoc mh ON lhp.ma_mon = mh.ma_mon JOIN ThoiKhoaBieu tkb ON dk.ma_tkb = tkb.ma_tkb JOIN HocKy hk ON dk.ma_hoc_ky = hk.ma_hoc_ky WHERE dk.ma_sv = @sv ORDER BY hk.ngay_bat_dau DESC, mh.ma_mon";
 
-            SqlCommand cmd = new SqlCommand(sql, ketnoi.conn);
+            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
             cmd.Parameters.AddWithValue("@sv", MaSV);
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -321,7 +317,7 @@ namespace StudentCourseRegistrationSystem
 
             string sql = @" SELECT dk.ma_dk,mh.ma_mon,mh.ten_mon,mh.so_tin_chi,dk.ma_lhp,dk.ma_hoc_ky,hk.ten_hoc_ky,hk.nam_hoc,CONCAT(N'Thứ ', tkb.thu, N' | Tiết ',tkb.tiet_bat_dau, '-', (tkb.tiet_bat_dau + tkb.so_tiet - 1)) AS lich_hoc FROM DangKyHocPhan dk JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp JOIN MonHoc mh ON lhp.ma_mon = mh.ma_mon JOIN ThoiKhoaBieu tkb ON dk.ma_tkb = tkb.ma_tkb JOIN HocKy hk ON dk.ma_hoc_ky = hk.ma_hoc_ky WHERE dk.ma_sv = @sv AND (mh.ma_mon LIKE @key OR mh.ten_mon LIKE @key) ORDER BY hk.ngay_bat_dau DESC, mh.ma_mon";
 
-            SqlCommand cmd = new SqlCommand(sql, ketnoi.conn);
+            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
             cmd.Parameters.AddWithValue("@sv", MaSV);
             cmd.Parameters.AddWithValue("@key", "%" + key + "%");
 
@@ -361,13 +357,13 @@ namespace StudentCourseRegistrationSystem
 
             string update = @" UPDATE LopHocPhan SET so_luong_da_dang_ky = so_luong_da_dang_ky - 1 WHERE ma_lhp = @lhp AND so_luong_da_dang_ky > 0";
 
-            ketnoi.conn.Open();
-            SqlTransaction tran = ketnoi.conn.BeginTransaction();
+            DbConnection.conn.Open();
+            SqlTransaction tran = DbConnection.conn.BeginTransaction();
 
             try
             {
                 
-                SqlCommand cmdDel = new SqlCommand(delete, ketnoi.conn, tran);
+                SqlCommand cmdDel = new SqlCommand(delete, DbConnection.conn, tran);
                 cmdDel.Parameters.AddWithValue("@ma_dk", maDK);
 
                 int rows = cmdDel.ExecuteNonQuery();
@@ -375,7 +371,7 @@ namespace StudentCourseRegistrationSystem
                     throw new Exception("Không tìm thấy bản ghi để xóa!");
 
                 
-                SqlCommand cmdUpd = new SqlCommand(update, ketnoi.conn, tran);
+                SqlCommand cmdUpd = new SqlCommand(update, DbConnection.conn, tran);
                 cmdUpd.Parameters.AddWithValue("@lhp", maLHP);
                 cmdUpd.ExecuteNonQuery();
 
@@ -389,13 +385,13 @@ namespace StudentCourseRegistrationSystem
                 tran.Rollback();
                 MessageBox.Show("Hủy thất bại!\n" + ex.Message);
             }
-                ketnoi.conn.Close();
+                DbConnection.conn.Close();
             }
         private void LoadHocKy()
         {
             string sql = @"SELECT ma_hoc_ky,ten_hoc_ky + N' (' + nam_hoc + N')' AS hocky_hienthi FROM HocKy ORDER BY ngay_bat_dau DESC";
 
-            SqlDataAdapter da = new SqlDataAdapter(sql, ketnoi.conn);
+            SqlDataAdapter da = new SqlDataAdapter(sql, DbConnection.conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
 

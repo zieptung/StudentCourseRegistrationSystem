@@ -16,11 +16,12 @@ namespace StudentCourseRegistrationSystem
     {
         public string tensv = "Nguyễn Văn A";
         public string AvatarPath = @"avatar.jpg";
-
-        public FormSV()
+        private string Malienket;
+        public FormSV(string malienket)
         {
             InitializeComponent();
             LoadThongTinSinhVien();
+            this.Malienket = Malienket;
         }
 
         private void LoadThongTinSinhVien()
@@ -77,12 +78,38 @@ namespace StudentCourseRegistrationSystem
 
         private void btnthongtin_Click(object sender, EventArgs e)
         {
-            OpenForm(new FormXemttcn());
+            OpenForm(new FormXemttcn(Malienket));
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             OpenForm(new FormXemtkb());
+        }
+
+        private void avatar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormSV_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void btnDangxuat_Click(object sender, EventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (rs == DialogResult.Yes)
+            {
+                new FormLog().Show();
+                this.Close();
+            }
         }
     }
 }

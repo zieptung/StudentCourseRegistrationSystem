@@ -13,8 +13,9 @@ namespace StudentCourseRegistrationSystem
 {
     public partial class FormXemtkb : Form
     {
-        private readonly string connectionString =
-            @"Data Source=LAPTOP-4T6O4TN1\SQLEXPRESS;Initial Catalog=QLTC;Integrated Security=True;TrustServerCertificate=True";
+        string connectionString = @"Server=DIEPTUNG\SQLEXPRESS;Database=QLTC;Trusted_Connection=True;TrustServerCertificate=True;";
+
+
 
         public FormXemtkb()
         {
@@ -31,18 +32,22 @@ namespace StudentCourseRegistrationSystem
         private void LoadHocKy()
         {
             string sql = @"
-SELECT ma_hoc_ky, (ten_hoc_ky + ' - ' + nam_hoc) AS ten
-FROM HocKy
-ORDER BY nam_hoc DESC, ngay_bat_dau DESC;";
+            SELECT ma_hoc_ky,
+            ten_hoc_ky + N' (' + nam_hoc + N')' AS ten
+            FROM HocKy
+            ORDER BY nam_hoc DESC, ngay_bat_dau DESC;";
 
-            var da = new SqlDataAdapter(sql, GetConn());
-            var dt = new DataTable();
-            da.Fill(dt);
+            using (var conn = GetConn())
+            {
+                var da = new SqlDataAdapter(sql, conn);
+                var dt = new DataTable();
+                da.Fill(dt);
 
-            cboHocKy.DataSource = dt;
-            cboHocKy.DisplayMember = "ten";
-            cboHocKy.ValueMember = "ma_hoc_ky";
-            cboHocKy.SelectedIndex = dt.Rows.Count > 0 ? 0 : -1;
+                cboHocKy.DataSource = dt;
+                cboHocKy.DisplayMember = "ten";
+                cboHocKy.ValueMember = "ma_hoc_ky";
+                cboHocKy.SelectedIndex = -1;
+            }
         }
 
         private void btnXem_Click(object sender, EventArgs e)

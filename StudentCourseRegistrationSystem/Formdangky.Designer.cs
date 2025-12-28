@@ -56,6 +56,13 @@
             this.dangKyHocPhanTableAdapter = new StudentCourseRegistrationSystem.QLTCDataSetTableAdapters.DangKyHocPhanTableAdapter();
             this.dangKyHocPhanBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.DRVdangky = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ma_lhp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ma_dk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dangKyHocPhanBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.thoiKhoaBieuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.thoiKhoaBieuTableAdapter = new StudentCourseRegistrationSystem.QLTCDataSetTableAdapters.ThoiKhoaBieuTableAdapter();
@@ -67,13 +74,6 @@
             this.dangKyHocPhanBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.lopHocPhanBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.lopHocPhanBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ma_lhp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ma_dk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dangKyHocPhanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLTCDataSetBindingSource)).BeginInit();
@@ -121,13 +121,14 @@
             // 
             // btndangky
             // 
+            this.btndangky.BackColor = System.Drawing.Color.Lime;
             this.btndangky.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndangky.Location = new System.Drawing.Point(602, 26);
             this.btndangky.Name = "btndangky";
-            this.btndangky.Size = new System.Drawing.Size(88, 37);
+            this.btndangky.Size = new System.Drawing.Size(98, 37);
             this.btndangky.TabIndex = 7;
             this.btndangky.Text = "Đăng ký";
-            this.btndangky.UseVisualStyleBackColor = true;
+            this.btndangky.UseVisualStyleBackColor = false;
             this.btndangky.Click += new System.EventHandler(this.btndangky_Click);
             // 
             // groupBox1
@@ -151,7 +152,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(8, 63);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(719, 156);
+            this.groupBox1.Size = new System.Drawing.Size(706, 156);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông  tin môn học";
@@ -167,24 +168,26 @@
             // 
             // btntimkiem
             // 
+            this.btntimkiem.BackColor = System.Drawing.Color.Lime;
             this.btntimkiem.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btntimkiem.Location = new System.Drawing.Point(602, 116);
             this.btntimkiem.Name = "btntimkiem";
             this.btntimkiem.Size = new System.Drawing.Size(98, 37);
             this.btntimkiem.TabIndex = 12;
             this.btntimkiem.Text = "Tìm kiếm";
-            this.btntimkiem.UseVisualStyleBackColor = true;
+            this.btntimkiem.UseVisualStyleBackColor = false;
             this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
             // 
             // btnhuy
             // 
+            this.btnhuy.BackColor = System.Drawing.Color.LightCoral;
             this.btnhuy.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhuy.Location = new System.Drawing.Point(602, 70);
             this.btnhuy.Name = "btnhuy";
-            this.btnhuy.Size = new System.Drawing.Size(88, 37);
+            this.btnhuy.Size = new System.Drawing.Size(98, 37);
             this.btnhuy.TabIndex = 14;
             this.btnhuy.Text = "Hủy ";
-            this.btnhuy.UseVisualStyleBackColor = true;
+            this.btnhuy.UseVisualStyleBackColor = false;
             this.btnhuy.Click += new System.EventHandler(this.btnhuy_Click);
             // 
             // cbohocky
@@ -283,17 +286,18 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(8, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(719, 52);
+            this.panel1.Size = new System.Drawing.Size(706, 52);
             this.panel1.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(220, 4);
+            this.label4.Location = new System.Drawing.Point(234, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(235, 35);
             this.label4.TabIndex = 0;
@@ -323,6 +327,7 @@
             this.DRVdangky.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DRVdangky.AutoGenerateColumns = false;
+            this.DRVdangky.BackgroundColor = System.Drawing.Color.White;
             this.DRVdangky.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DRVdangky.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -333,65 +338,13 @@
             this.Column6,
             this.ma_dk});
             this.DRVdangky.DataSource = this.qLTCDataSetBindingSource;
-            this.DRVdangky.Location = new System.Drawing.Point(8, 262);
+            this.DRVdangky.Location = new System.Drawing.Point(8, 234);
             this.DRVdangky.Name = "DRVdangky";
+            this.DRVdangky.RowHeadersVisible = false;
             this.DRVdangky.RowHeadersWidth = 51;
             this.DRVdangky.RowTemplate.Height = 24;
-            this.DRVdangky.Size = new System.Drawing.Size(719, 189);
+            this.DRVdangky.Size = new System.Drawing.Size(706, 211);
             this.DRVdangky.TabIndex = 13;
-            // 
-            // dangKyHocPhanBindingSource2
-            // 
-            this.dangKyHocPhanBindingSource2.DataMember = "DangKyHocPhan";
-            this.dangKyHocPhanBindingSource2.DataSource = this.qLTCDataSetBindingSource;
-            // 
-            // thoiKhoaBieuBindingSource
-            // 
-            this.thoiKhoaBieuBindingSource.DataMember = "ThoiKhoaBieu";
-            this.thoiKhoaBieuBindingSource.DataSource = this.qLTCDataSetBindingSource;
-            // 
-            // thoiKhoaBieuTableAdapter
-            // 
-            this.thoiKhoaBieuTableAdapter.ClearBeforeFill = true;
-            // 
-            // monHocBindingSource1
-            // 
-            this.monHocBindingSource1.DataMember = "MonHoc";
-            this.monHocBindingSource1.DataSource = this.qLTCDataSetBindingSource;
-            // 
-            // lopHocPhanBindingSource
-            // 
-            this.lopHocPhanBindingSource.DataMember = "LopHocPhan";
-            this.lopHocPhanBindingSource.DataSource = this.qLTCDataSetBindingSource;
-            // 
-            // lopHocPhanTableAdapter
-            // 
-            this.lopHocPhanTableAdapter.ClearBeforeFill = true;
-            // 
-            // thoiKhoaBieuBindingSource1
-            // 
-            this.thoiKhoaBieuBindingSource1.DataMember = "ThoiKhoaBieu";
-            this.thoiKhoaBieuBindingSource1.DataSource = this.qLTCDataSetBindingSource;
-            // 
-            // thoiKhoaBieuBindingSource2
-            // 
-            this.thoiKhoaBieuBindingSource2.DataMember = "ThoiKhoaBieu";
-            this.thoiKhoaBieuBindingSource2.DataSource = this.qLTCDataSetBindingSource;
-            // 
-            // dangKyHocPhanBindingSource3
-            // 
-            this.dangKyHocPhanBindingSource3.DataMember = "DangKyHocPhan";
-            this.dangKyHocPhanBindingSource3.DataSource = this.qLTCDataSetBindingSource;
-            // 
-            // lopHocPhanBindingSource1
-            // 
-            this.lopHocPhanBindingSource1.DataMember = "LopHocPhan";
-            this.lopHocPhanBindingSource1.DataSource = this.qLTCDataSetBindingSource;
-            // 
-            // lopHocPhanBindingSource2
-            // 
-            this.lopHocPhanBindingSource2.DataMember = "LopHocPhan";
-            this.lopHocPhanBindingSource2.DataSource = this.qLTCDataSetBindingSource;
             // 
             // Column1
             // 
@@ -458,12 +411,65 @@
             this.ma_dk.Visible = false;
             this.ma_dk.Width = 125;
             // 
+            // dangKyHocPhanBindingSource2
+            // 
+            this.dangKyHocPhanBindingSource2.DataMember = "DangKyHocPhan";
+            this.dangKyHocPhanBindingSource2.DataSource = this.qLTCDataSetBindingSource;
+            // 
+            // thoiKhoaBieuBindingSource
+            // 
+            this.thoiKhoaBieuBindingSource.DataMember = "ThoiKhoaBieu";
+            this.thoiKhoaBieuBindingSource.DataSource = this.qLTCDataSetBindingSource;
+            // 
+            // thoiKhoaBieuTableAdapter
+            // 
+            this.thoiKhoaBieuTableAdapter.ClearBeforeFill = true;
+            // 
+            // monHocBindingSource1
+            // 
+            this.monHocBindingSource1.DataMember = "MonHoc";
+            this.monHocBindingSource1.DataSource = this.qLTCDataSetBindingSource;
+            // 
+            // lopHocPhanBindingSource
+            // 
+            this.lopHocPhanBindingSource.DataMember = "LopHocPhan";
+            this.lopHocPhanBindingSource.DataSource = this.qLTCDataSetBindingSource;
+            // 
+            // lopHocPhanTableAdapter
+            // 
+            this.lopHocPhanTableAdapter.ClearBeforeFill = true;
+            // 
+            // thoiKhoaBieuBindingSource1
+            // 
+            this.thoiKhoaBieuBindingSource1.DataMember = "ThoiKhoaBieu";
+            this.thoiKhoaBieuBindingSource1.DataSource = this.qLTCDataSetBindingSource;
+            // 
+            // thoiKhoaBieuBindingSource2
+            // 
+            this.thoiKhoaBieuBindingSource2.DataMember = "ThoiKhoaBieu";
+            this.thoiKhoaBieuBindingSource2.DataSource = this.qLTCDataSetBindingSource;
+            // 
+            // dangKyHocPhanBindingSource3
+            // 
+            this.dangKyHocPhanBindingSource3.DataMember = "DangKyHocPhan";
+            this.dangKyHocPhanBindingSource3.DataSource = this.qLTCDataSetBindingSource;
+            // 
+            // lopHocPhanBindingSource1
+            // 
+            this.lopHocPhanBindingSource1.DataMember = "LopHocPhan";
+            this.lopHocPhanBindingSource1.DataSource = this.qLTCDataSetBindingSource;
+            // 
+            // lopHocPhanBindingSource2
+            // 
+            this.lopHocPhanBindingSource2.DataMember = "LopHocPhan";
+            this.lopHocPhanBindingSource2.DataSource = this.qLTCDataSetBindingSource;
+            // 
             // Formdangky
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(730, 450);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(717, 450);
             this.Controls.Add(this.DRVdangky);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);

@@ -50,13 +50,16 @@
     <Compile Include="CrudLib.cs" />
     <Compile Include="DbConnection.cs" />
     <Compile Include="FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formdangky.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formdangky.Designer.cs">
       <DependentUpon>Formdangky.cs</DependentUpon>
-    <Compile Include="FormAdmin.Designer.cs">
-      <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGV.cs">
       <SubType>Form</SubType>
@@ -94,12 +97,6 @@
     <Compile Include="FormDSmonhoc.Designer.cs">
       <DependentUpon>FormDSmonhoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSV.Designer.cs">
-      <DependentUpon>FormSV.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormXemtkb.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,7 +109,12 @@
     <Compile Include="FormXemttcn.Designer.cs">
       <DependentUpon>FormXemttcn.cs</DependentUpon>
     </Compile>
-    <Compile Include="ketnoi.cs" />
+    <!-- Dataset -->
+    <Compile Include="QLTCDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLTCDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -131,11 +133,13 @@
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
       <CustomToolNamespace>StudentCourseRegistrationSystem.Properties</CustomToolNamespace>
+      <LastGenOutput>FormAdmin1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formdangky.resx">
+      <DependentUpon>Formdangky.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGV.resx">
       <DependentUpon>FormGV.cs</DependentUpon>
-      <LastGenOutput>FormGV1.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>StudentCourseRegistrationSystem.Properties</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLog.resx">
       <DependentUpon>FormLog.cs</DependentUpon>
@@ -145,22 +149,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GV_QLMonHoc.resx">
       <DependentUpon>GV_QLMonHoc.cs</DependentUpon>
-    <Compile Include="QLTCDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLTCDataSet.xsd</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Formdangky.resx">
-      <DependentUpon>Formdangky.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDSmondangky.resx">
       <DependentUpon>FormDSmondangky.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDSmonhoc.resx">
       <DependentUpon>FormDSmonhoc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSV.resx">
-      <DependentUpon>FormSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormXemtkb.resx">
       <DependentUpon>FormXemtkb.cs</DependentUpon>
@@ -173,20 +167,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
     <None Include="QLTCDataSet.xsc">
       <DependentUpon>QLTCDataSet.xsd</DependentUpon>
     </None>
@@ -202,6 +186,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Resources\pixel.png" />
+    <None Include="Resources\DefaultAvatar.bmp" />
+    <None Include="Resources\Screenshot 2025-12-27 163425.png" />
+    <None Include="Resources\default_avatar.png.png" />
+    <None Include="Resources\default_avatar.png" />
   </ItemGroup>
   <!-- Excel Interop -->
   <ItemGroup>
@@ -233,21 +221,5 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\DefaultAvatar.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Screenshot 2025-12-27 163425.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\default_avatar.png.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\default_avatar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="UpgradeLog.htm" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

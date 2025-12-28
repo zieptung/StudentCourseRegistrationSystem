@@ -13,7 +13,8 @@ namespace StudentCourseRegistrationSystem
 {
     public partial class GV_QLMonHoc : Form
     {
-        string connectionString = @"Data Source=DIEPTUNG\SQLEXPRESS;Initial Catalog=QLTC;Integrated Security=True";
+        string connectionString = @"Server=DIEPTUNG\SQLEXPRESS;Database=QLTC;Trusted_Connection=True;TrustServerCertificate=True;";
+
 
         public GV_QLMonHoc()
         {
