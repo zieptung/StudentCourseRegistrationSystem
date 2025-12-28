@@ -14,7 +14,8 @@ namespace StudentCourseRegistrationSystem
     public partial class FormXemttcn : Form
     {
         private readonly string connectionString =
-            @"Data Source=LAPTOP-9G6IUBF5;Initial Catalog=QLTC;Integrated Security=True;TrustServerCertificate=True";
+            @"Data Source=LAPTOP-4T6O4TN1\SQLEXPRESS;Initial Catalog=QLTC;Integrated Security=True;TrustServerCertificate=True";
+        string maSV = "SV01";
         public FormXemttcn()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace StudentCourseRegistrationSystem
             btnLuu.Click += btnLuu_Click;
         }
         private SqlConnection GetConn() => new SqlConnection(connectionString);
-        string maSV = "SV01";
+        
         private void FormXemttcn_Load(object sender, EventArgs e)
         {
             LoadThongTin(maSV);

@@ -70,7 +70,15 @@
     <Compile Include="FormSV.Designer.cs">
       <DependentUpon>FormSV.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormXemttcn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormXemttcn.Designer.cs">
+      <DependentUpon>FormXemttcn.cs</DependentUpon>
+    </Compile>
     <Compile Include="ketnoi.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLTCDataSet.Designer.cs">
@@ -90,6 +98,14 @@
     <EmbeddedResource Include="FormSV.resx">
       <DependentUpon>FormSV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormXemttcn.resx">
+      <DependentUpon>FormXemttcn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\StudentCourseRegistrationSystem.Formdangky.resources" />
+    <EmbeddedResource Include="obj\Debug\StudentCourseRegistrationSystem.FormDSmondangky.resources" />
+    <EmbeddedResource Include="obj\Debug\StudentCourseRegistrationSystem.FormDSmonhoc.resources" />
+    <EmbeddedResource Include="obj\Debug\StudentCourseRegistrationSystem.FormSV.resources" />
+    <EmbeddedResource Include="obj\Debug\StudentCourseRegistrationSystem.Properties.Resources.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -100,6 +116,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="bin\Debug\StudentCourseRegistrationSystem.exe.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\StudentCourseRegistrationSystem.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\StudentCourseRegistrationSystem.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\StudentCourseRegistrationSystem.csproj.GenerateResource.cache" />
+    <None Include="obj\Release\StudentCourseRegistrationSystem.csproj.AssemblyReference.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -135,6 +158,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\default_avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\StudentCourseRegistrationSystem.exe" />
+    <Content Include="bin\Debug\StudentCourseRegistrationSystem.pdb" />
+    <Content Include="obj\Debug\StudentCourseRegistrationSystem.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\StudentCourseRegistrationSystem.exe" />
+    <Content Include="obj\Debug\StudentCourseRegistrationSystem.pdb" />
+    <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\QLTCDataSet.Designer.cs.dll" />
+    <Content Include="UpgradeLog.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
