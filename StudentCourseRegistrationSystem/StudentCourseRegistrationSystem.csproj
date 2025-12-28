@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="CrudLib.cs" />
     <Compile Include="DbConnection.cs" />
     <Compile Include="FormAdmin.cs">
@@ -65,21 +66,23 @@
     </Compile>
     <Compile Include="FormSV.Designer.cs">
       <DependentUpon>FormSV.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form_giangvien.cs">
+=======
+    <Compile Include="FormGV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_giangvien.Designer.cs">
-      <DependentUpon>Form_giangvien.cs</DependentUpon>
+    <Compile Include="FormGV.Designer.cs">
+      <DependentUpon>FormGV.cs</DependentUpon>
+>>>>>>> origin/huy
     </Compile>
-    <Compile Include="Form_QLMonHoc.cs">
+    <Compile Include="FormQLMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_QLMonHoc.Designer.cs">
-      <DependentUpon>Form_QLMonHoc.cs</DependentUpon>
+    <Compile Include="FormQLMonHoc.Designer.cs">
+      <DependentUpon>FormQLMonHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,12 +91,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSV.resx">
       <DependentUpon>FormSV.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="FormGV.resx">
+      <DependentUpon>FormGV.cs</DependentUpon>
+>>>>>>> origin/huy
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_giangvien.resx">
-      <DependentUpon>Form_giangvien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form_QLMonHoc.resx">
-      <DependentUpon>Form_QLMonHoc.cs</DependentUpon>
+    <EmbeddedResource Include="FormQLMonHoc.resx">
+      <DependentUpon>FormQLMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
