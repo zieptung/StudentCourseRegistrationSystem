@@ -73,7 +73,9 @@ namespace StudentCourseRegistrationSystem
             OpenForm(new FormDSmondangky());
         }
 
-        private void thôngTinSinhViênToolStripMenuItem1_Click(object sender, EventArgs e)
+       
+
+        private void btnthongtin_Click(object sender, EventArgs e)
         {
             OpenForm(new FormXemttcn());
         }

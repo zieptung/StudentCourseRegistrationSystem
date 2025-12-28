@@ -39,7 +39,8 @@
             this.danhSáchMônHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchMônĐãĐăngKýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.thôngTinSinhViênToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnthongtin = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -79,6 +80,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnthongtin);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -111,11 +114,11 @@
             this.đăngKýTínChỉToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.đăngKýMônHọcToolStripMenuItem,
             this.danhSáchMônHọcToolStripMenuItem,
-            this.danhSáchMônĐãĐăngKýToolStripMenuItem,
-            this.thôngTinSinhViênToolStripMenuItem1});
+            this.danhSáchMônĐãĐăngKýToolStripMenuItem});
+            this.đăngKýTínChỉToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.đăngKýTínChỉToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.đăngKýTínChỉToolStripMenuItem.Name = "đăngKýTínChỉToolStripMenuItem";
-            this.đăngKýTínChỉToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
+            this.đăngKýTínChỉToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.đăngKýTínChỉToolStripMenuItem.Text = "Đăng ký tín chỉ";
             // 
             // đăngKýMônHọcToolStripMenuItem
@@ -143,17 +146,34 @@
             // 
             this.panelMain.BackColor = System.Drawing.SystemColors.Control;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelMain.Location = new System.Drawing.Point(188, 49);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(789, 521);
             this.panelMain.TabIndex = 4;
             // 
-            // thôngTinSinhViênToolStripMenuItem1
+            // btnthongtin
             // 
-            this.thôngTinSinhViênToolStripMenuItem1.Name = "thôngTinSinhViênToolStripMenuItem1";
-            this.thôngTinSinhViênToolStripMenuItem1.Size = new System.Drawing.Size(271, 26);
-            this.thôngTinSinhViênToolStripMenuItem1.Text = "Thông tin sinh viên";
-            this.thôngTinSinhViênToolStripMenuItem1.Click += new System.EventHandler(this.thôngTinSinhViênToolStripMenuItem1_Click);
+            this.btnthongtin.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnthongtin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnthongtin.Location = new System.Drawing.Point(-11, 31);
+            this.btnthongtin.Name = "btnthongtin";
+            this.btnthongtin.Size = new System.Drawing.Size(199, 29);
+            this.btnthongtin.TabIndex = 5;
+            this.btnthongtin.Text = "Thông tin sinh viên";
+            this.btnthongtin.UseVisualStyleBackColor = true;
+            this.btnthongtin.Click += new System.EventHandler(this.btnthongtin_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(-3, 66);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(191, 31);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Lịch học";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // FormSV
             // 
@@ -191,6 +211,7 @@
         private System.Windows.Forms.PictureBox avatar;
         private System.Windows.Forms.Label lbltensv;
         private System.Windows.Forms.ToolStripMenuItem danhSáchMônĐãĐăngKýToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thôngTinSinhViênToolStripMenuItem1;
+        private System.Windows.Forms.Button btnthongtin;
+        private System.Windows.Forms.Button button1;
     }
 }
