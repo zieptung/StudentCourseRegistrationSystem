@@ -47,12 +47,14 @@
   </ItemGroup>
   <!-- Code files -->
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="CrudLib.cs" />
     <Compile Include="DbConnection.cs" />
     <Compile Include="FormAdmin.cs">
+    <Compile Include="Formdangky.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formdangky.Designer.cs">
+      <DependentUpon>Formdangky.cs</DependentUpon>
     <Compile Include="FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
@@ -79,13 +81,6 @@
     </Compile>
     <Compile Include="GV_QLMonHoc.Designer.cs">
       <DependentUpon>GV_QLMonHoc.cs</DependentUpon>
-=======
-    <Compile Include="Formdangky.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formdangky.Designer.cs">
-      <DependentUpon>Formdangky.cs</DependentUpon>
->>>>>>> origin/duong
     </Compile>
     <Compile Include="FormDSmondangky.cs">
       <SubType>Form</SubType>
@@ -120,8 +115,36 @@
     <Compile Include="ketnoi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
-=======
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <!-- Resources (.resx) -->
+  <ItemGroup>
+    <EmbeddedResource Include="FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+      <CustomToolNamespace>StudentCourseRegistrationSystem.Properties</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGV.resx">
+      <DependentUpon>FormGV.cs</DependentUpon>
+      <LastGenOutput>FormGV1.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>StudentCourseRegistrationSystem.Properties</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLog.resx">
+      <DependentUpon>FormLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSV.resx">
+      <DependentUpon>FormSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GV_QLMonHoc.resx">
+      <DependentUpon>GV_QLMonHoc.cs</DependentUpon>
     <Compile Include="QLTCDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -147,16 +170,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
->>>>>>> origin/duong
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -172,36 +197,6 @@
     </None>
     <None Include="QLTCDataSet.xss">
       <DependentUpon>QLTCDataSet.xsd</DependentUpon>
-    </None>
-  </ItemGroup>
-  <!-- Resources (.resx) -->
-  <ItemGroup>
-    <EmbeddedResource Include="FormAdmin.resx">
-      <DependentUpon>FormAdmin.cs</DependentUpon>
-      <CustomToolNamespace>StudentCourseRegistrationSystem.Properties</CustomToolNamespace>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormGV.resx">
-      <DependentUpon>FormGV.cs</DependentUpon>
-      <LastGenOutput>FormGV1.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>StudentCourseRegistrationSystem.Properties</CustomToolNamespace>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLog.resx">
-      <DependentUpon>FormLog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSV.resx">
-      <DependentUpon>FormSV.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GV_QLMonHoc.resx">
-      <DependentUpon>GV_QLMonHoc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

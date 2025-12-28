@@ -13,7 +13,7 @@ namespace StudentCourseRegistrationSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLog());
+            Application.Run(new Form1());
         }
     }
 }
