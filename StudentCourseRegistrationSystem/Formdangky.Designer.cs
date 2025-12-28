@@ -34,16 +34,18 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btndangky = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btntimkiem = new System.Windows.Forms.Button();
+            this.btnhuy = new System.Windows.Forms.Button();
+            this.cbohocky = new System.Windows.Forms.ComboBox();
             this.txttinchi = new System.Windows.Forms.TextBox();
             this.lable1 = new System.Windows.Forms.Label();
             this.cbolichhoc = new System.Windows.Forms.ComboBox();
-            this.btnhuy = new System.Windows.Forms.Button();
             this.cbolop = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txttenmon = new System.Windows.Forms.TextBox();
             this.txtmamon = new System.Windows.Forms.TextBox();
-            this.btntimkiem = new System.Windows.Forms.Button();
             this.dangKyHocPhanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLTCDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLTCDataSet = new StudentCourseRegistrationSystem.QLTCDataSet();
@@ -68,10 +70,10 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ma_lhp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbohocky = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ma_dk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dangKyHocPhanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLTCDataSetBindingSource)).BeginInit();
@@ -154,6 +156,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông  tin môn học";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(319, 103);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 19);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Học kỳ";
+            // 
+            // btntimkiem
+            // 
+            this.btntimkiem.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btntimkiem.Location = new System.Drawing.Point(602, 116);
+            this.btntimkiem.Name = "btntimkiem";
+            this.btntimkiem.Size = new System.Drawing.Size(98, 37);
+            this.btntimkiem.TabIndex = 12;
+            this.btntimkiem.Text = "Tìm kiếm";
+            this.btntimkiem.UseVisualStyleBackColor = true;
+            this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
+            // 
+            // btnhuy
+            // 
+            this.btnhuy.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnhuy.Location = new System.Drawing.Point(602, 70);
+            this.btnhuy.Name = "btnhuy";
+            this.btnhuy.Size = new System.Drawing.Size(88, 37);
+            this.btnhuy.TabIndex = 14;
+            this.btnhuy.Text = "Hủy ";
+            this.btnhuy.UseVisualStyleBackColor = true;
+            this.btnhuy.Click += new System.EventHandler(this.btnhuy_Click);
+            // 
+            // cbohocky
+            // 
+            this.cbohocky.FormattingEnabled = true;
+            this.cbohocky.Location = new System.Drawing.Point(398, 103);
+            this.cbohocky.Name = "cbohocky";
+            this.cbohocky.Size = new System.Drawing.Size(170, 27);
+            this.cbohocky.TabIndex = 17;
+            // 
             // txttinchi
             // 
             this.txttinchi.Location = new System.Drawing.Point(96, 108);
@@ -179,17 +220,6 @@
             this.cbolichhoc.Name = "cbolichhoc";
             this.cbolichhoc.Size = new System.Drawing.Size(170, 27);
             this.cbolichhoc.TabIndex = 13;
-            // 
-            // btnhuy
-            // 
-            this.btnhuy.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnhuy.Location = new System.Drawing.Point(602, 70);
-            this.btnhuy.Name = "btnhuy";
-            this.btnhuy.Size = new System.Drawing.Size(88, 37);
-            this.btnhuy.TabIndex = 14;
-            this.btnhuy.Text = "Hủy ";
-            this.btnhuy.UseVisualStyleBackColor = true;
-            this.btnhuy.Click += new System.EventHandler(this.btnhuy_Click);
             // 
             // cbolop
             // 
@@ -234,18 +264,6 @@
             this.txtmamon.TabIndex = 6;
             this.txtmamon.Leave += new System.EventHandler(this.txtmamon_Leave);
             // 
-            // btntimkiem
-            // 
-            this.btntimkiem.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btntimkiem.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btntimkiem.Location = new System.Drawing.Point(602, 116);
-            this.btntimkiem.Name = "btntimkiem";
-            this.btntimkiem.Size = new System.Drawing.Size(98, 37);
-            this.btntimkiem.TabIndex = 12;
-            this.btntimkiem.Text = "Tìm kiếm";
-            this.btntimkiem.UseVisualStyleBackColor = true;
-            this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
-            // 
             // dangKyHocPhanBindingSource
             // 
             this.dangKyHocPhanBindingSource.DataMember = "DangKyHocPhan";
@@ -280,6 +298,7 @@
             this.label4.Size = new System.Drawing.Size(235, 35);
             this.label4.TabIndex = 0;
             this.label4.Text = "Đăng ký môn học";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // monHocBindingSource
             // 
@@ -309,8 +328,10 @@
             this.Column1,
             this.Column2,
             this.Column5,
-            this.Column3,
-            this.Column4});
+            this.ma_lhp,
+            this.Column4,
+            this.Column6,
+            this.ma_dk});
             this.DRVdangky.DataSource = this.qLTCDataSetBindingSource;
             this.DRVdangky.Location = new System.Drawing.Point(8, 262);
             this.DRVdangky.Name = "DRVdangky";
@@ -374,60 +395,68 @@
             // 
             // Column1
             // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column1.DataPropertyName = "ma_mon";
             this.Column1.HeaderText = "Mã môn";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.DataPropertyName = "ten_mon";
             this.Column2.HeaderText = "Tên môn";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 225;
+            this.Column2.ReadOnly = true;
             // 
             // Column5
             // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column5.DataPropertyName = "so_tin_chi";
             this.Column5.HeaderText = "Số tín chỉ";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
+            this.Column5.ReadOnly = true;
             // 
-            // Column3
+            // ma_lhp
             // 
-            this.Column3.DataPropertyName = "ma_lhp";
-            this.Column3.HeaderText = "Lớp";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
+            this.ma_lhp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ma_lhp.DataPropertyName = "ma_lhp";
+            this.ma_lhp.HeaderText = "Lớp";
+            this.ma_lhp.MinimumWidth = 6;
+            this.ma_lhp.Name = "ma_lhp";
+            this.ma_lhp.ReadOnly = true;
             // 
             // Column4
             // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column4.DataPropertyName = "lich_hoc";
             this.Column4.HeaderText = "Lịch học";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
-            this.Column4.Width = 170;
+            this.Column4.ReadOnly = true;
             // 
-            // cbohocky
+            // Column6
             // 
-            this.cbohocky.FormattingEnabled = true;
-            this.cbohocky.Location = new System.Drawing.Point(398, 103);
-            this.cbohocky.Name = "cbohocky";
-            this.cbohocky.Size = new System.Drawing.Size(170, 27);
-            this.cbohocky.TabIndex = 17;
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column6.DataPropertyName = "hoc_ky";
+            this.Column6.HeaderText = "Học Kỳ";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 79;
             // 
-            // label6
+            // ma_dk
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(319, 103);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 19);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Học kỳ";
+            this.ma_dk.DataPropertyName = "ma_dk";
+            this.ma_dk.HeaderText = "ma dk";
+            this.ma_dk.MinimumWidth = 6;
+            this.ma_dk.Name = "ma_dk";
+            this.ma_dk.ReadOnly = true;
+            this.ma_dk.Visible = false;
+            this.ma_dk.Width = 125;
             // 
             // Formdangky
             // 
@@ -501,12 +530,14 @@
         private System.Windows.Forms.BindingSource lopHocPhanBindingSource2;
         private System.Windows.Forms.Label lable1;
         private System.Windows.Forms.TextBox txttinchi;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbohocky;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ma_lhp;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbohocky;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ma_dk;
     }
 }

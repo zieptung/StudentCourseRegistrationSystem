@@ -52,6 +52,12 @@
     <Compile Include="Formdangky.Designer.cs">
       <DependentUpon>Formdangky.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDSmondangky.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDSmondangky.Designer.cs">
+      <DependentUpon>FormDSmondangky.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDSmonhoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     </Compile>
     <EmbeddedResource Include="Formdangky.resx">
       <DependentUpon>Formdangky.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDSmondangky.resx">
+      <DependentUpon>FormDSmondangky.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDSmonhoc.resx">
       <DependentUpon>FormDSmonhoc.cs</DependentUpon>

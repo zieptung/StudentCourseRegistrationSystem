@@ -68,6 +68,11 @@ namespace StudentCourseRegistrationSystem
             OpenForm(new FormDSmonhoc());
         }
 
-       
+        private void danhSáchMônĐãĐăngKýToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenForm(new FormDSmondangky());
+        }
+
+        
     }
 }
