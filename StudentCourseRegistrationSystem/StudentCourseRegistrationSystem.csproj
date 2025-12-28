@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="CrudLib.cs" />
     <Compile Include="DbConnection.cs" />
     <Compile Include="FormAdmin.cs">
@@ -54,6 +53,8 @@
     </Compile>
     <Compile Include="FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
+    <Compile Include="FormGV.Designer.cs">
+      <DependentUpon>FormGV.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLog.cs">
       <SubType>Form</SubType>
@@ -66,14 +67,8 @@
     </Compile>
     <Compile Include="FormSV.Designer.cs">
       <DependentUpon>FormSV.cs</DependentUpon>
-=======
-    <Compile Include="FormGV.cs">
-      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGV.Designer.cs">
-      <DependentUpon>FormGV.cs</DependentUpon>
->>>>>>> origin/huy
-    </Compile>
+    <Compile Include="Form_giangvien.cs">
     <Compile Include="FormQLMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,7 +77,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
+    <EmbeddedResource Include="FormGV.resx">
+      <DependentUpon>FormGV.cs</DependentUpon>
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,11 +87,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSV.resx">
       <DependentUpon>FormSV.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="FormGV.resx">
-      <DependentUpon>FormGV.cs</DependentUpon>
->>>>>>> origin/huy
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_giangvien.resx">
+      <DependentUpon>Form_giangvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_QLMonHoc.resx">
+      <DependentUpon>Form_QLMonHoc.cs</DependentUpon>
     <EmbeddedResource Include="FormQLMonHoc.resx">
       <DependentUpon>FormQLMonHoc.cs</DependentUpon>
     </EmbeddedResource>
