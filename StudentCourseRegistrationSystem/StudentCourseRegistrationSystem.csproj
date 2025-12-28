@@ -47,6 +47,7 @@
   </ItemGroup>
   <!-- Code files -->
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="CrudLib.cs" />
     <Compile Include="DbConnection.cs" />
     <Compile Include="FormAdmin.cs">
@@ -78,19 +79,100 @@
     </Compile>
     <Compile Include="GV_QLMonHoc.Designer.cs">
       <DependentUpon>GV_QLMonHoc.cs</DependentUpon>
+=======
+    <Compile Include="Formdangky.cs">
+      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formdangky.Designer.cs">
+      <DependentUpon>Formdangky.cs</DependentUpon>
+>>>>>>> origin/duong
+    </Compile>
+    <Compile Include="FormDSmondangky.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDSmondangky.Designer.cs">
+      <DependentUpon>FormDSmondangky.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDSmonhoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDSmonhoc.Designer.cs">
+      <DependentUpon>FormDSmonhoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSV.Designer.cs">
+      <DependentUpon>FormSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormXemtkb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormXemtkb.Designer.cs">
+      <DependentUpon>FormXemtkb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormXemttcn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormXemttcn.Designer.cs">
+      <DependentUpon>FormXemttcn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ketnoi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="QLTCDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLTCDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Formdangky.resx">
+      <DependentUpon>Formdangky.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDSmondangky.resx">
+      <DependentUpon>FormDSmondangky.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDSmonhoc.resx">
+      <DependentUpon>FormDSmonhoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSV.resx">
+      <DependentUpon>FormSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormXemtkb.resx">
+      <DependentUpon>FormXemtkb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormXemttcn.resx">
+      <DependentUpon>FormXemttcn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+>>>>>>> origin/duong
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="QLTCDataSet.xsc">
+      <DependentUpon>QLTCDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLTCDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLTCDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLTCDataSet.xss">
+      <DependentUpon>QLTCDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <!-- Resources (.resx) -->
   <ItemGroup>
@@ -156,5 +238,21 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DefaultAvatar.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2025-12-27 163425.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\default_avatar.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\default_avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UpgradeLog.htm" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
