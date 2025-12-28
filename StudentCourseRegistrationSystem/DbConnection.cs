@@ -4,7 +4,6 @@ namespace StudentCourseRegistrationSystem
 {
     internal static class DbConnection
     {
-        // 1 dòng cho chắc, tránh lỗi do xuống dòng/space
         private static readonly string connectionString =
             @"Server=DIEPTUNG\SQLEXPRESS;Database=QLTC;Trusted_Connection=True;TrustServerCertificate=True;";
 

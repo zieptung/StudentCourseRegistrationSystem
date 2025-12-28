@@ -76,6 +76,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.BackColor = System.Drawing.Color.LightBlue;
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.cboRole);
@@ -250,11 +252,15 @@
             // dgvDSAccount
             // 
             this.dgvDSAccount.AllowUserToAddRows = false;
+            this.dgvDSAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDSAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDSAccount.BackgroundColor = System.Drawing.Color.White;
             this.dgvDSAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSAccount.Location = new System.Drawing.Point(-5, -1);
             this.dgvDSAccount.Name = "dgvDSAccount";
+            this.dgvDSAccount.RowHeadersVisible = false;
             this.dgvDSAccount.RowHeadersWidth = 51;
             this.dgvDSAccount.RowTemplate.Height = 24;
             this.dgvDSAccount.Size = new System.Drawing.Size(634, 485);

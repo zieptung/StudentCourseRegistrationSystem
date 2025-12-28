@@ -33,6 +33,7 @@
             this.btnQuay = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbMaKhoa = new System.Windows.Forms.ComboBox();
             this.txtSoTietTH = new System.Windows.Forms.TextBox();
             this.txtSoTietLT = new System.Windows.Forms.TextBox();
             this.txtSoTinChi = new System.Windows.Forms.TextBox();
@@ -47,53 +48,56 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnTK = new System.Windows.Forms.Button();
-            this.cbMaKhoa = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(425, 59);
+            this.btnThem.BackColor = System.Drawing.Color.Lime;
+            this.btnThem.Location = new System.Drawing.Point(411, 79);
             this.btnThem.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(151, 31);
+            this.btnThem.Size = new System.Drawing.Size(151, 46);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "THÊM MÔN HỌC";
-            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(657, 59);
+            this.btnSua.BackColor = System.Drawing.Color.Lime;
+            this.btnSua.Location = new System.Drawing.Point(411, 160);
             this.btnSua.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(151, 31);
+            this.btnSua.Size = new System.Drawing.Size(151, 46);
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "SỬA MÔN HỌC";
-            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnQuay
             // 
-            this.btnQuay.Location = new System.Drawing.Point(425, 189);
+            this.btnQuay.BackColor = System.Drawing.Color.LightGray;
+            this.btnQuay.Location = new System.Drawing.Point(642, 189);
             this.btnQuay.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnQuay.Name = "btnQuay";
-            this.btnQuay.Size = new System.Drawing.Size(151, 31);
+            this.btnQuay.Size = new System.Drawing.Size(151, 46);
             this.btnQuay.TabIndex = 2;
             this.btnQuay.Text = "QUAY LẠI";
-            this.btnQuay.UseVisualStyleBackColor = true;
+            this.btnQuay.UseVisualStyleBackColor = false;
             this.btnQuay.Click += new System.EventHandler(this.btnQuay_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(425, 121);
+            this.btnXoa.BackColor = System.Drawing.Color.LightCoral;
+            this.btnXoa.Location = new System.Drawing.Point(411, 238);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(151, 31);
+            this.btnXoa.Size = new System.Drawing.Size(151, 46);
             this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "XÓA MÔN HỌC";
-            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // groupBox1
@@ -112,11 +116,19 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(0, 49);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(362, 264);
+            this.groupBox1.Size = new System.Drawing.Size(375, 257);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ĐIỀN THÔNG TIN";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // cbMaKhoa
+            // 
+            this.cbMaKhoa.FormattingEnabled = true;
+            this.cbMaKhoa.Location = new System.Drawing.Point(103, 218);
+            this.cbMaKhoa.Name = "cbMaKhoa";
+            this.cbMaKhoa.Size = new System.Drawing.Size(253, 27);
+            this.cbMaKhoa.TabIndex = 18;
             // 
             // txtSoTietTH
             // 
@@ -209,48 +221,45 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(327, 9);
+            this.label1.BackColor = System.Drawing.Color.SkyBlue;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(214, 26);
+            this.label1.Size = new System.Drawing.Size(876, 44);
             this.label1.TabIndex = 6;
             this.label1.Text = "QUẢN LÍ MÔN HỌC";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(103, 312);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 312);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(672, 210);
+            this.dataGridView1.Size = new System.Drawing.Size(878, 210);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // btnTK
             // 
-            this.btnTK.Location = new System.Drawing.Point(657, 121);
+            this.btnTK.BackColor = System.Drawing.Color.Lime;
+            this.btnTK.Location = new System.Drawing.Point(642, 94);
             this.btnTK.Name = "btnTK";
-            this.btnTK.Size = new System.Drawing.Size(151, 31);
+            this.btnTK.Size = new System.Drawing.Size(151, 46);
             this.btnTK.TabIndex = 8;
             this.btnTK.Text = "TÌM KIẾM";
-            this.btnTK.UseVisualStyleBackColor = true;
+            this.btnTK.UseVisualStyleBackColor = false;
             this.btnTK.Click += new System.EventHandler(this.btnTK_Click);
             // 
-            // cbMaKhoa
-            // 
-            this.cbMaKhoa.FormattingEnabled = true;
-            this.cbMaKhoa.Location = new System.Drawing.Point(103, 218);
-            this.cbMaKhoa.Name = "cbMaKhoa";
-            this.cbMaKhoa.Size = new System.Drawing.Size(253, 27);
-            this.cbMaKhoa.TabIndex = 18;
-            // 
-            // FormQLMonHoc
+            // GV_QLMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(900, 534);
             this.Controls.Add(this.btnTK);
             this.Controls.Add(this.dataGridView1);
@@ -261,14 +270,13 @@
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
             this.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "FormQLMonHoc";
+            this.Name = "GV_QLMonHoc";
             this.Text = "Form_QLMonHoc";
             this.Load += new System.EventHandler(this.Form_QLMonHoc_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

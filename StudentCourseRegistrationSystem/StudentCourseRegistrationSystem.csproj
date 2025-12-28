@@ -45,6 +45,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+  <!-- Code files -->
   <ItemGroup>
     <Compile Include="CrudLib.cs" />
     <Compile Include="DbConnection.cs" />
@@ -53,6 +54,10 @@
     </Compile>
     <Compile Include="FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormGV.Designer.cs">
       <DependentUpon>FormGV.cs</DependentUpon>
     </Compile>
@@ -68,43 +73,14 @@
     <Compile Include="FormSV.Designer.cs">
       <DependentUpon>FormSV.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_giangvien.cs">
-    <Compile Include="FormQLMonHoc.cs">
+    <Compile Include="GV_QLMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormQLMonHoc.Designer.cs">
-      <DependentUpon>FormQLMonHoc.cs</DependentUpon>
+    <Compile Include="GV_QLMonHoc.Designer.cs">
+      <DependentUpon>GV_QLMonHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormGV.resx">
-      <DependentUpon>FormGV.cs</DependentUpon>
-    <EmbeddedResource Include="FormAdmin.resx">
-      <DependentUpon>FormAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLog.resx">
-      <DependentUpon>FormLog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSV.resx">
-      <DependentUpon>FormSV.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form_giangvien.resx">
-      <DependentUpon>Form_giangvien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form_QLMonHoc.resx">
-      <DependentUpon>Form_QLMonHoc.cs</DependentUpon>
-    <EmbeddedResource Include="FormQLMonHoc.resx">
-      <DependentUpon>FormQLMonHoc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,9 +92,41 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <!-- Resources (.resx) -->
+  <ItemGroup>
+    <EmbeddedResource Include="FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+      <CustomToolNamespace>StudentCourseRegistrationSystem.Properties</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGV.resx">
+      <DependentUpon>FormGV.cs</DependentUpon>
+      <LastGenOutput>FormGV1.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>StudentCourseRegistrationSystem.Properties</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLog.resx">
+      <DependentUpon>FormLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSV.resx">
+      <DependentUpon>FormSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GV_QLMonHoc.resx">
+      <DependentUpon>GV_QLMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Resources\pixel.png" />
   </ItemGroup>
+  <!-- Excel Interop -->
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
@@ -147,9 +155,6 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pixel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
