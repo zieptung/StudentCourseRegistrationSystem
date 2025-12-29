@@ -345,6 +345,7 @@
             this.DRVdangky.RowTemplate.Height = 24;
             this.DRVdangky.Size = new System.Drawing.Size(706, 211);
             this.DRVdangky.TabIndex = 13;
+            this.DRVdangky.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DRVdangky_CellContentClick);
             // 
             // Column1
             // 

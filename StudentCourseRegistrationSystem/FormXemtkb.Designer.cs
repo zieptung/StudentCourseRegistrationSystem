@@ -40,7 +40,7 @@
             // 
             this.cboHocKy.FormattingEnabled = true;
             this.cboHocKy.Location = new System.Drawing.Point(268, 86);
-            this.cboHocKy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboHocKy.Margin = new System.Windows.Forms.Padding(2);
             this.cboHocKy.Name = "cboHocKy";
             this.cboHocKy.Size = new System.Drawing.Size(171, 24);
             this.cboHocKy.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             this.btnXem.BackColor = System.Drawing.Color.Lime;
             this.btnXem.Location = new System.Drawing.Point(485, 83);
-            this.btnXem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXem.Margin = new System.Windows.Forms.Padding(2);
             this.btnXem.Name = "btnXem";
             this.btnXem.Size = new System.Drawing.Size(82, 36);
             this.btnXem.TabIndex = 1;
@@ -63,9 +63,10 @@
             this.dgvTKB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTKB.GridColor = System.Drawing.Color.Black;
             this.dgvTKB.Location = new System.Drawing.Point(11, 138);
-            this.dgvTKB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvTKB.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTKB.MultiSelect = false;
             this.dgvTKB.Name = "dgvTKB";
+            this.dgvTKB.RowHeadersVisible = false;
             this.dgvTKB.RowHeadersWidth = 82;
             this.dgvTKB.RowTemplate.Height = 33;
             this.dgvTKB.Size = new System.Drawing.Size(774, 265);
@@ -104,7 +105,7 @@
             this.Controls.Add(this.dgvTKB);
             this.Controls.Add(this.btnXem);
             this.Controls.Add(this.cboHocKy);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormXemtkb";
             this.Text = "FormXemtkb";
             this.Load += new System.EventHandler(this.FormXemtkb_Load);

@@ -16,12 +16,13 @@ namespace StudentCourseRegistrationSystem
         string connectionString = @"Server=DIEPTUNG\SQLEXPRESS;Database=QLTC;Trusted_Connection=True;TrustServerCertificate=True;";
 
 
-
-        public FormXemtkb()
+        private string Malienket;
+        public FormXemtkb(string Malienket)
         {
             InitializeComponent();
             Load += FormXemtkb_Load;
             btnXem.Click += btnXem_Click;
+            this.Malienket = Malienket;
         }
         private SqlConnection GetConn() => new SqlConnection(connectionString);
         string maSV = "SV01";

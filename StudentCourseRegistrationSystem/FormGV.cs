@@ -12,12 +12,12 @@ namespace StudentCourseRegistrationSystem
 {
     public partial class FormGV : Form
     {
-        private string Malienket;
+        private readonly string maGV;
 
-        public FormGV(string malienket)
+        public FormGV(string maGV)
         {
             InitializeComponent();
-            this.Malienket = Malienket;
+            this.maGV = maGV;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -46,10 +46,22 @@ namespace StudentCourseRegistrationSystem
 
         private void FormGV_Load(object sender, EventArgs e)
         {
-
+            txtGV.Text = maGV;
+            txtGV.ReadOnly = true;
+            txtGV.Enabled = false;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXemttcn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvtkb_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
