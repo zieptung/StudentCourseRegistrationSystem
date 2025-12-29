@@ -223,7 +223,7 @@
             // 
             this.btnMoi.Location = new System.Drawing.Point(1152, 298);
             this.btnMoi.Name = "btnMoi";
-            this.btnMoi.Size = new System.Drawing.Size(102, 55);
+            this.btnMoi.Size = new System.Drawing.Size(129, 55);
             this.btnMoi.TabIndex = 5;
             this.btnMoi.Text = "Làm mới";
             this.btnMoi.UseVisualStyleBackColor = true;
@@ -232,7 +232,7 @@
             // 
             this.btnSua.Location = new System.Drawing.Point(1216, 162);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(101, 47);
+            this.btnSua.Size = new System.Drawing.Size(117, 47);
             this.btnSua.TabIndex = 5;
             this.btnSua.Text = "Sửa lớp";
             this.btnSua.UseVisualStyleBackColor = true;

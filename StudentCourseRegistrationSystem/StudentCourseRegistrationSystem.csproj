@@ -96,6 +96,12 @@
     <Compile Include="FormXemtkb.Designer.cs">
       <DependentUpon>FormXemtkb.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormXemtkbGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormXemtkbGV.Designer.cs">
+      <DependentUpon>FormXemtkbGV.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormXemttcn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormXemtkb.resx">
       <DependentUpon>FormXemtkb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormXemtkbGV.resx">
+      <DependentUpon>FormXemtkbGV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormXemttcn.resx">
       <DependentUpon>FormXemttcn.cs</DependentUpon>

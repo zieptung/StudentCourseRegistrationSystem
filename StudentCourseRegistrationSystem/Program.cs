@@ -16,7 +16,7 @@ namespace StudentCourseRegistrationSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormQLLHP());
+            Application.Run(new FormXemtkb());
         }
     }
 }
