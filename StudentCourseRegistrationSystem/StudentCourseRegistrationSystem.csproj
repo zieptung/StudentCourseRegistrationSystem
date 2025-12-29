@@ -79,6 +79,12 @@
     <Compile Include="FormSV.Designer.cs">
       <DependentUpon>FormSV.cs</DependentUpon>
     </Compile>
+    <Compile Include="GV_QLLopHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GV_QLLopHocPhan.Designer.cs">
+      <DependentUpon>GV_QLLopHocPhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="GV_QLMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSV.resx">
       <DependentUpon>FormSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GV_QLLopHocPhan.resx">
+      <DependentUpon>GV_QLLopHocPhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GV_QLMonHoc.resx">
       <DependentUpon>GV_QLMonHoc.cs</DependentUpon>

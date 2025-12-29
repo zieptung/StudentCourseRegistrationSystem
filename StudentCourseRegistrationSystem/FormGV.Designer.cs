@@ -59,6 +59,7 @@
             this.btnQLSinhVien.TabIndex = 2;
             this.btnQLSinhVien.Text = "Quản lí sinh viên";
             this.btnQLSinhVien.UseVisualStyleBackColor = false;
+            this.btnQLSinhVien.Click += new System.EventHandler(this.btnQLSinhVien_Click);
             // 
             // btnQLLopHP
             // 
@@ -69,6 +70,7 @@
             this.btnQLLopHP.TabIndex = 3;
             this.btnQLLopHP.Text = "Quản lí lớp học phần";
             this.btnQLLopHP.UseVisualStyleBackColor = false;
+            this.btnQLLopHP.Click += new System.EventHandler(this.btnQLLopHP_Click);
             // 
             // btnXemBC
             // 
@@ -89,6 +91,7 @@
             this.btnXemttcn.TabIndex = 5;
             this.btnXemttcn.Text = "Xem thông tin cá nhân";
             this.btnXemttcn.UseVisualStyleBackColor = false;
+            this.btnXemttcn.Click += new System.EventHandler(this.btnXemttcn_Click);
             // 
             // btnThoat
             // 
