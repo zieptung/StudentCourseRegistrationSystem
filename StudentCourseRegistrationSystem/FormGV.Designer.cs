@@ -70,6 +70,7 @@
             this.btnQLSinhVien.TabIndex = 2;
             this.btnQLSinhVien.Text = "Quản lí sinh viên";
             this.btnQLSinhVien.UseVisualStyleBackColor = false;
+            this.btnQLSinhVien.Click += new System.EventHandler(this.btnQLSinhVien_Click);
             // 
             // btnQLLopHP
             // 
@@ -82,6 +83,7 @@
             this.btnQLLopHP.TabIndex = 3;
             this.btnQLLopHP.Text = "Quản lí lớp học phần";
             this.btnQLLopHP.UseVisualStyleBackColor = false;
+            this.btnQLLopHP.Click += new System.EventHandler(this.btnQLLopHP_Click);
             // 
             // btnXemBC
             // 
@@ -94,9 +96,8 @@
             this.btnXemBC.TabIndex = 4;
             this.btnXemBC.Text = "Xem báo cáo đăng ký";
             this.btnXemBC.UseVisualStyleBackColor = false;
-            // 
-            // btnDangxuat
-            // 
+
+
             this.btnDangxuat.BackColor = System.Drawing.Color.LightGray;
             this.btnDangxuat.ForeColor = System.Drawing.Color.Black;
             this.btnDangxuat.Location = new System.Drawing.Point(812, 29);
@@ -188,7 +189,6 @@
             this.dgvtkb.RowTemplate.Height = 24;
             this.dgvtkb.Size = new System.Drawing.Size(697, 307);
             this.dgvtkb.TabIndex = 10;
-            this.dgvtkb.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvtkb_CellContentClick);
             // 
             // FormGV
             // 
