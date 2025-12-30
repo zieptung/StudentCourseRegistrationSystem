@@ -56,25 +56,16 @@ namespace StudentCourseRegistrationSystem
 
         }
 
-<<<<<<< HEAD
         private void btnQLLopHP_Click(object sender, EventArgs e)
         {
             GV_QLLopHocPhan frm = new GV_QLLopHocPhan();
             frm.Show();
         }
-
-=======
->>>>>>> b1a277d580d221759969645b3f385be606430107
         private void btnXemttcn_Click(object sender, EventArgs e)
         {
 
         }
-
-<<<<<<< HEAD
         private void btnQLSinhVien_Click(object sender, EventArgs e)
-=======
-        private void dgvtkb_CellContentClick(object sender, DataGridViewCellEventArgs e)
->>>>>>> b1a277d580d221759969645b3f385be606430107
         {
 
         }
