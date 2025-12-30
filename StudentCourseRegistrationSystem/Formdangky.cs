@@ -14,18 +14,21 @@ namespace StudentCourseRegistrationSystem
 {
     public partial class Formdangky : Form
     {
-        public string MaSV = "SV001";
-        public Formdangky()
+        private readonly string Malienket;
+        public Formdangky(string malienket)
         {
             InitializeComponent();
-           
+            this.Malienket = malienket;
         }
 
        
 
         public void load_Formdangky()
         {
-            String sql = "SELECT lhp.ma_lhp,mh.ten_mon,mh.so_tin_chi,lhp.so_luong_toi_da,lhp.so_luong_da_dang_ky FROM LopHocPhan lhp JOIN MonHoc mh ON lhp.ma_mon=mh.ma_mon WHERE lhp.trang_thai = N'mở'AND lhp.so_luong_da_dang_ky < lhp.so_luong_toi_da;";
+            String sql = @"SELECT lhp.ma_lhp,mh.ten_mon,mh.so_tin_chi,lhp.so_luong_toi_da,lhp.so_luong_da_dang_ky
+                    FROM LopHocPhan lhp 
+                    JOIN MonHoc mh ON lhp.ma_mon=mh.ma_mon 
+                    WHERE lhp.trang_thai = N'mở' AND lhp.so_luong_da_dang_ky < lhp.so_luong_toi_da;";
             DbConnection.ketnoi_dulieu(DRVdangky, sql);
         }
         
@@ -33,12 +36,39 @@ namespace StudentCourseRegistrationSystem
         
         private void Formdangky_Load(object sender, EventArgs e)
         {
+            LoadHocKy();
+            LoadLopHocPhanTheoHocKy();
             load_Formdangky();
             LoadMonDaDangKy();
-            LoadHocKy();
-
         }
+        private void LoadLopHocPhanTheoHocKy()
+        {
+            string sql = @"
+                SELECT ma_lhp
+                FROM LopHocPhan
+                WHERE trang_thai = N'mở'
+                AND ma_hoc_ky = @hk
+                AND so_luong_da_dang_ky < so_luong_toi_da";
 
+            using (var conn = DbConnection.GetConnection())
+            using (var cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@hk", cbohocky.SelectedValue.ToString());
+
+                var dt = new DataTable();
+                new SqlDataAdapter(cmd).Fill(dt);
+
+                cbolop.DataSource = dt;
+                cbolop.DisplayMember = "ma_lhp";
+                cbolop.ValueMember = "ma_lhp";
+                cbolop.SelectedIndex = dt.Rows.Count > 0 ? 0 : -1;
+
+                if (dt.Rows.Count > 0)
+                    LoadLichHoc(cbolop.SelectedValue.ToString());
+                else
+                    cbolichhoc.DataSource = null;
+            }
+        }
         private void btndangky_Click(object sender, EventArgs e)
         {
             if (cbohocky.SelectedValue == null)
@@ -82,7 +112,7 @@ namespace StudentCourseRegistrationSystem
                     return;
                 }
 
-                if (TrungMaMon(MaSV, maLHP, maHocKy, tran))
+                if (TrungMaMon(Malienket, maLHP, maHocKy, tran))
                 {
                     MessageBox.Show("Bạn đã đăng ký môn học này trong học kỳ rồi!");
                     tran.Rollback();
@@ -93,7 +123,7 @@ namespace StudentCourseRegistrationSystem
                 string checkTrung = @" SELECT 1 FROM DangKyHocPhan dk JOIN ThoiKhoaBieu tkb1 ON dk.ma_tkb = tkb1.ma_tkb JOIN ThoiKhoaBieu tkb2 ON tkb2.ma_tkb = @tkb WHERE dk.ma_sv = @sv AND tkb1.thu = tkb2.thu AND ( tkb1.tiet_bat_dau <= tkb2.tiet_bat_dau + tkb2.so_tiet - 1 AND tkb1.tiet_bat_dau +    tkb1.so_tiet - 1 >= tkb2.tiet_bat_dau )";
 
                 SqlCommand cmdTrung = new SqlCommand(checkTrung, DbConnection.conn, tran);
-                cmdTrung.Parameters.AddWithValue("@sv", MaSV);
+                cmdTrung.Parameters.AddWithValue("@sv", Malienket);
                 cmdTrung.Parameters.AddWithValue("@tkb", maTKB);
 
                 if (cmdTrung.ExecuteScalar() != null)
@@ -107,7 +137,7 @@ namespace StudentCourseRegistrationSystem
                 string insert = @" INSERT INTO DangKyHocPhan (ma_sv, ma_lhp, ma_tkb, ma_hoc_ky, ngay_dang_ky, trang_thai) VALUES (@sv, @lhp, @tkb, @hk, GETDATE(), N'đăng ký')";
 
                 SqlCommand cmdInsert = new SqlCommand(insert, DbConnection.conn, tran);
-                cmdInsert.Parameters.AddWithValue("@sv", MaSV);
+                cmdInsert.Parameters.AddWithValue("@sv", Malienket);
                 cmdInsert.Parameters.AddWithValue("@lhp", maLHP);
                 cmdInsert.Parameters.AddWithValue("@tkb", maTKB);
                 cmdInsert.Parameters.AddWithValue("@hk", maHocKy);
@@ -228,19 +258,25 @@ namespace StudentCourseRegistrationSystem
         }
         private void LoadLichHoc(string maLHP)
         {
-            string sql = @" SELECT ma_tkb, CONCAT( N'Thứ ', thu, N' | Tiết ', tiet_bat_dau, '-', (tiet_bat_dau + so_tiet - 1)) AS lich_hoc FROM ThoiKhoaBieu WHERE ma_lhp = @ma_lhp";
+            string sql = @"
+                SELECT ma_tkb,
+               CONCAT(N'Thứ ', thu, N' | Tiết ', tiet_bat_dau, '-', (tiet_bat_dau + so_tiet - 1)) AS lich_hoc
+                FROM ThoiKhoaBieu
+                WHERE ma_lhp = @ma_lhp";
 
-            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
-            cmd.Parameters.AddWithValue("@ma_lhp", maLHP);
+            using (var conn = DbConnection.GetConnection())
+            using (var cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@ma_lhp", maLHP);
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                var dt = new DataTable();
+                new SqlDataAdapter(cmd).Fill(dt);
 
-            cbolichhoc.DataSource = dt;
-            cbolichhoc.DisplayMember = "lich_hoc"; 
-            cbolichhoc.ValueMember = "ma_tkb";     
-            cbolichhoc.SelectedIndex = -1;
+                cbolichhoc.DataSource = dt;
+                cbolichhoc.DisplayMember = "lich_hoc";
+                cbolichhoc.ValueMember = "ma_tkb";
+                cbolichhoc.SelectedIndex = dt.Rows.Count > 0 ? 0 : -1;
+            }
         }
 
         private bool LopDaDay(string maLHP)
@@ -261,7 +297,7 @@ namespace StudentCourseRegistrationSystem
             string sql = @" SELECT 1 FROM DangKyHocPhan dk JOIN ThoiKhoaBieu tkb1 ON dk.ma_tkb = tkb1.ma_tkb JOIN ThoiKhoaBieu tkb2 ON tkb2.ma_tkb = @tkb WHERE dk.ma_sv = @sv AND tkb1.thu = tkb2.thu AND ( tkb1.tiet_bat_dau <= tkb2.tiet_bat_dau + tkb2.so_tiet - 1 AND tkb1.tiet_bat_dau + tkb1.so_tiet - 1 >= tkb2.tiet_bat_dau )";
 
             SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
-            cmd.Parameters.AddWithValue("@sv", MaSV);
+            cmd.Parameters.AddWithValue("@sv", Malienket);
             cmd.Parameters.AddWithValue("@tkb", maTKB);
 
             DbConnection.conn.Open();
@@ -289,15 +325,17 @@ namespace StudentCourseRegistrationSystem
         {
             string sql = @"SELECT dk.ma_dk,mh.ma_mon,mh.ten_mon,mh.so_tin_chi,dk.ma_lhp,dk.ma_hoc_ky,hk.ten_hoc_ky,hk.nam_hoc,CONCAT(RTRIM(hk.ten_hoc_ky),N' (',RTRIM(hk.nam_hoc),N')') AS hoc_ky,CONCAT(N'Thứ ', tkb.thu,N' | Tiết ',tkb.tiet_bat_dau, '-', (tkb.tiet_bat_dau + tkb.so_tiet - 1)) AS lich_hoc FROM DangKyHocPhan dk JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp JOIN MonHoc mh ON lhp.ma_mon = mh.ma_mon JOIN ThoiKhoaBieu tkb ON dk.ma_tkb = tkb.ma_tkb JOIN HocKy hk ON dk.ma_hoc_ky = hk.ma_hoc_ky WHERE dk.ma_sv = @sv ORDER BY hk.ngay_bat_dau DESC, mh.ma_mon";
 
-            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
-            cmd.Parameters.AddWithValue("@sv", MaSV);
+            using (var conn = DbConnection.GetConnection())
+            using (var cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.Add("@sv", SqlDbType.NVarChar, 50).Value = Malienket;
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                var dt = new DataTable();
+                using (var da = new SqlDataAdapter(cmd))
+                    da.Fill(dt);
 
-            DRVdangky.AutoGenerateColumns = false;
-            DRVdangky.DataSource = dt;
+                DRVdangky.DataSource = dt;
+            }
         }
 
 
@@ -318,7 +356,7 @@ namespace StudentCourseRegistrationSystem
             string sql = @" SELECT dk.ma_dk,mh.ma_mon,mh.ten_mon,mh.so_tin_chi,dk.ma_lhp,dk.ma_hoc_ky,hk.ten_hoc_ky,hk.nam_hoc,CONCAT(N'Thứ ', tkb.thu, N' | Tiết ',tkb.tiet_bat_dau, '-', (tkb.tiet_bat_dau + tkb.so_tiet - 1)) AS lich_hoc FROM DangKyHocPhan dk JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp JOIN MonHoc mh ON lhp.ma_mon = mh.ma_mon JOIN ThoiKhoaBieu tkb ON dk.ma_tkb = tkb.ma_tkb JOIN HocKy hk ON dk.ma_hoc_ky = hk.ma_hoc_ky WHERE dk.ma_sv = @sv AND (mh.ma_mon LIKE @key OR mh.ten_mon LIKE @key) ORDER BY hk.ngay_bat_dau DESC, mh.ma_mon";
 
             SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
-            cmd.Parameters.AddWithValue("@sv", MaSV);
+            cmd.Parameters.AddWithValue("@sv", Malienket);
             cmd.Parameters.AddWithValue("@key", "%" + key + "%");
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -389,19 +427,40 @@ namespace StudentCourseRegistrationSystem
             }
         private void LoadHocKy()
         {
-            string sql = @"SELECT ma_hoc_ky,ten_hoc_ky + N' (' + nam_hoc + N')' AS hocky_hienthi FROM HocKy ORDER BY ngay_bat_dau DESC";
+            string sql = @"SELECT ma_hoc_ky,
+                          ten_hoc_ky + N' (' + nam_hoc + N')' AS hocky_hienthi
+                          FROM HocKy
+                          ORDER BY ngay_bat_dau DESC";
 
-            SqlDataAdapter da = new SqlDataAdapter(sql, DbConnection.conn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            using (var conn = DbConnection.GetConnection())
+            using (var da = new SqlDataAdapter(sql, conn))
+            {
+                var dt = new DataTable();
+                da.Fill(dt);
 
-            cbohocky.DataSource = dt;
-            cbohocky.DisplayMember = "hocky_hienthi";
-            cbohocky.ValueMember = "ma_hoc_ky";
-            cbohocky.SelectedIndex = -1;
+                cbohocky.DataSource = dt;
+                cbohocky.DisplayMember = "hocky_hienthi";
+                cbohocky.ValueMember = "ma_hoc_ky";
+
+                cbohocky.SelectedIndex = dt.Rows.Count > 0 ? 0 : -1;
+            }
         }
 
+        private void cbolop_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbolop.SelectedValue == null) return;
+            LoadLichHoc(cbolop.SelectedValue.ToString());
+        }
 
+        private void cbohocky_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            LoadLopHocPhanTheoHocKy();
+        }
+
+        private void DRVdangky_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
  

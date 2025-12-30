@@ -93,7 +93,7 @@
             this.DRVdanhsach.RowHeadersWidth = 51;
             this.DRVdanhsach.RowTemplate.Height = 24;
             this.DRVdanhsach.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.DRVdanhsach.Size = new System.Drawing.Size(877, 352);
+            this.DRVdanhsach.Size = new System.Drawing.Size(864, 352);
             this.DRVdanhsach.TabIndex = 1;
             // 
             // mamonDataGridViewTextBoxColumn

@@ -63,9 +63,10 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label1.BackColor = System.Drawing.Color.DarkCyan;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(1, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1262, 59);
@@ -78,7 +79,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBox1.BackColor = System.Drawing.Color.DarkCyan;
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.cboRole);
             this.groupBox1.Controls.Add(this.btnTimKiem);
@@ -93,6 +94,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(-1, -1);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(626, 311);
@@ -103,6 +105,7 @@
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.LightCoral;
+            this.btnClear.ForeColor = System.Drawing.Color.Black;
             this.btnClear.Location = new System.Drawing.Point(484, 109);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(110, 42);
@@ -127,6 +130,7 @@
             // btnTimKiem
             // 
             this.btnTimKiem.BackColor = System.Drawing.Color.Lime;
+            this.btnTimKiem.ForeColor = System.Drawing.Color.Black;
             this.btnTimKiem.Location = new System.Drawing.Point(434, 248);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(156, 36);
@@ -139,6 +143,7 @@
             // 
             this.btnXoa.BackColor = System.Drawing.Color.LightCoral;
             this.btnXoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXoa.ForeColor = System.Drawing.Color.Black;
             this.btnXoa.Location = new System.Drawing.Point(295, 248);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(93, 36);
@@ -151,6 +156,7 @@
             // 
             this.btnSua.BackColor = System.Drawing.Color.Lime;
             this.btnSua.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSua.ForeColor = System.Drawing.Color.Black;
             this.btnSua.Location = new System.Drawing.Point(157, 248);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(93, 36);
@@ -163,6 +169,7 @@
             // 
             this.btnThem.BackColor = System.Drawing.Color.Lime;
             this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThem.ForeColor = System.Drawing.Color.Black;
             this.btnThem.Location = new System.Drawing.Point(19, 248);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(93, 36);
@@ -270,12 +277,13 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBox2.BackColor = System.Drawing.Color.DarkCyan;
             this.groupBox2.Controls.Add(this.btnXuatExcel);
             this.groupBox2.Controls.Add(this.btnNhapExcel);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(-1, -1);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(626, 175);
@@ -287,6 +295,7 @@
             // btnXuatExcel
             // 
             this.btnXuatExcel.BackColor = System.Drawing.Color.Lime;
+            this.btnXuatExcel.ForeColor = System.Drawing.Color.Black;
             this.btnXuatExcel.Location = new System.Drawing.Point(323, 104);
             this.btnXuatExcel.Name = "btnXuatExcel";
             this.btnXuatExcel.Size = new System.Drawing.Size(156, 36);
@@ -298,6 +307,7 @@
             // btnNhapExcel
             // 
             this.btnNhapExcel.BackColor = System.Drawing.Color.Lime;
+            this.btnNhapExcel.ForeColor = System.Drawing.Color.Black;
             this.btnNhapExcel.Location = new System.Drawing.Point(110, 103);
             this.btnNhapExcel.Name = "btnNhapExcel";
             this.btnNhapExcel.Size = new System.Drawing.Size(156, 36);

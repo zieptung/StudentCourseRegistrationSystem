@@ -13,10 +13,11 @@ namespace StudentCourseRegistrationSystem
 {
     public partial class FormDSmondangky : Form
     {
-        public string MaSV = "SV001";
-        public FormDSmondangky()
+        private readonly string Malienket;
+        public FormDSmondangky(string Malienket)
         {
             InitializeComponent();
+            this.Malienket = Malienket;
         }
 
         public void load_Formdangky()
@@ -33,7 +34,7 @@ namespace StudentCourseRegistrationSystem
             string sql = @"SELECT dk.ma_dk,mh.ma_mon,mh.ten_mon,mh.so_tin_chi,dk.ma_lhp,dk.ma_hoc_ky,hk.ten_hoc_ky,hk.nam_hoc,CONCAT(RTRIM(hk.ten_hoc_ky),N' (',RTRIM(hk.nam_hoc),N')') AS hoc_ky,CONCAT(N'Thứ ', tkb.thu,N' | Tiết ',tkb.tiet_bat_dau, '-', (tkb.tiet_bat_dau + tkb.so_tiet - 1)) AS lich_hoc FROM DangKyHocPhan dk JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp JOIN MonHoc mh ON lhp.ma_mon = mh.ma_mon JOIN ThoiKhoaBieu tkb ON dk.ma_tkb = tkb.ma_tkb JOIN HocKy hk ON dk.ma_hoc_ky = hk.ma_hoc_ky WHERE dk.ma_sv = @sv ORDER BY hk.ngay_bat_dau DESC, mh.ma_mon";
 
             SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
-            cmd.Parameters.AddWithValue("@sv", MaSV);
+            cmd.Parameters.AddWithValue("@sv", Malienket);
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -59,7 +60,7 @@ namespace StudentCourseRegistrationSystem
             string sql = @" SELECT dk.ma_dk,mh.ma_mon,mh.ten_mon,mh.so_tin_chi,dk.ma_lhp,dk.ma_hoc_ky,hk.ten_hoc_ky,hk.nam_hoc,CONCAT(N'Thứ ', tkb.thu, N' | Tiết ',tkb.tiet_bat_dau, '-', (tkb.tiet_bat_dau + tkb.so_tiet - 1)) AS lich_hoc FROM DangKyHocPhan dk JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp JOIN MonHoc mh ON lhp.ma_mon = mh.ma_mon JOIN ThoiKhoaBieu tkb ON dk.ma_tkb = tkb.ma_tkb JOIN HocKy hk ON dk.ma_hoc_ky = hk.ma_hoc_ky WHERE dk.ma_sv = @sv AND (mh.ma_mon LIKE @key OR mh.ten_mon LIKE @key) ORDER BY hk.ngay_bat_dau DESC, mh.ma_mon";
 
             SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
-            cmd.Parameters.AddWithValue("@sv", MaSV);
+            cmd.Parameters.AddWithValue("@sv", Malienket);
             cmd.Parameters.AddWithValue("@key", "%" + key + "%");
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);

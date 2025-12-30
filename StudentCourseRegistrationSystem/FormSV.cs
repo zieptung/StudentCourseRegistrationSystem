@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -14,19 +15,18 @@ namespace StudentCourseRegistrationSystem
 {
     public partial class FormSV : Form
     {
-        public string tensv = "Nguyễn Văn A";
         public string AvatarPath = @"avatar.jpg";
-        private string Malienket;
-        public FormSV(string malienket)
+        private readonly string maSV;
+        private readonly string Malienket;
+        public FormSV(string maSV)
         {
             InitializeComponent();
             LoadThongTinSinhVien();
-            this.Malienket = Malienket;
+            this.maSV = maSV;
         }
 
         private void LoadThongTinSinhVien()
         {
-            lbltensv.Text = tensv;
 
             Image img;
 
@@ -49,42 +49,6 @@ namespace StudentCourseRegistrationSystem
             gp.AddEllipse(0, 0, pic.Width - 1, pic.Height - 1);
             pic.Region = new Region(gp);
         }
-        private void OpenForm(Form f)
-        {
-            panelMain.Controls.Clear();   
-            f.TopLevel = false;           
-            f.FormBorderStyle = FormBorderStyle.None;
-            f.Dock = DockStyle.Fill;
-            panelMain.Controls.Add(f);
-            f.Show();
-        }
-
-        private void đăngKýMônHọcToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenForm(new Formdangky());
-        }
-
-        private void danhSáchMônHọcToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenForm(new FormDSmonhoc());
-        }
-
-        private void danhSáchMônĐãĐăngKýToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenForm(new FormDSmondangky());
-        }
-
-       
-
-        private void btnthongtin_Click(object sender, EventArgs e)
-        {
-            OpenForm(new FormXemttcn(Malienket));
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OpenForm(new FormXemtkb());
-        }
 
         private void avatar_Click(object sender, EventArgs e)
         {
@@ -93,15 +57,14 @@ namespace StudentCourseRegistrationSystem
 
         private void FormSV_Load(object sender, EventArgs e)
         {
+            LoadDanhSachMonHoc();
+            txtSV.Text = maSV;
 
+            txtSV.ReadOnly = true;
+            txtSV.Enabled = false;
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void btnDangxuat_Click(object sender, EventArgs e)
+        private void btnDangxuat_Click_1(object sender, EventArgs e)
         {
             DialogResult rs = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -110,6 +73,46 @@ namespace StudentCourseRegistrationSystem
                 new FormLog().Show();
                 this.Close();
             }
+        }
+
+        private void btnDkhp_Click(object sender, EventArgs e)
+        {
+            new Formdangky(Malienket).Show();
+        }
+
+        private void btnDsdk_Click(object sender, EventArgs e)
+        {
+            new FormDSmondangky(Malienket).Show();
+        }
+
+        private void btntkb_Click(object sender, EventArgs e)
+        {
+            new FormXemtkb(Malienket).Show();
+        }
+
+        private void LoadDanhSachMonHoc()
+        {
+            string sql = @"
+            SELECT 
+            mh.ma_mon   AS N'Mã môn',
+            mh.ten_mon  AS N'Tên môn',
+            mh.so_tin_chi AS N'Tín chỉ'
+            FROM MonHoc mh";
+
+            using (SqlConnection conn = DbConnection.GetConnection())
+            using (SqlDataAdapter da = new SqlDataAdapter(sql, conn))
+            {
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dgvhocphan.DataSource = dt;
+                dgvhocphan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+        }
+
+        private void dgvhocphan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

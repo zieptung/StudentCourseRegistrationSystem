@@ -240,5 +240,10 @@ namespace StudentCourseRegistrationSystem
             this.Owner.Show();
             this.Close();
         }
-}
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
 }
