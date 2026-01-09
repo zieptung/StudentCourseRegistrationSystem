@@ -20,56 +20,65 @@ namespace StudentCourseRegistrationSystem
 
         private void btnLog_Click(object sender, EventArgs e)
         {
-            string username = txtmsv.Text.Trim();
-            string password = txtmk.Text.Trim();
-    
-            if (username == "" || password == "")
+            string user = txtmsv.Text.Trim();
+            string pass = txtmk.Text.Trim();
+
+            if (user == "" || pass == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
                 return;
             }
 
-            using (SqlConnection conn = DbConnection.GetConnection())
+            try
             {
-                try
+                using (SqlConnection conn = DbConnection.GetConnection())
                 {
                     conn.Open();
 
-                    string sql = @"SELECT ma_vai_tro, ma_lien_ket
-                       FROM TaiKhoan
-                       WHERE ten_dang_nhap = @tenDangNhap
-                         AND mat_khau = @matKhau";
+                    string sql =
+                        "SELECT vai_tro, ma_lien_ket " +
+                        "FROM Admin " +
+                        "WHERE username = '" + user + "' " +
+                        "AND password = '" + pass + "' " +
+                        "AND trang_thai = N'Hoạt động'";
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@tenDangNhap", username);
-                    cmd.Parameters.AddWithValue("@matKhau", password);
+                    SqlDataReader rd = cmd.ExecuteReader();
 
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
+                    if (rd.Read() == false)
                     {
-                        string Vaitro = reader["ma_vai_tro"].ToString();
-                        string Malienket = reader["ma_lien_ket"].ToString();
+                        MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
+                        txtmk.Clear();
+                        txtmk.Focus();
+                        return;
+                    }
 
-                        if (Vaitro == "SV")
-                            new FormSV(Malienket).Show();
-                        else if (Vaitro == "GV")
-                            new FormGV(Malienket).Show();
-                        else if (Vaitro == "AD")
-                            new FormAdmin().Show();
+                    string role = rd["vai_tro"].ToString();
+                    string maLienKet = rd["ma_lien_ket"].ToString();
 
-                        this.Hide();
+                    if (role == "AD")
+                    {
+                        FormAdmin f = new FormAdmin();
+                        f.Show();
+                    }
+                    else if (role == "SV")
+                    {
+                        FormSV f = new FormSV(maLienKet);
+                        f.Show();
                     }
                     else
                     {
-                        MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
+                        MessageBox.Show("Vai trò không hợp lệ!");
+                        return;
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message);
+
+                    this.Hide();
                 }
             }
+            catch (Exception ex)
+            {
+                 MessageBox.Show("Lỗi: " + ex.Message);
+                }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -84,6 +93,7 @@ namespace StudentCourseRegistrationSystem
 
         private void FormLog_Load(object sender, EventArgs e)
         {
+
         }
 
         private void txtmsv_TextChanged(object sender, EventArgs e)

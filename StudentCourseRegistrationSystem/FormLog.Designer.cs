@@ -46,6 +46,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.SteelBlue;
             this.label1.Location = new System.Drawing.Point(78, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 23);
@@ -57,6 +58,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.SteelBlue;
             this.label2.Location = new System.Drawing.Point(78, 196);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 23);
@@ -66,6 +68,7 @@
             // txtmsv
             // 
             this.txtmsv.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmsv.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtmsv.Location = new System.Drawing.Point(82, 114);
             this.txtmsv.Multiline = true;
             this.txtmsv.Name = "txtmsv";
@@ -76,6 +79,7 @@
             // txtmk
             // 
             this.txtmk.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmk.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtmk.Location = new System.Drawing.Point(82, 222);
             this.txtmk.Multiline = true;
             this.txtmk.Name = "txtmk";
@@ -84,9 +88,10 @@
             // 
             // btnLog
             // 
-            this.btnLog.BackColor = System.Drawing.Color.Silver;
+            this.btnLog.BackColor = System.Drawing.Color.White;
             this.btnLog.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLog.Location = new System.Drawing.Point(15, 308);
+            this.btnLog.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnLog.Location = new System.Drawing.Point(12, 308);
             this.btnLog.Name = "btnLog";
             this.btnLog.Size = new System.Drawing.Size(178, 64);
             this.btnLog.TabIndex = 4;
@@ -96,10 +101,10 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.BackColor = System.Drawing.Color.Red;
+            this.btnThoat.BackColor = System.Drawing.Color.LightCoral;
             this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.ForeColor = System.Drawing.Color.Transparent;
-            this.btnThoat.Location = new System.Drawing.Point(209, 308);
+            this.btnThoat.ForeColor = System.Drawing.Color.LightCyan;
+            this.btnThoat.Location = new System.Drawing.Point(206, 308);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(178, 64);
             this.btnThoat.TabIndex = 5;
@@ -118,8 +123,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.DarkCyan;
+            this.groupBox1.BackColor = System.Drawing.Color.LightCyan;
             this.groupBox1.Font = new System.Drawing.Font("Agbalumo", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.SteelBlue;
             this.groupBox1.Location = new System.Drawing.Point(587, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(396, 58);
@@ -129,6 +135,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.LightCyan;
             this.groupBox2.Controls.Add(this.txtmsv);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btnThoat);
@@ -145,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(986, 537);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pictureBox1);

@@ -55,17 +55,17 @@
     <Compile Include="FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formdangky.cs">
+    <Compile Include="FormCTDK.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formdangky.Designer.cs">
-      <DependentUpon>Formdangky.cs</DependentUpon>
+    <Compile Include="FormCTDK.Designer.cs">
+      <DependentUpon>FormCTDK.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGV.cs">
+    <Compile Include="FormHP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGV.Designer.cs">
-      <DependentUpon>FormGV.cs</DependentUpon>
+    <Compile Include="FormHP.Designer.cs">
+      <DependentUpon>FormHP.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLog.cs">
       <SubType>Form</SubType>
@@ -73,53 +73,60 @@
     <Compile Include="FormLog.Designer.cs">
       <DependentUpon>FormLog.cs</DependentUpon>
     </Compile>
+    <!-- Dataset -->
+    <Compile Include="FormQLGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQLGV.Designer.cs">
+      <DependentUpon>FormQLGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQLLHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQLLHP.Designer.cs">
+      <DependentUpon>FormQLLHP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQLMH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQLMH.Designer.cs">
+      <DependentUpon>FormQLMH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQLND.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQLND.Designer.cs">
+      <DependentUpon>FormQLND.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQLSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQLSV.Designer.cs">
+      <DependentUpon>FormQLSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSV.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormSV.Designer.cs">
       <DependentUpon>FormSV.cs</DependentUpon>
     </Compile>
-    <Compile Include="GV_QLLopHocPhan.cs">
+    <Compile Include="FormSV_DKTC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GV_QLLopHocPhan.Designer.cs">
-      <DependentUpon>GV_QLLopHocPhan.cs</DependentUpon>
+    <Compile Include="FormSV_DKTC.Designer.cs">
+      <DependentUpon>FormSV_DKTC.cs</DependentUpon>
     </Compile>
-    <Compile Include="GV_QLMonHoc.cs">
+    <Compile Include="FormSV_DSTCDK.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GV_QLMonHoc.Designer.cs">
-      <DependentUpon>GV_QLMonHoc.cs</DependentUpon>
+    <Compile Include="FormSV_DSTCDK.Designer.cs">
+      <DependentUpon>FormSV_DSTCDK.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDSmondangky.cs">
+    <Compile Include="FormTK.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDSmondangky.Designer.cs">
-      <DependentUpon>FormDSmondangky.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormDSmonhoc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormDSmonhoc.Designer.cs">
-      <DependentUpon>FormDSmonhoc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormXemtkb.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormXemtkb.Designer.cs">
-      <DependentUpon>FormXemtkb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormXemttcn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormXemttcn.Designer.cs">
-      <DependentUpon>FormXemttcn.cs</DependentUpon>
-    </Compile>
-    <!-- Dataset -->
-    <Compile Include="QLTCDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLTCDataSet.xsd</DependentUpon>
+    <Compile Include="FormTK.Designer.cs">
+      <DependentUpon>FormTK.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,38 +145,42 @@
   <ItemGroup>
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
-      <CustomToolNamespace>StudentCourseRegistrationSystem.Properties</CustomToolNamespace>
-      <LastGenOutput>FormAdmin1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formdangky.resx">
-      <DependentUpon>Formdangky.cs</DependentUpon>
+    <EmbeddedResource Include="FormCTDK.resx">
+      <DependentUpon>FormCTDK.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGV.resx">
-      <DependentUpon>FormGV.cs</DependentUpon>
+    <EmbeddedResource Include="FormHP.resx">
+      <DependentUpon>FormHP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLog.resx">
       <DependentUpon>FormLog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormQLGV.resx">
+      <DependentUpon>FormQLGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQLLHP.resx">
+      <DependentUpon>FormQLLHP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQLMH.resx">
+      <DependentUpon>FormQLMH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQLND.resx">
+      <DependentUpon>FormQLND.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQLSV.resx">
+      <DependentUpon>FormQLSV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSV.resx">
       <DependentUpon>FormSV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GV_QLLopHocPhan.resx">
-      <DependentUpon>GV_QLLopHocPhan.cs</DependentUpon>
+    <EmbeddedResource Include="FormSV_DKTC.resx">
+      <DependentUpon>FormSV_DKTC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GV_QLMonHoc.resx">
-      <DependentUpon>GV_QLMonHoc.cs</DependentUpon>
+    <EmbeddedResource Include="FormSV_DSTCDK.resx">
+      <DependentUpon>FormSV_DSTCDK.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDSmondangky.resx">
-      <DependentUpon>FormDSmondangky.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormDSmonhoc.resx">
-      <DependentUpon>FormDSmonhoc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormXemtkb.resx">
-      <DependentUpon>FormXemtkb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormXemttcn.resx">
-      <DependentUpon>FormXemttcn.cs</DependentUpon>
+    <EmbeddedResource Include="FormTK.resx">
+      <DependentUpon>FormTK.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -179,17 +190,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="QLTCDataSet.xsc">
-      <DependentUpon>QLTCDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QLTCDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLTCDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QLTCDataSet.xss">
-      <DependentUpon>QLTCDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
