@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{51CB6C4C-3E45-48E8-BB4E-70E8F0F02025}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StudentCourseRegistrationSystem</RootNamespace>
+    <AssemblyName>StudentCourseRegistrationSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <!-- Code files -->
+  <ItemGroup>
+    <Compile Include="CrudLib.cs" />
+    <Compile Include="DbConnection.cs" />
+    <Compile Include="FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCTDK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCTDK.Designer.cs">
+      <DependentUpon>FormCTDK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHP.Designer.cs">
+      <DependentUpon>FormHP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLog.Designer.cs">
+      <DependentUpon>FormLog.cs</DependentUpon>
+    </Compile>
+    <!-- Dataset -->
+    <Compile Include="FormQLGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQLGV.Designer.cs">
+      <DependentUpon>FormQLGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQLLHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQLLHP.Designer.cs">
+      <DependentUpon>FormQLLHP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQLMH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQLMH.Designer.cs">
+      <DependentUpon>FormQLMH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQLND.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQLND.Designer.cs">
+      <DependentUpon>FormQLND.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQLSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQLSV.Designer.cs">
+      <DependentUpon>FormQLSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSV.Designer.cs">
+      <DependentUpon>FormSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSV_DKTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSV_DKTC.Designer.cs">
+      <DependentUpon>FormSV_DKTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSV_DSTCDK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSV_DSTCDK.Designer.cs">
+      <DependentUpon>FormSV_DSTCDK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTK.Designer.cs">
+      <DependentUpon>FormTK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <!-- Resources (.resx) -->
+  <ItemGroup>
+    <EmbeddedResource Include="FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCTDK.resx">
+      <DependentUpon>FormCTDK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHP.resx">
+      <DependentUpon>FormHP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLog.resx">
+      <DependentUpon>FormLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQLGV.resx">
+      <DependentUpon>FormQLGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQLLHP.resx">
+      <DependentUpon>FormQLLHP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQLMH.resx">
+      <DependentUpon>FormQLMH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQLND.resx">
+      <DependentUpon>FormQLND.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQLSV.resx">
+      <DependentUpon>FormQLSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSV.resx">
+      <DependentUpon>FormSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSV_DKTC.resx">
+      <DependentUpon>FormSV_DKTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSV_DSTCDK.resx">
+      <DependentUpon>FormSV_DSTCDK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTK.resx">
+      <DependentUpon>FormTK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Resources\pixel.png" />
+    <None Include="Resources\DefaultAvatar.bmp" />
+    <None Include="Resources\Screenshot 2025-12-27 163425.png" />
+    <None Include="Resources\default_avatar.png.png" />
+    <None Include="Resources\default_avatar.png" />
+  </ItemGroup>
+  <!-- Excel Interop -->
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
