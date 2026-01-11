@@ -38,9 +38,10 @@
             this.labelTitle.BackColor = System.Drawing.Color.LightCyan;
             this.labelTitle.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.SteelBlue;
-            this.labelTitle.Location = new System.Drawing.Point(12, 9);
+            this.labelTitle.Location = new System.Drawing.Point(18, 14);
+            this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(1274, 96);
+            this.labelTitle.Size = new System.Drawing.Size(1911, 150);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Thống kê đăng ký theo môn";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -59,9 +60,11 @@
             this.groupBox1.Controls.Add(this.labelHocKy);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.SteelBlue;
-            this.groupBox1.Location = new System.Drawing.Point(12, 108);
+            this.groupBox1.Location = new System.Drawing.Point(18, 169);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(366, 517);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(549, 808);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -69,9 +72,10 @@
             // 
             this.btnXuatExcel.BackColor = System.Drawing.Color.PaleGreen;
             this.btnXuatExcel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXuatExcel.Location = new System.Drawing.Point(23, 443);
+            this.btnXuatExcel.Location = new System.Drawing.Point(33, 664);
+            this.btnXuatExcel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnXuatExcel.Name = "btnXuatExcel";
-            this.btnXuatExcel.Size = new System.Drawing.Size(316, 56);
+            this.btnXuatExcel.Size = new System.Drawing.Size(474, 88);
             this.btnXuatExcel.TabIndex = 8;
             this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.UseVisualStyleBackColor = false;
@@ -81,9 +85,10 @@
             // 
             this.btnLamMoi.BackColor = System.Drawing.Color.PaleGreen;
             this.btnLamMoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.Location = new System.Drawing.Point(23, 369);
+            this.btnLamMoi.Location = new System.Drawing.Point(33, 549);
+            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(316, 56);
+            this.btnLamMoi.Size = new System.Drawing.Size(474, 88);
             this.btnLamMoi.TabIndex = 7;
             this.btnLamMoi.Text = "Làm mới";
             this.btnLamMoi.UseVisualStyleBackColor = false;
@@ -93,9 +98,10 @@
             // 
             this.btnThongKe.BackColor = System.Drawing.Color.PaleGreen;
             this.btnThongKe.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThongKe.Location = new System.Drawing.Point(23, 295);
+            this.btnThongKe.Location = new System.Drawing.Point(33, 433);
+            this.btnThongKe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(316, 56);
+            this.btnThongKe.Size = new System.Drawing.Size(474, 88);
             this.btnThongKe.TabIndex = 6;
             this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.UseVisualStyleBackColor = false;
@@ -105,20 +111,22 @@
             // 
             this.txtTongLuot.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTongLuot.ForeColor = System.Drawing.Color.SteelBlue;
-            this.txtTongLuot.Location = new System.Drawing.Point(23, 237);
+            this.txtTongLuot.Location = new System.Drawing.Point(33, 342);
+            this.txtTongLuot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTongLuot.Name = "txtTongLuot";
             this.txtTongLuot.ReadOnly = true;
-            this.txtTongLuot.Size = new System.Drawing.Size(316, 30);
+            this.txtTongLuot.Size = new System.Drawing.Size(472, 44);
             this.txtTongLuot.TabIndex = 5;
             // 
             // txtNamHoc
             // 
             this.txtNamHoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNamHoc.ForeColor = System.Drawing.Color.SteelBlue;
-            this.txtNamHoc.Location = new System.Drawing.Point(23, 155);
+            this.txtNamHoc.Location = new System.Drawing.Point(33, 214);
+            this.txtNamHoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNamHoc.Name = "txtNamHoc";
             this.txtNamHoc.ReadOnly = true;
-            this.txtNamHoc.Size = new System.Drawing.Size(316, 30);
+            this.txtNamHoc.Size = new System.Drawing.Size(472, 44);
             this.txtNamHoc.TabIndex = 4;
             // 
             // cboHocKy
@@ -127,9 +135,10 @@
             this.cboHocKy.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboHocKy.ForeColor = System.Drawing.Color.SteelBlue;
             this.cboHocKy.FormattingEnabled = true;
-            this.cboHocKy.Location = new System.Drawing.Point(23, 72);
+            this.cboHocKy.Location = new System.Drawing.Point(33, 84);
+            this.cboHocKy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboHocKy.Name = "cboHocKy";
-            this.cboHocKy.Size = new System.Drawing.Size(316, 30);
+            this.cboHocKy.Size = new System.Drawing.Size(472, 44);
             this.cboHocKy.TabIndex = 3;
             this.cboHocKy.SelectedIndexChanged += new System.EventHandler(this.cboHocKy_SelectedIndexChanged);
             // 
@@ -137,9 +146,10 @@
             // 
             this.labelTong.AutoSize = true;
             this.labelTong.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTong.Location = new System.Drawing.Point(19, 212);
+            this.labelTong.Location = new System.Drawing.Point(27, 303);
+            this.labelTong.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTong.Name = "labelTong";
-            this.labelTong.Size = new System.Drawing.Size(154, 22);
+            this.labelTong.Size = new System.Drawing.Size(247, 36);
             this.labelTong.TabIndex = 2;
             this.labelTong.Text = "Tổng lượt đăng ký";
             // 
@@ -147,9 +157,10 @@
             // 
             this.labelNamHoc.AutoSize = true;
             this.labelNamHoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNamHoc.Location = new System.Drawing.Point(19, 130);
+            this.labelNamHoc.Location = new System.Drawing.Point(27, 175);
+            this.labelNamHoc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNamHoc.Name = "labelNamHoc";
-            this.labelNamHoc.Size = new System.Drawing.Size(75, 22);
+            this.labelNamHoc.Size = new System.Drawing.Size(128, 36);
             this.labelNamHoc.TabIndex = 1;
             this.labelNamHoc.Text = "Năm học";
             // 
@@ -157,9 +168,10 @@
             // 
             this.labelHocKy.AutoSize = true;
             this.labelHocKy.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHocKy.Location = new System.Drawing.Point(19, 47);
+            this.labelHocKy.Location = new System.Drawing.Point(27, 45);
+            this.labelHocKy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHocKy.Name = "labelHocKy";
-            this.labelHocKy.Size = new System.Drawing.Size(68, 22);
+            this.labelHocKy.Size = new System.Drawing.Size(107, 36);
             this.labelHocKy.TabIndex = 0;
             this.labelHocKy.Text = "Học kỳ";
             // 
@@ -168,26 +180,28 @@
             this.dgvThongKe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvThongKe.BackgroundColor = System.Drawing.Color.LightCyan;
             this.dgvThongKe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvThongKe.Location = new System.Drawing.Point(384, 108);
+            this.dgvThongKe.Location = new System.Drawing.Point(576, 169);
+            this.dgvThongKe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvThongKe.MultiSelect = false;
             this.dgvThongKe.Name = "dgvThongKe";
             this.dgvThongKe.RowHeadersVisible = false;
             this.dgvThongKe.RowHeadersWidth = 51;
             this.dgvThongKe.RowTemplate.Height = 24;
             this.dgvThongKe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvThongKe.Size = new System.Drawing.Size(902, 517);
+            this.dgvThongKe.Size = new System.Drawing.Size(1353, 808);
             this.dgvThongKe.TabIndex = 2;
             // 
-            // FormThongKe
+            // FormTK
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1298, 637);
+            this.ClientSize = new System.Drawing.Size(1947, 995);
             this.Controls.Add(this.dgvThongKe);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelTitle);
-            this.Name = "FormThongKe";
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "FormTK";
             this.Text = "FormThongKe";
             this.Load += new System.EventHandler(this.FormThongKe_Load);
             this.groupBox1.ResumeLayout(false);

@@ -17,9 +17,6 @@ namespace StudentCourseRegistrationSystem
         public FormQLGV()
         {
             InitializeComponent();
-
-            // Nếu designer có gắn CellFormatting thì vẫn OK, nhưng giờ ta không cần nữa.
-            // Nếu bạn muốn giữ cũng được, nhưng mình sẽ KHÔNG dựa vào nó nữa.
         }
 
         private void FormQLGV_Load(object sender, EventArgs e)
@@ -59,7 +56,6 @@ namespace StudentCourseRegistrationSystem
                 dgvGiangVien.AutoGenerateColumns = true;
                 dgvGiangVien.DataSource = dt;
 
-                // ÉP cột trạng_thai về TEXT (nếu lỡ đang là checkbox do designer)
                 EnsureTrangThaiIsTextColumn();
 
                 dgvGiangVien.Columns["ma_gv"].HeaderText = "Mã GV";
