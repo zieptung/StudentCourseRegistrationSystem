@@ -53,6 +53,9 @@ namespace StudentCourseRegistrationSystem
             f.Dock = DockStyle.Fill;
 
             pnlMain.Controls.Add(f);
+            pnlMain.Tag = f;
+
+            f.BringToFront();
             f.Show();
         }
 
@@ -63,12 +66,11 @@ namespace StudentCourseRegistrationSystem
 
         private void btnDKTC_Click(object sender, EventArgs e)
         {
-            OpenFormInPanel(new FormSV_DKTC());
+            OpenFormInPanel(new FormSV_DKTC(maSv));
         }
-
         private void btnDSTCDK_Click(object sender, EventArgs e)
         {
-            OpenFormInPanel(new FormSV_DSTCDK());
+            OpenFormInPanel(new FormSV_DSTCDK(maSv));
         }
     }
 }

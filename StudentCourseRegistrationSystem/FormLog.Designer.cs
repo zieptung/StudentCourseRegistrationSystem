@@ -74,7 +74,6 @@
             this.txtmsv.Name = "txtmsv";
             this.txtmsv.Size = new System.Drawing.Size(211, 39);
             this.txtmsv.TabIndex = 2;
-            this.txtmsv.TextChanged += new System.EventHandler(this.txtmsv_TextChanged);
             // 
             // txtmk
             // 
@@ -159,7 +158,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FormLog";
             this.Text = "FormLog";
-            this.Load += new System.EventHandler(this.FormLog_Load);
+            
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

@@ -91,14 +91,7 @@ namespace StudentCourseRegistrationSystem
             }
         }
 
-        private void FormLog_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtmsv_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
+        
     }
 }
