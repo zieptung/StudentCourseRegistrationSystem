@@ -551,5 +551,10 @@ namespace StudentCourseRegistrationSystem
                 }
             }
         }
+
+        private void dgvGiangVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

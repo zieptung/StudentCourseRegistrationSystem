@@ -19,6 +19,7 @@
         {
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.btnNhap = new System.Windows.Forms.Button();
             this.btnXuat = new System.Windows.Forms.Button();
             this.dgvGiangVien = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiangVien)).BeginInit();
             this.SuspendLayout();
@@ -94,6 +94,16 @@
             this.groupBox1.Size = new System.Drawing.Size(366, 517);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.label10.Location = new System.Drawing.Point(215, 327);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 22);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Trạng thái";
             // 
             // label9
             // 
@@ -352,16 +362,7 @@
             this.dgvGiangVien.Size = new System.Drawing.Size(902, 517);
             this.dgvGiangVien.TabIndex = 9;
             this.dgvGiangVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGiangVien_CellClick);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.label10.Location = new System.Drawing.Point(215, 327);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(89, 22);
-            this.label10.TabIndex = 29;
-            this.label10.Text = "Trạng thái";
+            this.dgvGiangVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGiangVien_CellContentClick);
             // 
             // FormQLGV
             // 

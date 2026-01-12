@@ -64,11 +64,6 @@ namespace StudentCourseRegistrationSystem
             OpenFormInPanel(new FormHP());
         }
 
-        private void btnCTDK_Click(object sender, EventArgs e)
-        {
-            OpenFormInPanel(new FormCTDK());
-        }
-
         private void btnQLND_Click(object sender, EventArgs e)
         {
             OpenFormInPanel(new FormQLND());

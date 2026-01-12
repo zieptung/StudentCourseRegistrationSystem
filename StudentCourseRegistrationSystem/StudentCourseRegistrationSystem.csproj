@@ -47,6 +47,7 @@
   </ItemGroup>
   <!-- Code files -->
   <ItemGroup>
+    <Compile Include="CRUDLib.cs" />
     <Compile Include="DbConnection.cs" />
     <Compile Include="FormAdmin.cs">
       <SubType>Form</SubType>
@@ -54,11 +55,11 @@
     <Compile Include="FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCTDK.cs">
+    <Compile Include="FormCTLHP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCTDK.Designer.cs">
-      <DependentUpon>FormCTDK.cs</DependentUpon>
+    <Compile Include="FormCTLHP.Designer.cs">
+      <DependentUpon>FormCTLHP.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHP.cs">
       <SubType>Form</SubType>
@@ -145,8 +146,8 @@
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCTDK.resx">
-      <DependentUpon>FormCTDK.cs</DependentUpon>
+    <EmbeddedResource Include="FormCTLHP.resx">
+      <DependentUpon>FormCTLHP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHP.resx">
       <DependentUpon>FormHP.cs</DependentUpon>

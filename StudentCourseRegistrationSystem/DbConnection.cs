@@ -7,7 +7,7 @@ namespace StudentCourseRegistrationSystem
 {
     internal static class DbConnection
     {
-        private static readonly string connectionString = @"Server=DIEPTUNG\SQLEXPRESS;Database=QLTC;Trusted_Connection=True;TrustServerCertificate=True;";
+        private static readonly string connectionString = @"Server=PHAMHIEN;Database=QLTC;Trusted_Connection=True;TrustServerCertificate=True;";
 
         public static SqlConnection conn = new SqlConnection(connectionString);
         public static SqlConnection GetConnection()
