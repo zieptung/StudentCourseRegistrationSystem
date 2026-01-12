@@ -170,23 +170,6 @@ namespace StudentCourseRegistrationSystem
             DbConnection.conn.Close();
             return false;
         }
-        private void CapNhatSiSo(string maLHP)
-        {
-            string sql = @"
-                UPDATE LopHocPhan
-                SET so_luong_da_dang_ky = so_luong_da_dang_ky + 1
-                WHERE ma_lhp = @lhp
-            ";
-
-            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
-            cmd.Parameters.AddWithValue("@lhp", maLHP);
-
-            if (DbConnection.conn.State == ConnectionState.Closed)
-                DbConnection.conn.Open();
-
-            cmd.ExecuteNonQuery();
-            DbConnection.conn.Close();
-        }
 
         private void LoadSiSo(string maLHP)
         {
@@ -257,7 +240,7 @@ namespace StudentCourseRegistrationSystem
 
             LoadSiSo(maLHP);
             cbolichhoc.Items.Clear();
-            cbolichhoc.Items.Add("Thứ " + thu + " - Ca " + ca);
+            cbolichhoc.Items.Add( thu + " - Ca " + ca);
             cbolichhoc.SelectedIndex = 0;
         }
         private void cbohocky_SelectedIndexChanged(object sender, EventArgs e)
