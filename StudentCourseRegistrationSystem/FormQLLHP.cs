@@ -124,6 +124,31 @@ namespace StudentCourseRegistrationSystem
                                 .Cells["ma_lhp"].Value.ToString();
 
         }
+        private bool CheckTrungCaThuPhong(
+        string thu,
+        string caHoc,
+        string phongHoc,
+        string hocKy,
+        string maLHP = null)
+        {
+            string sql = $@"
+            SELECT COUNT(*)
+            FROM LopHocPhan
+            WHERE thu = N'{thu}'
+            AND ca_hoc = N'{caHoc}'
+            AND phong_hoc = N'{phongHoc}'
+            AND ma_hoc_ky = N'{hocKy}'";
+
+            if (!string.IsNullOrEmpty(maLHP))
+            {
+                sql += $" AND ma_lhp <> N'{maLHP}'";
+            }
+
+            int count = Convert.ToInt32(CrudLib.GetValue(sql));
+
+            return count > 0;
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtMaLHP.Text))
@@ -148,8 +173,24 @@ namespace StudentCourseRegistrationSystem
                 MessageBox.Show("Số lượng tối đa phải là số");
                 return;
             }
+            bool trung = CheckTrungCaThuPhong(
+                cboThu.Text,
+                cboCaHoc.Text,
+                txtPhongHoc.Text,
+                cboHocKy.SelectedValue.ToString()
+            );
 
-            // 2. Check trùng mã LHP
+            if (trung)
+            {
+                MessageBox.Show(
+                    "Phòng học đã có lớp khác vào cùng ca và thứ!",
+                    "Trùng lịch",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
             string sqlCheck = $"SELECT COUNT(*) FROM LopHocPhan WHERE ma_lhp = N'{txtMaLHP.Text.Trim()}'";
             if (Convert.ToInt32(CrudLib.GetValue(sqlCheck)) > 0)
             {
@@ -157,12 +198,10 @@ namespace StudentCourseRegistrationSystem
                 return;
             }
 
-            // 3. LẤY GIÁ TRỊ CHUẨN (CHỈ LẤY MÃ)
             string maMon = cboMaMon.SelectedValue.ToString().Trim();
             string hocKy = cboHocKy.SelectedValue.ToString().Trim();
             string maGV = cboGiangVien.SelectedValue.ToString().Trim();
 
-            // 4. INSERT – CHỈ LƯU MÃ
             string sqlInsert = $@"
         INSERT INTO LopHocPhan
         (ma_lhp, ma_mon, ma_hoc_ky, giang_vien,
@@ -178,7 +217,6 @@ namespace StudentCourseRegistrationSystem
          N'{txtPhongHoc.Text}',
          N'{cboTrangThai.Text}')";
 
-            // 5. Thực thi
             int result = CrudLib.IUDQuery(sqlInsert);
 
             if (result > 0)
@@ -195,14 +233,12 @@ namespace StudentCourseRegistrationSystem
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            // 1. Kiểm tra đã chọn lớp chưa
             if (string.IsNullOrWhiteSpace(txtMaLHP.Text))
             {
                 MessageBox.Show("Vui lòng chọn lớp học phần cần sửa");
                 return;
             }
 
-            // 2. Validate dữ liệu
             if (cboMaMon.SelectedValue == null ||
                 cboHocKy.SelectedValue == null ||
                 cboGiangVien.SelectedValue == null ||
@@ -219,15 +255,29 @@ namespace StudentCourseRegistrationSystem
                 MessageBox.Show("Số lượng tối đa phải là số");
                 return;
             }
+            bool trung = CheckTrungCaThuPhong(
+            cboThu.Text,
+            cboCaHoc.Text,
+            txtPhongHoc.Text,
+            cboHocKy.SelectedValue.ToString(),
+            txtMaLHP.Text);
 
-            // 3. Lấy giá trị CHUẨN (CHỈ LẤY MÃ)
+            if (trung)
+            {
+                MessageBox.Show(
+                    "Phòng học đã có lớp khác vào cùng ca và thứ!",
+                    "Trùng lịch",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
             string maLHP = txtMaLHP.Text.Trim();
             string maMon = cboMaMon.SelectedValue.ToString().Trim();
             string hocKy = cboHocKy.SelectedValue.ToString().Trim();
             string maGV = cboGiangVien.SelectedValue.ToString().Trim();
 
-            // 4. Câu lệnh UPDATE
-            // ⚠ Nếu bảng LopHocPhan KHÔNG có cột ten_mon → XÓA dòng ten_mon
             string sqlUpdate = $@"
         UPDATE LopHocPhan
         SET
@@ -241,7 +291,6 @@ namespace StudentCourseRegistrationSystem
             trang_thai = N'{cboTrangThai.Text}'
         WHERE ma_lhp = N'{maLHP}'";
 
-            // 5. Thực thi
             int result = CrudLib.IUDQuery(sqlUpdate);
 
             if (result > 0)
@@ -258,7 +307,6 @@ namespace StudentCourseRegistrationSystem
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            // 1. Kiểm tra đã chọn lớp học phần chưa
             if (string.IsNullOrWhiteSpace(txtMaLHP.Text))
             {
                 MessageBox.Show("Vui lòng chọn lớp học phần cần xóa");
@@ -267,7 +315,6 @@ namespace StudentCourseRegistrationSystem
 
             string maLHP = txtMaLHP.Text.Trim();
 
-            // 2. Kiểm tra lớp học phần đã có sinh viên đăng ký chưa
             string sqlCheck = $@"
         SELECT COUNT(*) 
         FROM DangKyLopHocPhan
@@ -286,7 +333,6 @@ namespace StudentCourseRegistrationSystem
                 return;
             }
 
-            // 3. Xác nhận xóa
             DialogResult dr = MessageBox.Show(
                 "Bạn có chắc chắn muốn xóa lớp học phần này không?",
                 "Xác nhận xóa",
@@ -297,7 +343,6 @@ namespace StudentCourseRegistrationSystem
             if (dr != DialogResult.Yes)
                 return;
 
-            // 4. Xóa lớp học phần
             string sqlDelete = $@"
             DELETE FROM LopHocPhan
             WHERE ma_lhp = N'{maLHP}'";
@@ -327,7 +372,6 @@ namespace StudentCourseRegistrationSystem
 
             if (string.IsNullOrWhiteSpace(keyword))
             {
-                // Nếu không nhập gì → load lại toàn bộ
                 LoadLopHocPhan();
                 return;
             }
@@ -361,15 +405,12 @@ namespace StudentCourseRegistrationSystem
 
         private void btnXuat_Click(object sender, EventArgs e)
         {
-            // Lấy dữ liệu từ DataGridView
             DataTable tb = dgvLopHocPhan.DataSource as DataTable;
             if (tb == null || tb.Rows.Count == 0)
             {
                 MessageBox.Show("Không có dữ liệu để xuất Excel");
                 return;
             }
-
-            // ================== TẠO EXCEL ==================
             ex_cel.Application oExcel = new ex_cel.Application();
             ex_cel.Workbooks oBooks;
             ex_cel.Sheets oSheets;
@@ -386,7 +427,6 @@ namespace StudentCourseRegistrationSystem
             oSheet = (ex_cel.Worksheet)oSheets.get_Item(1);
             oSheet.Name = "LopHocPhan";
 
-            // ================== TIÊU ĐỀ ==================
             ex_cel.Range head = oSheet.get_Range("A1", "J1");
             head.MergeCells = true;
             head.Value2 = "DANH SÁCH LỚP HỌC PHẦN";
@@ -395,7 +435,6 @@ namespace StudentCourseRegistrationSystem
             head.Font.Size = 16;
             head.HorizontalAlignment = ex_cel.XlHAlign.xlHAlignCenter;
 
-            // ================== HEADER CỘT ==================
             string[] headers =
             {
         "STT",
@@ -423,7 +462,6 @@ namespace StudentCourseRegistrationSystem
             rowHead.Interior.ColorIndex = 15;
             rowHead.HorizontalAlignment = ex_cel.XlHAlign.xlHAlignCenter;
 
-            // ================== ĐỔ DỮ LIỆU ==================
             object[,] arr = new object[tb.Rows.Count, 10];
 
             for (int r = 0; r < tb.Rows.Count; r++)
@@ -477,14 +515,12 @@ namespace StudentCourseRegistrationSystem
                 ex_cel.Range usedRange = oSheet.UsedRange;
                 int rowCount = usedRange.Rows.Count;
 
-                // Bắt đầu từ dòng 4 (vì 1: tiêu đề lớn, 3: header)
                 for (int i = 4; i <= rowCount; i++)
                 {
                     string maLHP = (oSheet.Cells[i, 2] as ex_cel.Range)?.Value2?.ToString();
                     if (string.IsNullOrWhiteSpace(maLHP))
                         continue;
 
-                    // Check trùng mã LHP
                     string sqlCheck = $"SELECT COUNT(*) FROM LopHocPhan WHERE ma_lhp = N'{maLHP}'";
                     int count = Convert.ToInt32(CrudLib.GetValue(sqlCheck));
                     if (count > 0)
@@ -499,7 +535,6 @@ namespace StudentCourseRegistrationSystem
                     string phongHoc = (oSheet.Cells[i, 9] as ex_cel.Range)?.Value2?.ToString();
                     string trangThai = (oSheet.Cells[i, 10] as ex_cel.Range)?.Value2?.ToString();
 
-                    // Nếu cột Mã môn / GV đang là "MH01 - Tên" → tách mã
                     if (maMon != null && maMon.Contains("-"))
                         maMon = maMon.Split('-')[0].Trim();
 
@@ -533,7 +568,6 @@ namespace StudentCourseRegistrationSystem
             }
             finally
             {
-                // Đóng & giải phóng COM
                 oBook?.Close(false);
                 oExcel.Quit();
 
