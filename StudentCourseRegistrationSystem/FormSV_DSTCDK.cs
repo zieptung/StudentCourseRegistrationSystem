@@ -37,7 +37,7 @@ namespace StudentCourseRegistrationSystem
                     lhp.ma_lhp,
                     lhp.phong_hoc,
                     N'Thứ ' + CAST(lhp.thu AS NVARCHAR) + N' - Ca ' + lhp.ca_hoc AS lich_hoc
-                FROM DangKyTinChi dk
+                FROM DangKyLopHocPhan dk
                 JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp
                 JOIN MonHoc mh ON lhp.ma_mon = mh.ma_mon
                 JOIN HocKy hk ON lhp.ma_hoc_ky = hk.ma_hoc_ky
@@ -57,7 +57,7 @@ namespace StudentCourseRegistrationSystem
         private void LoadLopHocPhanDangMo(string maMon, string maHocKy)
         {
             string sql = @"
-                SELECT ma_lhp, phong_hoc, thu, ca_hoc, so_luong_da_dang_ky, so_luong_toi_da
+                SELECT ma_lhp, phong_hoc, thu, ca_hoc, so_luong_toi_da
                 FROM LopHocPhan
                 WHERE ma_mon = @maMon
                   AND ma_hoc_ky = @hk
@@ -72,18 +72,20 @@ namespace StudentCourseRegistrationSystem
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            
             cbolop.DataSource = dt;
-            cbolop.DisplayMember = "ma_lhp";   
+            cbolop.DisplayMember = "ma_lhp";
             cbolop.ValueMember = "ma_lhp";
         }
 
         private void LoadSiSo(string maLHP)
         {
             string sql = @"
-                SELECT so_luong_da_dang_ky, so_luong_toi_da
-                FROM LopHocPhan
-                WHERE ma_lhp = @lhp
+                SELECT COUNT(dk.id_dang_ky) AS da_dang_ky, lhp.so_luong_toi_da
+                FROM LopHocPhan lhp
+                LEFT JOIN DangKyLopHocPhan dk 
+                    ON lhp.ma_lhp = dk.ma_lhp AND dk.trang_thai = N'Đã đăng ký'
+                WHERE lhp.ma_lhp = @lhp
+                GROUP BY lhp.so_luong_toi_da
             ";
 
             SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
@@ -96,9 +98,8 @@ namespace StudentCourseRegistrationSystem
 
             if (rd.Read())
             {
-                int da = Convert.ToInt32(rd["so_luong_da_dang_ky"]);
+                int da = Convert.ToInt32(rd["da_dang_ky"]);
                 int td = Convert.ToInt32(rd["so_luong_toi_da"]);
-
                 txtsiso.Text = da + " / " + td;
             }
 
@@ -127,7 +128,7 @@ namespace StudentCourseRegistrationSystem
         {
             string sql = @"
                 SELECT COUNT(*)
-                FROM DangKyTinChi dk
+                FROM DangKyLopHocPhan dk
                 JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp
                 WHERE dk.ma_sv = @sv
                 AND dk.trang_thai = N'Đã đăng ký'
@@ -153,9 +154,12 @@ namespace StudentCourseRegistrationSystem
         private bool KiemTrasiso(string maLHP)
         {
             string sql = @"
-                SELECT so_luong_da_dang_ky, so_luong_toi_da
-                FROM LopHocPhan
-                WHERE ma_lhp = @lhp
+                SELECT COUNT(dk.id_dang_ky) AS da_dang_ky, lhp.so_luong_toi_da
+                FROM LopHocPhan lhp
+                LEFT JOIN DangKyLopHocPhan dk 
+                    ON lhp.ma_lhp = dk.ma_lhp AND dk.trang_thai = N'Đã đăng ký'
+                WHERE lhp.ma_lhp = @lhp
+                GROUP BY lhp.so_luong_toi_da
             ";
 
             SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
@@ -168,13 +172,11 @@ namespace StudentCourseRegistrationSystem
 
             if (rd.Read())
             {
-                int daDangKy = Convert.ToInt32(rd["so_luong_da_dang_ky"]);
-                int toiDa = Convert.ToInt32(rd["so_luong_toi_da"]);
-
+                int da = Convert.ToInt32(rd["da_dang_ky"]);
+                int td = Convert.ToInt32(rd["so_luong_toi_da"]);
                 rd.Close();
                 DbConnection.conn.Close();
-
-                return daDangKy < toiDa;
+                return da < td;
             }
 
             rd.Close();
@@ -182,23 +184,7 @@ namespace StudentCourseRegistrationSystem
             return false;
         }
 
-        private void CapNhatSiSo(string maLHP)
-        {
-            string sql = @"
-                UPDATE LopHocPhan
-                SET so_luong_da_dang_ky = so_luong_da_dang_ky + 1
-                WHERE ma_lhp = @lhp
-            ";
-
-            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
-            cmd.Parameters.AddWithValue("@lhp", maLHP);
-
-            if (DbConnection.conn.State == ConnectionState.Closed)
-                DbConnection.conn.Open();
-
-            cmd.ExecuteNonQuery();
-            DbConnection.conn.Close();
-        }
+        
         private void dgvdanhsach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -212,7 +198,7 @@ namespace StudentCourseRegistrationSystem
             cbolop.Text = row.Cells[4].Value.ToString();
             cbophonghoc.Text = row.Cells[5].Value.ToString();
             cbolichhoc.Text = row.Cells[6].Value.ToString();
-                
+
             string maLHP = row.Cells[4].Value.ToString();
             LoadLopHocPhanDangMo(txtmamon.Text, GetMaHocKy());
             LoadSiSo(maLHP);
@@ -233,9 +219,9 @@ namespace StudentCourseRegistrationSystem
             string maLHP = dgvdanhsach.CurrentRow.Cells[4].Value.ToString();
 
             string sql = @"
-                UPDATE DangKyTinChi
-                SET trang_thai = N'Đã huỷ'
-                WHERE ma_sv = @sv AND ma_lhp = @lhp
+        UPDATE DangKyLopHocPhan 
+        SET trang_thai = N'Đã huỷ'
+        WHERE ma_sv = @sv AND ma_lhp = @lhp
     ";
 
             SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
@@ -247,9 +233,6 @@ namespace StudentCourseRegistrationSystem
 
             cmd.ExecuteNonQuery();
             DbConnection.conn.Close();
-
-            // giảm sĩ số
-            GiamSiSo(maLHP);
 
             MessageBox.Show("Đã huỷ môn học!");
             LoadDanhSachDaDangKy();
@@ -282,23 +265,20 @@ namespace StudentCourseRegistrationSystem
                 return;
             }
 
-            // check trùng lịch
             if (CheckTrungLichKhiSua(thuMoi, caMoi, maLHPcu))
             {
                 MessageBox.Show("Trùng lịch với môn khác!");
                 return;
             }
 
-            // check sĩ số
             if (!KiemTrasiso(maLHPmoi))
             {
                 MessageBox.Show("Lớp mới đã đủ sĩ số!");
                 return;
             }
 
-            // update đăng ký
             string sql = @"
-                UPDATE DangKyTinChi
+                UPDATE DangKyLopHocPhan 
                 SET ma_lhp = @lhpMoi
                 WHERE ma_sv = @sv AND ma_lhp = @lhpCu
             ";
@@ -314,30 +294,9 @@ namespace StudentCourseRegistrationSystem
             cmd.ExecuteNonQuery();
             DbConnection.conn.Close();
 
-            // cập nhật sĩ số
-            GiamSiSo(maLHPcu);
-            CapNhatSiSo(maLHPmoi);
-
             MessageBox.Show("Đổi lớp thành công!");
             LoadDanhSachDaDangKy();
-        }
-      
-        private void GiamSiSo(string maLHP)
-        {
-            string sql = @"
-                UPDATE LopHocPhan
-                SET so_luong_da_dang_ky = so_luong_da_dang_ky - 1
-                WHERE ma_lhp = @lhp
-            ";
-
-            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
-            cmd.Parameters.AddWithValue("@lhp", maLHP);
-
-            if (DbConnection.conn.State == ConnectionState.Closed)
-                DbConnection.conn.Open();
-
-            cmd.ExecuteNonQuery();
-            DbConnection.conn.Close();
+            LoadSiSo(maLHPmoi);
         }
 
         private void cbolop_SelectedIndexChanged(object sender, EventArgs e)
@@ -351,15 +310,15 @@ namespace StudentCourseRegistrationSystem
             string ca = row["ca_hoc"].ToString();
             string phong = row["phong_hoc"].ToString();
 
-            
+
             cbophonghoc.Text = phong;
 
-            
+
             cbolichhoc.Items.Clear();
             cbolichhoc.Items.Add("Thứ " + thu + " - Ca " + ca);
             cbolichhoc.SelectedIndex = 0;
 
-            
+
             LoadSiSo(maLHP);
         }
 
@@ -376,7 +335,7 @@ namespace StudentCourseRegistrationSystem
             string sql = @"
                 SELECT mh.ma_mon,mh.ten_mon, mh.so_tin_chi, hk.ten_hoc_ky + N' - ' + hk.nam_hoc AS hoc_ky, lhp.ma_lhp, lhp.phong_hoc,
                 N'Thứ ' + CAST(lhp.thu AS NVARCHAR) + N' - Ca ' + lhp.ca_hoc AS lich_hoc
-                FROM DangKyTinChi dk
+                FROM DangKyLopHocPhan dk
                 JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp
                 JOIN MonHoc mh ON lhp.ma_mon = mh.ma_mon
                 JOIN HocKy hk ON lhp.ma_hoc_ky = hk.ma_hoc_ky

@@ -72,6 +72,7 @@
             this.btnDX.TabIndex = 11;
             this.btnDX.Text = "Đăng xuất";
             this.btnDX.UseVisualStyleBackColor = false;
+            this.btnDX.Click += new System.EventHandler(this.btnDX_Click);
             // 
             // groupBox2
             // 
