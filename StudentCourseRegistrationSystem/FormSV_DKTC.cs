@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,25 +38,26 @@ namespace StudentCourseRegistrationSystem
         {
             string sql = @"
                 SELECT COUNT(*)
-                FROM DangKyTinChi dk
+                FROM DangKyLopHocPhan dk
                 JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp
                 WHERE dk.ma_sv = @sv
-                AND dk.trang_thai = N'Đã đăng ký'
-                AND lhp.thu = @thu
-                AND lhp.ca_hoc = @ca
+                  AND dk.trang_thai = N'Đã đăng ký'
+                  AND lhp.thu = @thu
+                  AND lhp.ca_hoc = @ca
             ";
 
             SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
             cmd.Parameters.AddWithValue("@sv", maSv);
             cmd.Parameters.AddWithValue("@thu", thu);
             cmd.Parameters.AddWithValue("@ca", caHoc);
+
             if (DbConnection.conn.State == ConnectionState.Closed)
                 DbConnection.conn.Open();
-            int count = (int)cmd.ExecuteScalar();
-            cmd.Dispose();
-            DbConnection.conn.Close();
-            return count > 0;
 
+            int count = (int)cmd.ExecuteScalar();
+            DbConnection.conn.Close();
+
+            return count > 0;
         }
 
         private void btndangky_Click(object sender, EventArgs e)
@@ -71,7 +73,7 @@ namespace StudentCourseRegistrationSystem
             string maLHP = row["ma_lhp"].ToString();
             string thu = row["thu"].ToString();
             string caHoc = row["ca_hoc"].ToString();
-            string maMon = txtmamon.Text;
+            string maMon = txtmamon.Text.Trim();
 
             if (CheckTrungMon(maMon))
             {
@@ -81,28 +83,28 @@ namespace StudentCourseRegistrationSystem
 
             if (CheckTrungLich(thu, caHoc))
             {
-                MessageBox.Show($" Trùng lịch! Bạn đã có môn vào {thu} - {caHoc}");
+                MessageBox.Show($"Trùng lịch! Bạn đã có môn vào {thu} - {caHoc}");
                 return;
             }
-            if (!KiemTrasiso(maLHP))
+
+            if (!KiemTraSiSo(maLHP))
             {
                 MessageBox.Show("Lớp đã đủ sĩ số!");
                 return;
             }
 
             DangKy(maLHP);
-            CapNhatSiSo(maLHP);
             LoadSiSo(maLHP);
         }
         private bool CheckTrungMon(string maMon)
         {
             string sql = @"
                 SELECT COUNT(*)
-                FROM DangKyTinChi dk
+                FROM DangKyLopHocPhan dk
                 JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp
                 WHERE dk.ma_sv = @sv
-                AND dk.trang_thai = N'Đã đăng ký'
-                AND lhp.ma_mon = @maMon
+                  AND dk.trang_thai = N'Đã đăng ký'
+                  AND lhp.ma_mon = @maMon
             ";
 
             SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
@@ -119,8 +121,10 @@ namespace StudentCourseRegistrationSystem
         }
         private void DangKy(string maLHP)
         {
-            string sql = @"INSERT INTO DangKyTinChi(ma_sv, ma_lhp, loai_dang_ky, trang_thai)
-                   VALUES(@sv, @lhp, N'Học mới', N'Đã đăng ký')";
+            string sql = @"
+                    INSERT INTO DangKyLopHocPhan(ma_sv, ma_lhp, trang_thai)
+                    VALUES(@sv, @lhp, N'Đã đăng ký')
+                ";
 
             SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
             cmd.Parameters.AddWithValue("@sv", maSv);
@@ -132,14 +136,17 @@ namespace StudentCourseRegistrationSystem
             cmd.ExecuteNonQuery();
             DbConnection.conn.Close();
 
-            MessageBox.Show(" Đăng ký thành công!");
+            MessageBox.Show("Đăng ký thành công!");
         }
-        private bool KiemTrasiso(string maLHP)
+        private bool KiemTraSiSo(string maLHP)
         {
             string sql = @"
-                SELECT so_luong_da_dang_ky, so_luong_toi_da
-                FROM LopHocPhan
-                WHERE ma_lhp = @lhp
+                SELECT COUNT(dk.id_dang_ky) AS da_dang_ky, lhp.so_luong_toi_da
+                FROM LopHocPhan lhp
+                LEFT JOIN DangKyLopHocPhan dk 
+                    ON lhp.ma_lhp = dk.ma_lhp AND dk.trang_thai = N'Đã đăng ký'
+                WHERE lhp.ma_lhp = @lhp
+                GROUP BY lhp.so_luong_toi_da
             ";
 
             SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
@@ -152,43 +159,27 @@ namespace StudentCourseRegistrationSystem
 
             if (rd.Read())
             {
-                int daDangKy = Convert.ToInt32(rd["so_luong_da_dang_ky"]);
-                int toiDa = Convert.ToInt32(rd["so_luong_toi_da"]);
-
+                int da = Convert.ToInt32(rd["da_dang_ky"]);
+                int td = Convert.ToInt32(rd["so_luong_toi_da"]);
                 rd.Close();
                 DbConnection.conn.Close();
-
-                return daDangKy < toiDa;
+                return da < td;
             }
 
             rd.Close();
             DbConnection.conn.Close();
             return false;
         }
-        private void CapNhatSiSo(string maLHP)
-        {
-            string sql = @"
-                UPDATE LopHocPhan
-                SET so_luong_da_dang_ky = so_luong_da_dang_ky + 1
-                WHERE ma_lhp = @lhp
-            ";
-
-            SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
-            cmd.Parameters.AddWithValue("@lhp", maLHP);
-
-            if (DbConnection.conn.State == ConnectionState.Closed)
-                DbConnection.conn.Open();
-
-            cmd.ExecuteNonQuery();
-            DbConnection.conn.Close();
-        }
 
         private void LoadSiSo(string maLHP)
         {
             string sql = @"
-                SELECT so_luong_da_dang_ky, so_luong_toi_da
-                FROM LopHocPhan
-                WHERE ma_lhp = @lhp
+                SELECT COUNT(dk.id_dang_ky) AS da_dang_ky, lhp.so_luong_toi_da
+                FROM LopHocPhan lhp
+                LEFT JOIN DangKyLopHocPhan dk 
+                    ON lhp.ma_lhp = dk.ma_lhp AND dk.trang_thai = N'Đã đăng ký'
+                WHERE lhp.ma_lhp = @lhp
+                GROUP BY lhp.so_luong_toi_da
             ";
 
             SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
@@ -198,13 +189,11 @@ namespace StudentCourseRegistrationSystem
                 DbConnection.conn.Open();
 
             SqlDataReader rd = cmd.ExecuteReader();
-
             if (rd.Read())
             {
-                int daDangKy = Convert.ToInt32(rd["so_luong_da_dang_ky"]);
-                int toiDa = Convert.ToInt32(rd["so_luong_toi_da"]);
-
-                txtsiso.Text = daDangKy + " / " + toiDa;
+                int da = Convert.ToInt32(rd["da_dang_ky"]);
+                int td = Convert.ToInt32(rd["so_luong_toi_da"]);
+                txtsiso.Text = da + " / " + td;
             }
 
             rd.Close();
@@ -251,7 +240,7 @@ namespace StudentCourseRegistrationSystem
 
             LoadSiSo(maLHP);
             cbolichhoc.Items.Clear();
-            cbolichhoc.Items.Add("Thứ " + thu + " - Ca " + ca);
+            cbolichhoc.Items.Add(thu + " - " + ca);
             cbolichhoc.SelectedIndex = 0;
         }
         private void cbohocky_SelectedIndexChanged(object sender, EventArgs e)
@@ -280,11 +269,11 @@ namespace StudentCourseRegistrationSystem
                 return;
 
             string sql = @"
-                SELECT ma_lhp, phong_hoc, thu, ca_hoc, so_luong_da_dang_ky, so_luong_toi_da
+                SELECT ma_lhp, phong_hoc, thu, ca_hoc, so_luong_toi_da
                 FROM LopHocPhan
                 WHERE ma_mon = @maMon
-                AND ma_hoc_ky = @hk
-                AND trang_thai = N'Đang mở'
+                  AND ma_hoc_ky = @hk
+                  AND trang_thai = N'Đang mở'
             ";
 
             SqlCommand cmd = new SqlCommand(sql, DbConnection.conn);
@@ -299,6 +288,7 @@ namespace StudentCourseRegistrationSystem
             cbolop.DisplayMember = "phong_hoc";
             cbolop.ValueMember = "ma_lhp";
         }
+
         private void LoadHocKy()
         {
             string sql = @"

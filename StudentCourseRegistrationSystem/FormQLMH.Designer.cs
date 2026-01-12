@@ -258,6 +258,7 @@
             this.dgvMonHoc.Location = new System.Drawing.Point(384, 108);
             this.dgvMonHoc.MultiSelect = false;
             this.dgvMonHoc.Name = "dgvMonHoc";
+            this.dgvMonHoc.ReadOnly = true;
             this.dgvMonHoc.RowHeadersVisible = false;
             this.dgvMonHoc.RowHeadersWidth = 51;
             this.dgvMonHoc.RowTemplate.Height = 24;

@@ -72,5 +72,17 @@ namespace StudentCourseRegistrationSystem
         {
             OpenFormInPanel(new FormSV_DSTCDK(maSv));
         }
+
+        private void btnDX_Click(object sender, EventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (rs == DialogResult.No)
+                return;
+
+            FormLog f = new FormLog();
+            f.Show();
+            this.Close();
+        }
     }
 }

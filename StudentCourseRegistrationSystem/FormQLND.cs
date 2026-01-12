@@ -49,8 +49,7 @@ namespace StudentCourseRegistrationSystem
         {
             using (SqlConnection conn = DbConnection.GetConnection())
             {
-                string sql =
-                    "SELECT username, password, ho_ten, vai_tro, ma_lien_ket, trang_thai " + "FROM Admin";
+                string sql ="SELECT username, password, ho_ten, vai_tro, ma_lien_ket, trang_thai " + "FROM Admin";
 
                 SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                 DataTable dt = new DataTable();
@@ -61,7 +60,7 @@ namespace StudentCourseRegistrationSystem
                 dgvTK.Columns["password"].HeaderText = "Mật khẩu";
                 dgvTK.Columns["ho_ten"].HeaderText = "Họ tên";
                 dgvTK.Columns["vai_tro"].HeaderText = "Vai trò";
-                dgvTK.Columns["ma_lien_ket"].HeaderText = "Mã liên kết";
+                dgvTK.Columns["ma_lien_ket"].HeaderText = "Mã sinh viên";
                 dgvTK.Columns["trang_thai"].HeaderText = "Trạng thái";
                 dgvTK.Refresh();
             }
@@ -80,6 +79,31 @@ namespace StudentCourseRegistrationSystem
 
             txtUsername.Enabled = true;
             txtUsername.Focus();
+        }
+
+        private int CheckTrungMaLienKet(string maLienKet)
+        {
+            using (SqlConnection conn = DbConnection.GetConnection())
+            {
+                conn.Open();
+                string sql = "SELECT COUNT(*) FROM Admin WHERE ma_lien_ket='" + maLienKet + "'";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        private int CheckTrungMaLienKetSua(string maLienKet, string usernameSua)
+        {
+            using (SqlConnection conn = DbConnection.GetConnection())
+            {
+                conn.Open();
+                string sql =
+                    "SELECT COUNT(*) FROM Admin " +
+                    "WHERE ma_lien_ket='" + maLienKet + "' " +
+                    "AND username<>'" + usernameSua + "'";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
         }
 
         private int CheckTrungUser(string user)
@@ -120,6 +144,13 @@ namespace StudentCourseRegistrationSystem
                 return;
             }
 
+            if (CheckTrungMaLienKet(maLienKet) > 0)
+            {
+                MessageBox.Show("Mã sinh viên này đã được dùng cho tài khoản khác!");
+                txtMaLienKet.Focus();
+                return;
+            }
+
             if (CheckTrungUser(user) > 0)
             {
                 MessageBox.Show("Tên đăng nhập đã tồn tại!");
@@ -131,7 +162,7 @@ namespace StudentCourseRegistrationSystem
             {
                 if (maLienKet == "")
                 {
-                    MessageBox.Show("Tài khoản SV phải có mã liên kết (mã SV)!");
+                    MessageBox.Show("Tài khoản SV phải có mã sinh viên!");
                     txtMaLienKet.Focus();
                     return;
                 }
@@ -139,6 +170,13 @@ namespace StudentCourseRegistrationSystem
                 if (CheckTonTaiSV(maLienKet) == 0)
                 {
                     MessageBox.Show("Mã sinh viên không tồn tại!");
+                    txtMaLienKet.Focus();
+                    return;
+                }
+
+                if (CheckTrungMaLienKet(maLienKet) > 0)
+                {
+                    MessageBox.Show("Mã sinh viên này đã tồn tại!");
                     txtMaLienKet.Focus();
                     return;
                 }
@@ -191,6 +229,13 @@ namespace StudentCourseRegistrationSystem
                 if (CheckTonTaiSV(maLienKet) == 0)
                 {
                     MessageBox.Show("Mã sinh viên không tồn tại!");
+                    return;
+                }
+
+                if (CheckTrungMaLienKetSua(maLienKet, user) > 0)
+                {
+                    MessageBox.Show("Mã sinh viên này đã thuộc về tài khoản khác!");
+                    txtMaLienKet.Focus();
                     return;
                 }
             }

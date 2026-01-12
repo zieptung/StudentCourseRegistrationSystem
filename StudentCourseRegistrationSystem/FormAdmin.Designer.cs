@@ -31,7 +31,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnQLND = new System.Windows.Forms.Button();
             this.btnDX = new System.Windows.Forms.Button();
-            this.btnCTDK = new System.Windows.Forms.Button();
             this.btnHP = new System.Windows.Forms.Button();
             this.btnTK = new System.Windows.Forms.Button();
             this.btnQLGV = new System.Windows.Forms.Button();
@@ -48,7 +47,6 @@
             this.groupBox1.BackColor = System.Drawing.Color.LightCyan;
             this.groupBox1.Controls.Add(this.btnQLND);
             this.groupBox1.Controls.Add(this.btnDX);
-            this.groupBox1.Controls.Add(this.btnCTDK);
             this.groupBox1.Controls.Add(this.btnHP);
             this.groupBox1.Controls.Add(this.btnTK);
             this.groupBox1.Controls.Add(this.btnQLGV);
@@ -68,7 +66,7 @@
             // btnQLND
             // 
             this.btnQLND.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQLND.Location = new System.Drawing.Point(0, 407);
+            this.btnQLND.Location = new System.Drawing.Point(0, 355);
             this.btnQLND.Name = "btnQLND";
             this.btnQLND.Size = new System.Drawing.Size(214, 46);
             this.btnQLND.TabIndex = 8;
@@ -88,17 +86,6 @@
             this.btnDX.Text = "Đăng xuất";
             this.btnDX.UseVisualStyleBackColor = false;
             this.btnDX.Click += new System.EventHandler(this.btnDX_Click);
-            // 
-            // btnCTDK
-            // 
-            this.btnCTDK.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCTDK.Location = new System.Drawing.Point(0, 355);
-            this.btnCTDK.Name = "btnCTDK";
-            this.btnCTDK.Size = new System.Drawing.Size(214, 46);
-            this.btnCTDK.TabIndex = 6;
-            this.btnCTDK.Text = "Chi tiết đăng ký";
-            this.btnCTDK.UseVisualStyleBackColor = true;
-            this.btnCTDK.Click += new System.EventHandler(this.btnCTDK_Click);
             // 
             // btnHP
             // 
@@ -215,7 +202,6 @@
         private System.Windows.Forms.Button btnQLLHP;
         private System.Windows.Forms.Button btnQLMH;
         private System.Windows.Forms.Button btnDX;
-        private System.Windows.Forms.Button btnCTDK;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Button btnQLND;
     }

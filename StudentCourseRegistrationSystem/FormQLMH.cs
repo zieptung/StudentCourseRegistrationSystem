@@ -72,16 +72,20 @@ namespace StudentCourseRegistrationSystem
             string ma = txtMaMon.Text.Trim();
             string ten = txtTenMon.Text.Trim();
             string stc = txtSoTinChi.Text.Trim();
+            int soTinChi;
+            try
+            {
+                soTinChi = int.Parse(stc);
+            }
+            catch
+            {
+                MessageBox.Show("Số tín chỉ phải là số!");
+                return;
+            }
 
             if (ma == "" || ten == "" || stc == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
-                return;
-            }
-
-            if (int.TryParse(stc, out int soTinChi) == false)
-            {
-                MessageBox.Show("Số tín chỉ phải là số!");
                 return;
             }
 
@@ -111,6 +115,16 @@ namespace StudentCourseRegistrationSystem
             string ma = txtMaMon.Text.Trim();
             string ten = txtTenMon.Text.Trim();
             string stc = txtSoTinChi.Text.Trim();
+            int soTinChi;
+            try
+            {
+                soTinChi = int.Parse(stc);
+            }
+            catch
+            {
+                MessageBox.Show("Số tín chỉ phải là số!");
+                return;
+            }
 
             if (ma == "")
             {
@@ -121,12 +135,6 @@ namespace StudentCourseRegistrationSystem
             if (ten == "" || stc == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
-                return;
-            }
-
-            if (int.TryParse(stc, out int soTinChi) == false)
-            {
-                MessageBox.Show("Số tín chỉ phải là số!");
                 return;
             }
 

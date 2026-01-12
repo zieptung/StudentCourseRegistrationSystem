@@ -161,6 +161,7 @@
             // cboTrangThai
             // 
             this.cboTrangThai.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTrangThai.ForeColor = System.Drawing.Color.SteelBlue;
             this.cboTrangThai.FormattingEnabled = true;
             this.cboTrangThai.Location = new System.Drawing.Point(218, 332);
             this.cboTrangThai.Name = "cboTrangThai";
@@ -170,6 +171,7 @@
             // cboVaiTro
             // 
             this.cboVaiTro.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboVaiTro.ForeColor = System.Drawing.Color.SteelBlue;
             this.cboVaiTro.FormattingEnabled = true;
             this.cboVaiTro.Location = new System.Drawing.Point(23, 332);
             this.cboVaiTro.Name = "cboVaiTro";
@@ -179,6 +181,7 @@
             // txtHoTen
             // 
             this.txtHoTen.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoTen.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtHoTen.Location = new System.Drawing.Point(23, 185);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(121, 30);
@@ -187,6 +190,7 @@
             // txtMaLienKet
             // 
             this.txtMaLienKet.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaLienKet.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtMaLienKet.Location = new System.Drawing.Point(23, 255);
             this.txtMaLienKet.Name = "txtMaLienKet";
             this.txtMaLienKet.Size = new System.Drawing.Size(121, 30);
@@ -195,6 +199,7 @@
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtUsername.Location = new System.Drawing.Point(23, 47);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(121, 30);
@@ -203,6 +208,7 @@
             // txtPass
             // 
             this.txtPass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtPass.Location = new System.Drawing.Point(23, 118);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(121, 30);
@@ -323,6 +329,7 @@
             this.dgvTK.Location = new System.Drawing.Point(384, 108);
             this.dgvTK.MultiSelect = false;
             this.dgvTK.Name = "dgvTK";
+            this.dgvTK.ReadOnly = true;
             this.dgvTK.RowHeadersVisible = false;
             this.dgvTK.RowHeadersWidth = 51;
             this.dgvTK.RowTemplate.Height = 24;

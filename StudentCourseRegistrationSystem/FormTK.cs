@@ -78,7 +78,7 @@ namespace StudentCourseRegistrationSystem
                 // 1) Tổng lượt đăng ký
                 string sqlTong = @"
                     SELECT COUNT(*) AS tong
-                    FROM DangKyTinChi dk
+                    FROM DangKyLopHocPhan dk
                     JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp
                     WHERE lhp.ma_hoc_ky = @hk
                       AND dk.trang_thai = N'Đã đăng ký'
@@ -100,7 +100,7 @@ namespace StudentCourseRegistrationSystem
                         @tong AS tong_luot_dang_ky,
                         mh.ten_mon AS mon_hoc,
                         COUNT(DISTINCT dk.ma_sv) AS so_sv
-                    FROM DangKyTinChi dk
+                    FROM DangKyLopHocPhan dk
                     JOIN LopHocPhan lhp ON dk.ma_lhp = lhp.ma_lhp
                     JOIN MonHoc mh ON lhp.ma_mon = mh.ma_mon
                     WHERE lhp.ma_hoc_ky = @hk

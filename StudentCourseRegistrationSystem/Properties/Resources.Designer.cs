@@ -63,9 +63,29 @@ namespace StudentCourseRegistrationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap default_avatar {
+        internal static System.Drawing.Bitmap Logo_UTT_logo_40x60_xanh_380x253_removebg_preview {
             get {
-                object obj = ResourceManager.GetObject("default_avatar", resourceCulture);
+                object obj = ResourceManager.GetObject("Logo_UTT_logo-40x60-xanh_380x253-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_UTT_logo_40x60_xanh_450x300_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Logo_UTT_logo-40x60-xanh_450x300-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_UTT_logo_40x60_xanh_570x380_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Logo_UTT_logo-40x60-xanh_570x380-removebg-preview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

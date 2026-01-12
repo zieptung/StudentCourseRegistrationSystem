@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.btntimkiem = new System.Windows.Forms.Button();
             this.btnhuy = new System.Windows.Forms.Button();
             this.btnsua = new System.Windows.Forms.Button();
@@ -87,6 +88,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightCyan;
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.btntimkiem);
             this.groupBox1.Controls.Add(this.btnhuy);
             this.groupBox1.Controls.Add(this.btnsua);
@@ -116,13 +118,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(859, 187);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(63, 19);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Từ khoá";
+            // 
             // btntimkiem
             // 
             this.btntimkiem.BackColor = System.Drawing.Color.PaleGreen;
-            this.btntimkiem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btntimkiem.Location = new System.Drawing.Point(1166, 181);
+            this.btntimkiem.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btntimkiem.Location = new System.Drawing.Point(1148, 175);
             this.btntimkiem.Name = "btntimkiem";
-            this.btntimkiem.Size = new System.Drawing.Size(97, 34);
+            this.btntimkiem.Size = new System.Drawing.Size(115, 40);
             this.btntimkiem.TabIndex = 19;
             this.btntimkiem.Text = "Tìm Kiếm";
             this.btntimkiem.UseVisualStyleBackColor = false;
@@ -131,11 +143,11 @@
             // btnhuy
             // 
             this.btnhuy.BackColor = System.Drawing.Color.LightCoral;
-            this.btnhuy.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnhuy.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhuy.ForeColor = System.Drawing.Color.LightCyan;
-            this.btnhuy.Location = new System.Drawing.Point(1188, 97);
+            this.btnhuy.Location = new System.Drawing.Point(1166, 94);
             this.btnhuy.Name = "btnhuy";
-            this.btnhuy.Size = new System.Drawing.Size(75, 32);
+            this.btnhuy.Size = new System.Drawing.Size(84, 42);
             this.btnhuy.TabIndex = 18;
             this.btnhuy.Text = "Hủy";
             this.btnhuy.UseVisualStyleBackColor = false;
@@ -144,10 +156,10 @@
             // btnsua
             // 
             this.btnsua.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnsua.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsua.Location = new System.Drawing.Point(1188, 40);
+            this.btnsua.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsua.Location = new System.Drawing.Point(1166, 38);
             this.btnsua.Name = "btnsua";
-            this.btnsua.Size = new System.Drawing.Size(75, 32);
+            this.btnsua.Size = new System.Drawing.Size(84, 37);
             this.btnsua.TabIndex = 17;
             this.btnsua.Text = "Sửa";
             this.btnsua.UseVisualStyleBackColor = false;
@@ -155,7 +167,8 @@
             // 
             // txttimkiem
             // 
-            this.txttimkiem.Location = new System.Drawing.Point(963, 186);
+            this.txttimkiem.ForeColor = System.Drawing.Color.SteelBlue;
+            this.txttimkiem.Location = new System.Drawing.Point(935, 183);
             this.txttimkiem.Name = "txttimkiem";
             this.txttimkiem.Size = new System.Drawing.Size(179, 27);
             this.txttimkiem.TabIndex = 16;
@@ -163,16 +176,17 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(878, 97);
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(875, 97);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 17);
+            this.label9.Size = new System.Drawing.Size(43, 19);
             this.label9.TabIndex = 15;
             this.label9.Text = "Sĩ số";
             // 
             // txtsiso
             // 
             this.txtsiso.BackColor = System.Drawing.SystemColors.Control;
+            this.txtsiso.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtsiso.Location = new System.Drawing.Point(935, 95);
             this.txtsiso.Name = "txtsiso";
             this.txtsiso.ReadOnly = true;
@@ -182,15 +196,16 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(853, 46);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 17);
+            this.label8.Size = new System.Drawing.Size(69, 19);
             this.label8.TabIndex = 13;
             this.label8.Text = "Lịch học";
             // 
             // cbolichhoc
             // 
+            this.cbolichhoc.ForeColor = System.Drawing.Color.SteelBlue;
             this.cbolichhoc.FormattingEnabled = true;
             this.cbolichhoc.Location = new System.Drawing.Point(935, 44);
             this.cbolichhoc.Name = "cbolichhoc";
@@ -200,35 +215,36 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(532, 143);
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(513, 143);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 17);
+            this.label7.Size = new System.Drawing.Size(81, 19);
             this.label7.TabIndex = 11;
             this.label7.Text = "Phòng học";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(557, 90);
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(557, 94);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 17);
+            this.label6.Size = new System.Drawing.Size(36, 19);
             this.label6.TabIndex = 10;
             this.label6.Text = "Lớp";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(536, 46);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 17);
+            this.label5.Size = new System.Drawing.Size(58, 19);
             this.label5.TabIndex = 9;
             this.label5.Text = "Học kỳ";
             // 
             // cbophonghoc
             // 
+            this.cbophonghoc.ForeColor = System.Drawing.Color.SteelBlue;
             this.cbophonghoc.FormattingEnabled = true;
             this.cbophonghoc.Location = new System.Drawing.Point(614, 138);
             this.cbophonghoc.Name = "cbophonghoc";
@@ -237,6 +253,7 @@
             // 
             // cbolop
             // 
+            this.cbolop.ForeColor = System.Drawing.Color.SteelBlue;
             this.cbolop.FormattingEnabled = true;
             this.cbolop.Location = new System.Drawing.Point(614, 90);
             this.cbolop.Name = "cbolop";
@@ -246,6 +263,8 @@
             // 
             // cbohocky
             // 
+            this.cbohocky.Enabled = false;
+            this.cbohocky.ForeColor = System.Drawing.Color.SteelBlue;
             this.cbohocky.FormattingEnabled = true;
             this.cbohocky.Location = new System.Drawing.Point(614, 44);
             this.cbohocky.Name = "cbohocky";
@@ -255,35 +274,36 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(99, 145);
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(80, 145);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 17);
+            this.label4.Size = new System.Drawing.Size(74, 19);
             this.label4.TabIndex = 5;
             this.label4.Text = "Số tín chỉ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(101, 97);
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(82, 97);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 17);
+            this.label3.Size = new System.Drawing.Size(68, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "Tên môn";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(105, 52);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(86, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 17);
+            this.label2.Size = new System.Drawing.Size(65, 19);
             this.label2.TabIndex = 3;
             this.label2.Text = "Mã môn";
             // 
             // txtsotinchi
             // 
+            this.txtsotinchi.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtsotinchi.Location = new System.Drawing.Point(173, 143);
             this.txtsotinchi.Name = "txtsotinchi";
             this.txtsotinchi.ReadOnly = true;
@@ -292,6 +312,7 @@
             // 
             // txttenmon
             // 
+            this.txttenmon.ForeColor = System.Drawing.Color.SteelBlue;
             this.txttenmon.Location = new System.Drawing.Point(173, 97);
             this.txttenmon.Name = "txttenmon";
             this.txttenmon.ReadOnly = true;
@@ -300,6 +321,7 @@
             // 
             // txtmamon
             // 
+            this.txtmamon.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtmamon.Location = new System.Drawing.Point(173, 50);
             this.txtmamon.Name = "txtmamon";
             this.txtmamon.ReadOnly = true;
@@ -309,6 +331,7 @@
             // dgvdanhsach
             // 
             this.dgvdanhsach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvdanhsach.BackgroundColor = System.Drawing.Color.LightCyan;
             this.dgvdanhsach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdanhsach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -430,5 +453,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.Label label10;
     }
 }
