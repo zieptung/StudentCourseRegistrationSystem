@@ -85,7 +85,6 @@
   </ItemGroup>
   <!-- Code files -->
   <ItemGroup>
-    <Compile Include="CrudLib.cs" />
     <Compile Include="DbConnection.cs" />
     <Compile Include="FormAdmin.cs">
       <SubType>Form</SubType>

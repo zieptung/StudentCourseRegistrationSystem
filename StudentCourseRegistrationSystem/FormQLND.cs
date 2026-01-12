@@ -152,8 +152,7 @@ namespace StudentCourseRegistrationSystem
             {
                 conn.Open();
 
-                string sql =
-                    "INSERT INTO Admin(username, password, ho_ten, vai_tro, ma_lien_ket, trang_thai) VALUES (" + "'" + user + "', " + "'" + pass + "', " + "N'" + hoten + "', " + "'" + role + "', " + maLK + ", " + "N'" + trangThai + "'" + ")";
+                string sql = "INSERT INTO Admin(username, password, ho_ten, vai_tro, ma_lien_ket, trang_thai) VALUES (" + "'" + user + "', " + "'" + pass + "', " + "N'" + hoten + "', " + "'" + role + "', " + maLK + ", " + "N'" + trangThai + "'" + ")";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();

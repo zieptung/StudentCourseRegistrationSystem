@@ -15,6 +15,27 @@ namespace StudentCourseRegistrationSystem
             return new SqlConnection(connectionString);
         }
 
+        public static void ketnoi(DataGridView dgv, string sql)
+        {
+            //b1: tạo kết nối db
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            //b2: tạo đối tượng command để thực thi câu lệnh sql
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            //b3: tạo đối tượng dataadapter để đổ dữ liệu từ db vào dataset
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //b4: tao doi tuong datatable de lay du lieu tu da
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            cmd.Dispose();
+            conn.Close();
+            //b5: đổ dữ liệu từ datatable vào datagridview
+            dgv.DataSource = dt;
+            dgv.Refresh();
+        }
+
         public static bool CheckConnection()
         {
             try
