@@ -48,7 +48,8 @@ namespace StudentCourseRegistrationSystem
                         email, 
                         dien_thoai, 
                         ma_khoa, 
-                        CASE WHEN trang_thai = 1 THEN N'Hoạt động' ELSE N'Khóa' END AS trang_thai
+                        CASE WHEN trang_thai = 1 THEN N'Hoạt động' ELSE N'Khóa' END AS trang_thai,
+                        Where hoc_ham = 'GS',
                     FROM GiangVien
                 ";
 
@@ -366,12 +367,7 @@ namespace StudentCourseRegistrationSystem
 
             oSheet.Cells[2, 1] = "MÃ GV";
             oSheet.Cells[2, 2] = "TÊN GV";
-            oSheet.Cells[2, 3] = "HỌC VỊ";
-            oSheet.Cells[2, 4] = "HỌC HÀM";
-            oSheet.Cells[2, 5] = "EMAIL";
-            oSheet.Cells[2, 6] = "ĐIỆN THOẠI";
-            oSheet.Cells[2, 7] = "MÃ KHOA";
-            oSheet.Cells[2, 8] = "TRẠNG THÁI";
+            oSheet.Cells[2, 3] = "MÃ KHOA";
 
             ex_cel.Range rowHead = oSheet.get_Range("A2", "H2");
             rowHead.Font.Bold = true;
@@ -380,17 +376,6 @@ namespace StudentCourseRegistrationSystem
             rowHead.HorizontalAlignment = ex_cel.XlHAlign.xlHAlignCenter;
 
             object[,] arr = new object[tb.Rows.Count, tb.Columns.Count];
-            for (int r = 0; r < tb.Rows.Count; r++)
-            {
-                DataRow dr = tb.Rows[r];
-                for (int c = 0; c < tb.Columns.Count; c++)
-                {
-                    if (tb.Columns[c].ColumnName == "dien_thoai")
-                        arr[r, c] = "'" + dr[c];
-                    else
-                        arr[r, c] = dr[c];
-                }
-            }
 
             int rowStart = 3, colStart = 1;
             int rowEnd = rowStart + tb.Rows.Count - 1;
@@ -415,12 +400,7 @@ namespace StudentCourseRegistrationSystem
                     SELECT 
                         ma_gv, 
                         ten_gv, 
-                        hoc_vi, 
-                        ISNULL(hoc_ham,'') AS hoc_ham, 
-                        email, 
-                        dien_thoai, 
-                        ma_khoa, 
-                        CASE WHEN trang_thai = 1 THEN N'Hoạt động' ELSE N'Khóa' END AS trang_thai
+                        ma_khoa,
                     FROM GiangVien
                 ";
 

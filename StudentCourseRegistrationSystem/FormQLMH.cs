@@ -51,7 +51,7 @@ namespace StudentCourseRegistrationSystem
             txtMaMon.Clear();
             txtTenMon.Clear();
             txtSoTinChi.Clear();
-            txtTimKiem.Clear();
+            txtTimKiem1.Clear();
             txtMaMon.Enabled = true;
             txtMaMon.Focus();
         }
@@ -81,7 +81,7 @@ namespace StudentCourseRegistrationSystem
             {
                 MessageBox.Show("Số tín chỉ phải là số!");
                 return;
-            }
+            }   
 
             if (ma == "" || ten == "" || stc == "")
             {
@@ -184,12 +184,13 @@ namespace StudentCourseRegistrationSystem
         }
         private void btnTim_Click(object sender, EventArgs e)
         {
-            string key = txtTimKiem.Text.Trim();
+            string ma = txtTimKiem1.Text.Trim();
+            string ten = txtTimKiem2.Text.Trim();   
 
             using (SqlConnection conn = DbConnection.GetConnection())
             {
                 conn.Open();
-                string sql ="SELECT ma_mon, ten_mon, so_tin_chi FROM MonHoc " + "WHERE ma_mon LIKE '%" + key + "%' " + "OR ten_mon LIKE N'%" + key + "%'";
+                string sql ="SELECT ma_mon, ten_mon FROM MonHoc " + "WHERE ma_mon LIKE '%" + ma + "%' " + "AND ten_mon LIKE N'%" + ten + "%'";
                 
                 SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                 DataTable dt = new DataTable();

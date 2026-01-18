@@ -40,12 +40,14 @@
             this.btnXuat = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btnLamMoi = new System.Windows.Forms.Button();
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.txtTimKiem1 = new System.Windows.Forms.TextBox();
             this.btnTim = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.dgvMonHoc = new System.Windows.Forms.DataGridView();
+            this.txtTimKiem2 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMonHoc)).BeginInit();
             this.SuspendLayout();
@@ -122,11 +124,13 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightCyan;
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtTimKiem2);
             this.groupBox1.Controls.Add(this.btnNhap);
             this.groupBox1.Controls.Add(this.btnXuat);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnLamMoi);
-            this.groupBox1.Controls.Add(this.txtTimKiem);
+            this.groupBox1.Controls.Add(this.txtTimKiem1);
             this.groupBox1.Controls.Add(this.btnTim);
             this.groupBox1.Controls.Add(this.btnXoa);
             this.groupBox1.Controls.Add(this.btnSua);
@@ -173,11 +177,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(146, 282);
+            this.label5.Location = new System.Drawing.Point(29, 361);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 22);
+            this.label5.Size = new System.Drawing.Size(78, 22);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Từ khoá";
+            this.label5.Text = "Tên môn";
             // 
             // btnLamMoi
             // 
@@ -191,21 +195,21 @@
             this.btnLamMoi.UseVisualStyleBackColor = false;
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
-            // txtTimKiem
+            // txtTimKiem1
             // 
-            this.txtTimKiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimKiem.ForeColor = System.Drawing.Color.SteelBlue;
-            this.txtTimKiem.Location = new System.Drawing.Point(59, 307);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(242, 30);
-            this.txtTimKiem.TabIndex = 10;
+            this.txtTimKiem1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimKiem1.ForeColor = System.Drawing.Color.SteelBlue;
+            this.txtTimKiem1.Location = new System.Drawing.Point(118, 317);
+            this.txtTimKiem1.Name = "txtTimKiem1";
+            this.txtTimKiem1.Size = new System.Drawing.Size(242, 30);
+            this.txtTimKiem1.TabIndex = 10;
             // 
             // btnTim
             // 
             this.btnTim.BackColor = System.Drawing.Color.PaleGreen;
             this.btnTim.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTim.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnTim.Location = new System.Drawing.Point(124, 347);
+            this.btnTim.Location = new System.Drawing.Point(120, 398);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(113, 39);
             this.btnTim.TabIndex = 9;
@@ -267,6 +271,25 @@
             this.dgvMonHoc.TabIndex = 8;
             this.dgvMonHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMonHoc_CellClick);
             // 
+            // txtTimKiem2
+            // 
+            this.txtTimKiem2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimKiem2.ForeColor = System.Drawing.Color.SteelBlue;
+            this.txtTimKiem2.Location = new System.Drawing.Point(118, 353);
+            this.txtTimKiem2.Name = "txtTimKiem2";
+            this.txtTimKiem2.Size = new System.Drawing.Size(242, 30);
+            this.txtTimKiem2.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(29, 317);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 22);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Mã môn";
+            // 
             // FormQLMH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -297,7 +320,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnLamMoi;
-        private System.Windows.Forms.TextBox txtTimKiem;
+        private System.Windows.Forms.TextBox txtTimKiem1;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
@@ -306,5 +329,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnXuat;
         private System.Windows.Forms.Button btnNhap;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtTimKiem2;
     }
 }

@@ -520,7 +520,7 @@ namespace StudentCourseRegistrationSystem
                 }
 
                 MessageBox.Show("Nhập Excel tài khoản thành công!");
-                LoadTaiKhoan(); // hàm load dgv tài khoản của m
+                LoadTaiKhoan();
             }
             catch (Exception ex)
             {
@@ -549,7 +549,7 @@ namespace StudentCourseRegistrationSystem
 
                 if (kq == 0)
                 {
-                    // nếu không có mã liên kết thì NULL
+
                     string maLK = (maLienKet == "") ? "NULL" : "N'" + maLienKet + "'";
 
                     string sql =

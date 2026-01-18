@@ -124,6 +124,17 @@ namespace StudentCourseRegistrationSystem
                                 .Cells["ma_lhp"].Value.ToString();
 
         }
+        private bool CheckTrungMaLHP(string maLHP)
+        {
+            string sql = $@"
+        SELECT COUNT(*) 
+        FROM LopHocPhan 
+        WHERE ma_lhp = N'{maLHP}'";
+
+            int count = Convert.ToInt32(CrudLib.GetValue(sql));
+            return count > 0;
+        }
+
         private bool CheckTrungCaThuPhong(
         string thu,
         string caHoc,
@@ -167,7 +178,11 @@ namespace StudentCourseRegistrationSystem
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
                 return;
             }
-
+            if (CheckTrungMaLHP(txtMaLHP.Text.Trim()))
+            {
+                MessageBox.Show("Mã lớp học phần đã tồn tại!");
+                return;
+            }
             if (!int.TryParse(txtSoLuong.Text, out int soLuong))
             {
                 MessageBox.Show("Số lượng tối đa phải là số");
@@ -272,7 +287,6 @@ namespace StudentCourseRegistrationSystem
                 );
                 return;
             }
-
             string maLHP = txtMaLHP.Text.Trim();
             string maMon = cboMaMon.SelectedValue.ToString().Trim();
             string hocKy = cboHocKy.SelectedValue.ToString().Trim();
@@ -289,7 +303,7 @@ namespace StudentCourseRegistrationSystem
             ca_hoc = N'{cboCaHoc.Text}',
             phong_hoc = N'{txtPhongHoc.Text}',
             trang_thai = N'{cboTrangThai.Text}'
-        WHERE ma_lhp = N'{maLHP}'";
+        WHERE ma_lhp = N'{maLHP}' AND ma_mon = N'{maMon}'";
 
             int result = CrudLib.IUDQuery(sqlUpdate);
 

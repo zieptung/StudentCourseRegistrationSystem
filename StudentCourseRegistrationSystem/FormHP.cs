@@ -65,7 +65,6 @@ namespace StudentCourseRegistrationSystem
 
             string maHocKy = cbHocky.SelectedValue.ToString();
 
-            // 2. SQL tính tổng tín chỉ (ĐÚNG NGHIỆP VỤ)
             string sql = $@"
             SELECT ISNULL(SUM(mh.so_tin_chi), 0)
             FROM DangKyLopHocPhan dk

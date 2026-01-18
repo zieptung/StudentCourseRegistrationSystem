@@ -29,7 +29,7 @@ namespace StudentCourseRegistrationSystem
 
             string checkSql = $@"
                 SELECT COUNT(*) 
-                FROM DangKyTinChi 
+                FROM DangKyLopHocPhan 
                 WHERE ma_sv = '{txtMaSV.Text}'";
             int count = Convert.ToInt32(CrudLib.GetValue(checkSql));
 
@@ -180,10 +180,7 @@ namespace StudentCourseRegistrationSystem
 
             string sql = $@"
             SELECT * FROM SinhVien
-            WHERE ma_sv LIKE '%{tukhoa}%'
-               OR ho_ten LIKE N'%{tukhoa}%'
-               OR lop LIKE N'%{tukhoa}%'
-               OR khoa LIKE N'%{tukhoa}%'";
+            WHERE khoa LIKE N'%{tukhoa}%'";
 
             dataGridView1.DataSource = CrudLib.GetDataTable(sql);
         }
@@ -267,7 +264,7 @@ namespace StudentCourseRegistrationSystem
                 using (XLWorkbook wb = new XLWorkbook(ofd.FileName))
                 {
                     var ws = wb.Worksheet(1);
-                    var rows = ws.RangeUsed().RowsUsed().Skip(1); // Bỏ dòng header
+                    var rows = ws.RangeUsed().RowsUsed().Skip(1);
 
                     int dem = 0;
 
