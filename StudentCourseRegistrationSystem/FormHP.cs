@@ -157,8 +157,6 @@ namespace StudentCourseRegistrationSystem
             MessageBox.Show("Đã đánh dấu học phí là ĐÃ ĐÓNG!");
         }
 
-
-
         private void btnXuat_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count == 0)

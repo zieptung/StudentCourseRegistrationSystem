@@ -181,7 +181,6 @@ namespace StudentCourseRegistrationSystem
             string sql = $@"
             SELECT * FROM SinhVien
             WHERE khoa LIKE N'%{tukhoa}%'";
-
             dataGridView1.DataSource = CrudLib.GetDataTable(sql);
         }
 
@@ -265,7 +264,6 @@ namespace StudentCourseRegistrationSystem
                 {
                     var ws = wb.Worksheet(1);
                     var rows = ws.RangeUsed().RowsUsed().Skip(1);
-
                     int dem = 0;
 
                     foreach (var row in rows)
